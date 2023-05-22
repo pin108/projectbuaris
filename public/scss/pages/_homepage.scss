@@ -29,17 +29,17 @@ body.page__homepage {
 
             @include media-breakpoint-up(lg) {
                 position: absolute;
-                width: 40rem;
+                width: 20rem;
                 bottom: 0;
                 right: 0;
             }
 
             @include media-breakpoint-up(xl) {
-                width: 52rem;
+                width: 20rem;
             }
 
             @include media-breakpoint-up(xxl) {
-                width: 57rem;
+                width: 20rem;
             }
 
         }
@@ -132,6 +132,7 @@ body.page__homepage {
 
         }
         // end how-it-work-image
+        
 
     }
 

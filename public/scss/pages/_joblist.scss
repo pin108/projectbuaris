@@ -23,17 +23,17 @@ body.page__joblist {
 
             @include media-breakpoint-up(lg) {
                 position: absolute;
-                width: 35rem;
+                width: 20rem;
                 bottom: 0;
                 right: 0;
             }
 
             @include media-breakpoint-up(xl) {
-                width: 40rem;
+                width: 20rem;
             }
 
             @include media-breakpoint-up(xxl) {
-                width: 50rem;
+                width: 20rem;
             }
 
         }
