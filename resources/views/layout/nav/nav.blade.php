@@ -26,13 +26,17 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#pricing-section">Pricing</a>
+                        <a class="nav-link" href="/#pricing-section">Galang Dana</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/eventlist.html">Blog</a>
+                        <a class="nav-link" href="/eventlist.html">Donasi Saya</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/joblist.html">Become a member</a>
+                        <a class="nav-link" href="/joblist.html">Inbox</a>
+                    </li>
+					
+                    <li class="nav-item">
+                        <a class="nav-link" href="/joblist.html">Akun</a>
                     </li>
                 </ul>
                 <!-- /.navbar-nav -->
@@ -48,7 +52,7 @@
                     <a class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill"
                         href="/applicationform.html" role="button">Log In</a>
                     <a class="btn btn-primary fw-semiBold py-12 px-xl-43 ms-xl-12 rounded-pill"
-                        href="/applicationform.html" role="button">Sign Up</a>
+                        href="/applicationform.html" role="button">Daftar</a>
                 </div>
                 <!-- /.btn-login and btn-sign-up desktop -->
             </div>
