@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-xl bg-ghost-white">
     <div class="container-xxl justify-content-md-start">
         <a class="navbar-brand" href="#">
-            <img src="./assets/logo.svg" alt="" />
+        <span class="navbar-brand">Yayasan Alfo Indonesia</span>
+
+            <!-- <img src="./assets/logo.svg" alt="" /> -->
         </a>
         <!-- /.navbar-brand -->
 

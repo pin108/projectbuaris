@@ -2,7 +2,7 @@
     <div class="container-xxl">
         <div class="row py-25 py-lg-43 py-xl-80 align-items-md-center">
             <div class="col-12 col-md-6">
-                <h2 class="heading-section-2 text-white mb-0">Don't miss our weekly updates about freelancer career</h2>
+                <h2 class="heading-section-2 text-white mb-0">Selalu dengarkan kabar terbaru kami untuk mendukung yang berhak mendapatkannya</h2>
                 <!-- /.newsletter-heading -->
             </div>
             <!-- /.col -->
@@ -25,11 +25,13 @@
         <div class="row py-20 py-xl-80">
             <div class="col-12 col-xl-4 footer-widget about">
                 <div class="footer-brand">
-                    <img src="./assets/logo-footer.svg" alt="logo" />
+                <span class="navbar-brand">Alfo</span>
                 </div>
-                <p class="footer-description mt-34">Ziro is a Freelance Landing Website lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                    enim ad minim veniam, quis nostrud</p>
+                <p class="footer-description mt-34">Website yayasan sosial kami hadir untuk memberikan dukungan dan bantuan kepada mereka 
+                    yang membutuhkan. Melalui website ini, Anda dapat menemukan 
+                    informasi tentang program-program sosial yang sedang kami jalankan, mengikuti 
+                    perkembangan proyek, dan berpartisipasi dalam kegiatan donasi untuk memberikan 
+                    dampak positif kepada masyarakat yang membutuhkan.</p>
                 <ul class="social-btn-group mt-34">
                     <li class="social-item">
                         <a class="social-link" href="#">
@@ -139,19 +141,19 @@
                     <li class="link-item">
                         <img src="./assets/icons/mark-stroke.svg" class="svg-inject svg-icon" alt="" />
                         <a class="link" href="#">
-                            <span>832 Thompson Drive, San Fransisco CA 94107, United States</span>
+                            <span>Jln wowowowowow</span>
                         </a>
                     </li>
                     <li class="link-item">
                         <img src="./assets/icons/phone-stroke.svg" class="svg-inject svg-icon" alt="" />
                         <a class="link" href="#">
-                            <span>+123 345123 556</span>
+                            <span>+855555555</span>
                         </a>
                     </li>
                     <li class="link-item">
                         <img src="./assets/icons/envelope-stroke.svg" class="svg-inject svg-icon" alt="" />
                         <a class="link" href="#">
-                            <span>support@ziro.id</span>
+                            <span>support@alfo.co.id</span>
                         </a>
                     </li>
                 </ul>
@@ -164,9 +166,9 @@
 
     <div class="border border-arsenic border-end-0 border-bottom-0 border-start-0">
         <div class="container-xxl d-grid d-lg-flex gap-12 gap-xl-0 justify-content-lg-between py-25">
-            <div class="fs-14 text-white text-center">Ziro Freelancer Landing Website - © 2020 All Rights Reserved</div>
+            <div class="fs-14 text-white text-center">Yayasan Alfo Indonesia.</div>
 
-            <div class="fs-14 text-white text-center">Made with ♥ by Peterdraw</div>
+            <div class="fs-14 text-white text-center">Sahabat Untuk Kita Semua</div>
         </div>
     </div>
 </footer>
