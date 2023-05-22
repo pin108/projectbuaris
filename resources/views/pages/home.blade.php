@@ -4,7 +4,7 @@
 <div class="bg-ghost-white">
 	<div class="container-xxl">
 		<div class="row">
-			<div class="col-12 col-lg-6 col-xl-5 d-flex align-items-center my-34 my-lg-60 my-xl-120 order-2 order-lg-1">
+			<div class="col-12 col-lg-4 col-xl-5 d-flex align-items-center my-34 my-lg-50 my-xl-120 order-2 order-lg-1">
 				<div class="swiper header-slider">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
@@ -24,13 +24,9 @@
 					<!-- /.header-slider-content -->
 
 					<div class="d-flex flex-wrap align-items-center mt-60 gap-20">
-						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="/joblist.html" role="button">Discover Now</a>
-						<a class="d-flex align-items-center fw-medium text-dark text-decoration-none" data-fslightbox="gallery" href="https://www.youtube.com/embed/pj5LRL3nwBg">
-							<div href="#" class="btn btn-rounded btn-white border border-alice-blue">
-								<img src="./assets/icons/play-stroke.svg" class="svg-inject svg-icon text-primary is-20" alt="" />
-							</div>
-							<span class="ms-20">Watch video</span>
-						</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="/joblist.html" role="button">Donasi</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="/joblist.html" role="button">Galang Dana</a>
+
 					</div>
 					<!-- /.btn-discover-now and watch-video -->
 
@@ -41,9 +37,9 @@
 			</div>
 			<!-- /.col -->
 
-			<div class="col-12 col-lg-6 col-xl-7 order-1 order-lg-2">
-				<div class="position-relative h-lg-100">
-					<img src="./assets/pages/index/header/heroImage.png" class="hero-image-img" alt="" />
+			<div class="col-12 col-lg-4 col-xl-7 order-1 order-lg-2">
+				<div class="position-relative h-lg-65">
+					<img src="./images/homeimage.jpg" class="hero-image-img rounded-circle w-90 h-90" />
 					<!-- /. hero-image -->
 				</div>
 			</div>
@@ -54,14 +50,12 @@
 	<!-- /.container -->
 </div>
 <!-- = /. Header Section = -->
-
-<div class="container py-60 py-lg-100">
+<!-- <div class=" container py-60 py-lg-100">
 	<div class="swiper image-slider client-logo-slider mx-xl-34 mx-xxl-80">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<img src="./assets/client-logo-image.png" alt="" />
+				<img src="./images/gambar1.jpeg" />
 			</div>
-
 			<div class="swiper-slide">
 				<img src="./assets/client-logo-image.png" alt="" />
 			</div>
@@ -79,6 +73,102 @@
 			</div>
 		</div>
 	</div>
+</div> -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<div class="cards-wrapper">
+				<div class="card">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="cards-wrapper">
+				<div class="card">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="cards-wrapper">
+				<div class="card">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+				<div class="card d-none d-md-block">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
 </div>
 @stop
 

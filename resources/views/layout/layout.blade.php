@@ -14,6 +14,7 @@
 
 	<!-- Include Swiper CSS -->
 	<link rel="stylesheet" href=".css/swiper.css">
+	<link rel="stylesheet" href=".css/carousel.css">
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="./dist/css/style.css" />
@@ -54,6 +55,7 @@
 
 	<!-- Include Swiper JS -->
 	<script src="./js/swiper.js"></script>
+	<script src="./js/carousel.js"></script>
 
 	<!-- Template Function -->
 	<script src="./dist/js/theme.js"></script>
