@@ -24,23 +24,23 @@ body.page__homepage {
 
         // start hero-image
         .hero-image-img {
-            width: 100%;
-            height: auto;
+            width: 500px;
+            height: 200px;
 
-            @include media-breakpoint-up(lg) {
-                position: absolute;
-                width: 20rem;
-                bottom: 0;
-                right: 0;
-            }
+            // @include media-breakpoint-up(lg) {
+            //     position: absolute;
+            //     width: 1rem;
+            //     bottom: 0;
+            //     right: 0;
+            // }
 
-            @include media-breakpoint-up(xl) {
-                width: 20rem;
-            }
+            // @include media-breakpoint-up(xl) {
+            //     width: 20rem;
+            // }
 
-            @include media-breakpoint-up(xxl) {
-                width: 20rem;
-            }
+            // @include media-breakpoint-up(xxl) {
+            //     width: 20rem;
+            // }
 
         }
         // end hero-image

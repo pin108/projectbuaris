@@ -18,6 +18,7 @@
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="./dist/css/style.css" />
+	<link rel="stylesheet" href="./dist/css/custom.css" />
 </head>
 
 <body class="page__homepage">
@@ -25,7 +26,7 @@
 
 	<!-- = /. Navbar Section = -->
 
-	<main class="main">
+	<main class="home">
 		@yield('utama')
 		<!-- = /. Logo Client Section = -->
 
