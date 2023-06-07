@@ -15,6 +15,7 @@
 	<!-- Include Swiper CSS -->
 	<link rel="stylesheet" href=".css/swiper.css">
 	<link rel="stylesheet" href=".css/carousel.css">
+	<link rel="stylesheet" href=".css/galangdanaview.css">
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="./dist/css/style.css" />

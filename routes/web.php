@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.home');
 });
+
+//galang dana
+Route::get('/galangdana', function () {
+    return view('galangdana.galangdana');
+});
+
+//galang dana lainnya
+Route::get('/galangdanalainnya', function () {
+    return view('galangdana.galangdanalainnya');
+});

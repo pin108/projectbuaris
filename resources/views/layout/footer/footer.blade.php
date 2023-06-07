@@ -1,5 +1,5 @@
 <footer class="footer bg-black">
-    <div class="container-xxl">
+    <div class="container-xl">
         <div class="row py-25 py-lg-43 py-xl-80 align-items-md-center">
             <div class="col-12 col-md-6">
                 <h2 class="heading-section-2 text-white mb-0">Selalu dengarkan kabar terbaru kami untuk mendukung yang berhak mendapatkannya</h2>
@@ -7,13 +7,11 @@
             </div>
             <!-- /.col -->
 
-            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 mt-25 mt-md-0">
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 mt-10 mt-md-0">
                 <form class="ms-auto" action="#">
                     <div class="form-btn-inner form-newsletter rounded-pill">
                         <input class="form-control" type="email" placeholder="Enter your email address..." />
-                        <button
-                            class="btn btn-accent text-white text-uppercase fw-semiBold py-12 px-20 px-lg-34 shadow-none"
-                            type="submit">Subscribe</button>
+                        <button class="btn btn-accent text-white text-uppercase fw-semiBold py-12 px-20 px-lg-34 shadow-none" type="submit">Subscribe</button>
                     </div>
                 </form>
                 <!-- /.newsletter-form -->
@@ -22,15 +20,15 @@
         </div>
         <!-- /.row -->
 
-        <div class="row py-20 py-xl-80">
+        <div class="row py-20 py-xl-50">
             <div class="col-12 col-xl-4 footer-widget about">
                 <div class="footer-brand">
-                <span class="navbar-brand">Alfo</span>
+                    <span class="navbar-brand">Alfo</span>
                 </div>
-                <p class="footer-description mt-34">Website yayasan sosial kami hadir untuk memberikan dukungan dan bantuan kepada mereka 
-                    yang membutuhkan. Melalui website ini, Anda dapat menemukan 
-                    informasi tentang program-program sosial yang sedang kami jalankan, mengikuti 
-                    perkembangan proyek, dan berpartisipasi dalam kegiatan donasi untuk memberikan 
+                <p class="footer-description mt-34">Website yayasan sosial kami hadir untuk memberikan dukungan dan bantuan kepada mereka
+                    yang membutuhkan. Melalui website ini, Anda dapat menemukan
+                    informasi tentang program-program sosial yang sedang kami jalankan, mengikuti
+                    perkembangan proyek, dan berpartisipasi dalam kegiatan donasi untuk memberikan
                     dampak positif kepada masyarakat yang membutuhkan.</p>
                 <ul class="social-btn-group mt-34">
                     <li class="social-item">
@@ -62,79 +60,6 @@
                 <!-- /.social-btn-component -->
             </div>
             <!-- /.col -->
-
-            <div class="col-12 col-lg-4 col-xl footer-widget link-list mt-34 mt-xl-0">
-                <h6 class="footer-title">Ziro</h6>
-                <ul class="footer-link-list">
-                    <li class="link-item">
-                        <a class="link" href="#">Why Ziro</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Enterprise</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Customer Story</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Security</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.col -->
-
-            <div class="col-12 col-lg-4 col-xl footer-widget link-list mt-34 mt-xl-0">
-                <h6 class="footer-title">Resources</h6>
-                <ul class="footer-link-list">
-                    <li class="link-item">
-                        <a class="link" href="#">Download</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Help Center</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Events</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Guides</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Partner</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Directories</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.col -->
-
-            <div class="col-12 col-lg-4 col-xl footer-widget link-list mt-34 mt-xl-0">
-                <h6 class="footer-title">Company</h6>
-                <ul class="footer-link-list">
-                    <li class="link-item">
-                        <a class="link" href="#">About us</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Contact us</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Products</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Login</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">Sign Up</a>
-                    </li>
-                    <li class="link-item">
-                        <a class="link" href="#">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.col -->
-
             <div class="col-12 col-xl-3 footer-widget link-list _icon mt-34 mt-xl-0">
                 <h6 class="footer-title">Get in Touch with Us</h6>
                 <ul class="footer-link-list _icon">
