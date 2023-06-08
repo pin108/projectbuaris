@@ -52,9 +52,9 @@
 
                 <div class="d-grid d-md-none d-xl-flex gap-15 gap-xl-0 order-3">
                     <a class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill"
-                        href="/applicationform.html" role="button">Log In</a>
+                        href="{{ url('login')}}" role="button">Log In</a>
                     <a class="btn btn-primary fw-semiBold py-12 px-xl-43 ms-xl-12 rounded-pill"
-                        href="/applicationform.html" role="button">Daftar</a>
+                        href="{{ url('daftar')}}" role="button">Daftar</a>
                 </div>
                 <!-- /.btn-login and btn-sign-up desktop -->
             </div>

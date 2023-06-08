@@ -26,3 +26,19 @@ Route::get('/galangdana', function () {
 Route::get('/galangdanalainnya', function () {
     return view('galangdana.galangdanalainnya');
 });
+
+Route::get('/daftar', function () {
+    return view('pages.signup');
+});
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/detail', function () {
+    return view('pages.show');
+});
+
+Route::get('/showpengalangdana', function () {
+    return view('pages.showpengalangdana');
+});
