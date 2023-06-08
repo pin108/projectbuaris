@@ -52,4 +52,3 @@ Route::get('/adminpengalang', function () {
 Route::get('/admindashboard', function () {
     return view('pages.admindashboard');
 });
-

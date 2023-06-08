@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-<div class="containergalangdana">
+<div class="container">
     <h1 style="text-align: center; margin-top:3%">galang dana lainnya</h1>
     <div class="container py-5">
         <div class="row">
