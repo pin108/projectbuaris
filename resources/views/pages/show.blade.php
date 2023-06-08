@@ -32,11 +32,6 @@
                             <span class="visually-hidden">Next</span>
                         </a>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h1 class="mt-4">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h1>
-                    <p>Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
-                    <a href="#" class="btn btn-primary mt-3">Masukkan Donasi Anda</a>
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" style="margin-top: 2%;">Kirim Doa</label>
@@ -45,23 +40,76 @@
                         <button type="submit" class="btn btn-primary" style="margin-top: 2%;">Kirim</button>
                     </form>
                 </div>
-            </div>
-            <div class="row mt-8">
                 <div class="col-md-6">
-                    <h2>History Donasi</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="fw-bold">John Doe</span> donated $100
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">Jane Smith</span> donated $50
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">Michael Johnson</span> donated $200
-                        </li>
-                    </ul>
+                    <div class="container">
+                        <h1 class="mt-4">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h1>
+                        <p>Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                Rp122.292.050
+                            </div>
+                            <div class="col-sm-4">
+                                Terkumpul dari Rp400.000.000
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 2%;">
+                            <div class="col-sm-4">
+                                <div>
+                                    <a href="#" class="btn btn-primary" style="width: 180px; height: 50px;">laporan keuangan</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div>
+                                    <a href="{{url('showpengalangdana')}}" class="btn btn-primary" style="width: 180px; height: 50px;">tentang yayasan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <P style="margin-top: 2%;">4 hari lagi</P>
+                        <div class="progress" style="margin-top: 2%;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 2%;">
+                        <div class="row border-top">
+                            <div class="col-sm border">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="col-sm">
+                                        99999
+                                    </div>
+                                </div>
+                                <div> jumlah donasi</div>
+                            </div>
+                            <div class="col-sm border">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="col-sm">
+                                        2
+                                    </div>
+                                </div>
+                                <div>kabar terbaru</div>
+                            </div>
+                            <div class="col-sm border">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-money-bill"></i>
+                                    </div>
+                                    <div class="col-sm">
+                                        2
+                                    </div>
+                                </div>
+                                <div>pencairan dana</div>
+                            </div>
+                        </div>
+                        <a href="{{url('kirimdonasi')}}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
+                    </div>
                 </div>
-
+            </div>
+            <div class="row mt-8" style="margin-top: 2%;">
                 <div class="col-md-6">
                     <h2>Doa</h2>
                     <div class="card">
@@ -78,6 +126,21 @@
                                 proses penyembuhan."</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>History Donasi</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="fw-bold">John Doe</span> donated $100
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Jane Smith</span> donated $50
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Michael Johnson</span> donated $200
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

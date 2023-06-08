@@ -20,6 +20,8 @@
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="./dist/css/style.css" />
 	<link rel="stylesheet" href="./dist/css/custom.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body class="page__homepage">
@@ -47,14 +49,10 @@
 
 	<!-- Bootstrap JS -->
 	<script src="./vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Vendors -->
-	<script src="./vendors/jquery/jquery-3.6.0.min.js"></script>
 	<script src="./vendors/jquery-ui/jquery-ui.min.js"></script>
 	<script src="./vendors/swiper/swiper-bundle.min.js"></script>
 	<script src="./vendors/fslightbox/fslightbox.js"></script>
 	<script src="./vendors/svg-inject/dist/svg-inject.min.js"></script>
-
 	<!-- Include Swiper JS -->
 	<script src="./js/swiper.js"></script>
 	<script src="./js/carousel.js"></script>
