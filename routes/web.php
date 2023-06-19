@@ -55,3 +55,6 @@ Route::get('/admindashboard', function () {
 Route::get('/informasibeasiswa', function () {
     return view('pages.beasiswa.informasiprogram');
 });
+Route::get('/registerbeasiswa', function () {
+    return view('pages.beasiswa.pendaftaran');
+});
