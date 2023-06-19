@@ -15,9 +15,9 @@
             </div>
             <div>
                 <ul>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, aliquam officiis molestiae vitae aut corrupti eligendi velit aliquid hic inventore explicabo ipsam impedit id cumque ut atque voluptatum molestias labore.</li>
-                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur similique, corporis assumenda optio, repellat doloribus nam, expedita ullam veritatis officia nesciunt enim quasi vel rem. Sunt cum nostrum culpa est!</li>
-                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui tempore quod culpa voluptas consequatur cupiditate! Nulla natus ea sed reprehenderit, sunt facere ad impedit earum suscipit, similique minima repellat illum.</li>
+                    <li>Sedang menempuh pendidikan Strata 1/Diploma 4 di semester IV, dari semua disiplin ilmu.</li>
+                    <li> IPK minimum 3.00 pada semester III, serta dapat mempertahankan IPK minimum 3.00 hingga akhir semester IV.</li>
+                    <li> Aktif mengikuti kegiatan organisasi baik di dalam maupun luar kampus.</li>
                 </ul>
             </div>
         </div>
@@ -53,7 +53,7 @@
                                 <input type="text" class="form-control" id="exampleInputNama" aria-describedby="namaHelp">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top: 2%;">
                             <div class="col-md-6">
                                 <label for="exampleInputNama" class="form-label">RT</label>
                                 <input type="number" class="form-control" id="exampleInputNama" aria-describedby="namaHelp">
@@ -115,7 +115,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
                 </form>
             </div>
         </div>
