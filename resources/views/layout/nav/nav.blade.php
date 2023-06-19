@@ -24,13 +24,13 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#pricing-section">Pendaftaran Beasiswa</a>
+                        <a class="nav-link" href="{{url('registerbeasiswa')}}">Pendaftaran Beasiswa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#pricing-section">Galang Dana</a>
+                        <a class="nav-link" href="{{url('galangdana')}}">Galang Dana</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/eventlist.html">Donasi Saya</a>
+                        <a class="nav-link" href="{{url('kirimdonasi')}}">Donasi Saya</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/joblist.html">Inbox</a>
