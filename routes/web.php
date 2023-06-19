@@ -19,12 +19,12 @@ Route::get('/', function () {
 
 //galang dana
 Route::get('/galangdana', function () {
-    return view('galangdana.galangdana');
+    return view('pages.galangdana.galangdana');
 });
 
 //galang dana lainnya
 Route::get('/galangdanalainnya', function () {
-    return view('galangdana.galangdanalainnya');
+    return view('pages.galangdana.galangdanalainnya');
 });
 
 Route::get('/daftar', function () {
@@ -51,4 +51,7 @@ Route::get('/adminpengalang', function () {
 });
 Route::get('/admindashboard', function () {
     return view('pages.admindashboard');
+});
+Route::get('/informasibeasiswa', function () {
+    return view('pages.beasiswa.informasiprogram');
 });
