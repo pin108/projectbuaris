@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-xl bg-ghost-white">
     <div class="container-xxl justify-content-md-start">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{url('/')}}">
             <img src="./images/alsteduaribu.png" width="80" height="80" class="d-inline-block align-top" alt="Icon">
             <!-- <img src="./assets/logo.svg" alt="" /> -->
         </a>
