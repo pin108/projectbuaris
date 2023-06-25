@@ -46,6 +46,7 @@ Route::get('/showpengalangdana', function () {
 Route::get('/kirimdonasi', function () {
     return view('pages.detaildonasi');
 })->name('kirimdonasi');
+
 Route::get('/adminpengalang', function () {
     return view('pages.adminpengalang');
 });
