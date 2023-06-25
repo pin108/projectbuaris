@@ -239,3 +239,22 @@
 </section>
 
 @stop
+<div class="modal fade" id="modalkaryakreatif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Scrollable Modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="path_to_your_image.jpg" alt="Modal Image">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
+<p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
