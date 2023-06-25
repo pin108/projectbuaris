@@ -104,6 +104,42 @@
                                 </div>
                                 <!-- End -->
                     </li> <!-- End -->
+                    <li class="list-group-item">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                            <div class="media-body order-2 order-lg-1">
+                                <h5 class="mt-0 font-weight-bold mb-2">Bantuan Orang Sakit</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-1"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img src="./images/orangsakit.png" width="50">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orangsakit">Buat galang dana</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End -->
+                    </li> <!-- End -->
+                    <li class="list-group-item">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                            <div class="media-body order-2 order-lg-1">
+                                <h5 class="mt-0 font-weight-bold mb-2">Bencana Alam</h5>
+                                <div class="d-flex align-items-center justify-content-between mt-1"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img src="./images/bencana.png" width="50">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bencanaalam">Buat galang dana</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End -->
+                    </li> <!-- End -->
                 </ul> <!-- End -->
             </div>
         </div>
@@ -130,7 +166,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href='{{ route('kirimdonasi') }}'">galang dana</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" hre>kategori lain</button>
                 </div>
             </div>
         </div>
@@ -161,7 +198,7 @@
         </div>
     </div>
     <!-- 3 -->
-    <div class="modal fade" id="pantiasuhan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="difabel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -186,7 +223,82 @@
         </div>
     </div>
     <!-- 4 -->
+    <div class="modal fade" id="pantiasuhan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
+                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                        </div>
+                        <div class="col-md-6">
+                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 5 -->
     <div class="modal fade" id="rumahibadah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
+                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                        </div>
+                        <div class="col-md-6">
+                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 6 -->
+    <div class="modal fade" id="orangsakit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
+                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                        </div>
+                        <div class="col-md-6">
+                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 7 -->
+    <div class="modal fade" id="bencanaalam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
