@@ -167,7 +167,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('kirimdonasi') }}`;">galang dana</button>
-                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" hre>kategori lain</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>

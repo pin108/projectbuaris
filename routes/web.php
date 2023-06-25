@@ -25,7 +25,7 @@ Route::get('/galangdana', function () {
 //galang dana lainnya
 Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
-});
+})->name('galangdanalainnya');
 
 Route::get('/daftar', function () {
     return view('pages.signup');
