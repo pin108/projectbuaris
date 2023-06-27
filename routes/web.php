@@ -25,7 +25,7 @@ Route::get('/galangdana', function () {
 //galang dana lainnya
 Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
-});
+})->name('galangdanalainnya');
 
 Route::get('/daftar', function () {
     return view('pages.signup');
@@ -45,7 +45,8 @@ Route::get('/showpengalangdana', function () {
 
 Route::get('/kirimdonasi', function () {
     return view('pages.detaildonasi');
-});
+})->name('kirimdonasi');
+
 Route::get('/adminpengalang', function () {
     return view('pages.adminpengalang');
 });

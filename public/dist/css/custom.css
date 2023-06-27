@@ -7,5 +7,12 @@
     margin-right: 15%;
     margin-bottom: 5%;
 }
-
+.custom-grid {
+    margin-left: -15px; /* Offset negative margin of container */
+    margin-right: -15px; /* Offset negative margin of container */
+  }
+  .custom-grid .col {
+    padding-left: 15px; /* Add left padding to columns */
+    padding-right: 15px; /* Add right padding to columns */
+  }
   
