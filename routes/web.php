@@ -29,7 +29,7 @@ Route::get('/galangdanalainnya', function () {
 
 Route::get('/daftar', function () {
     return view('pages.signup');
-});
+})->name('daftar');
 
 Route::get('/login', function () {
     return view('pages.login');
