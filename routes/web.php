@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+<<<<<<< Updated upstream
 //galang dana lainnya
 Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
@@ -69,3 +70,6 @@ Route::get('/informasibeasiswa', function () {
 Route::get('/registerbeasiswa', function () {
     return view('pages.beasiswa.pendaftaran');
 });
+=======
+require __DIR__.'/auth.php';
+>>>>>>> Stashed changes
