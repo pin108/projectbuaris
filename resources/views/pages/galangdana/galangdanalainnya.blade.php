@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('kirimdonasi') }}`;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdana') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>

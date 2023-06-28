@@ -27,6 +27,10 @@ Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
 })->name('galangdanalainnya');
 
+Route::get('/registergalangdana', function () {
+    return view('pages.galangdana.buatgalangdana');
+})->name('registergalangdana');
+
 Route::get('/daftar', function () {
     return view('pages.signup');
 })->name('daftar');
