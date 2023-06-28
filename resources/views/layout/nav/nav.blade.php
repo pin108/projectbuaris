@@ -49,10 +49,21 @@
                 </form>
                 <!-- /.form-search -->
 
+                @if(Auth::check())
                 <div class="d-grid d-md-none d-xl-flex gap-15 gap-xl-0 order-3">
-                    <a class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" href="{{ url('login')}}" role="button">Log In</a>
-                    <a class="btn btn-primary fw-semiBold py-12 px-xl-43 ms-xl-12 rounded-pill" href="{{ url('daftar')}}" role="button">Daftar</a>
+                    <form method="POST" action="{{ url('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" role="button">Log Out</button>
+                    </form>
+                     <span class="text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill">{{ Auth::user()->name }}</span>
                 </div>
+            @else
+                <div class="d-grid d-md-none d-xl-flex gap-15 gap-xl-0 order-3">
+                    <a class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" href="{{ url('login') }}" role="button">Log In</a>
+                    <a class="btn btn-primary fw-semiBold py-12 px-xl-43 ms-xl-12 rounded-pill" href="{{ url('register') }}" role="button">Daftar</a>
+                </div>
+            @endif
+            
                 <!-- /.btn-login and btn-sign-up desktop -->
             </div>
         </div>
