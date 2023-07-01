@@ -159,11 +159,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <img src="./images/program kami.jpeg" alt="Modal Image">
-                            <p style="font-size: 10px;">Bantuan karya kreatif desa kulonprogo</p>
                         </div>
                         <div class="col-md-6">
                             <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
-                            <p style="margin-left: 15%;font-size:10px;">Bantuan karya kreatif desa ngampel</p>
                         </div>
                     </div>
                 </div>

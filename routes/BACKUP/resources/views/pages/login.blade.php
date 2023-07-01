@@ -1,15 +1,17 @@
+
+
 @extends('layout.layout')
 
 @section('utama')
 <main class="main position-relative">
-    <div class="detail-header-background">
-        <img src="./assets/detail-header-image-2560x330.png" alt="" />
-    </div>
-    <!-- /.detail-background -->
-    <div class="container-xxl">
+<div class="detail-header-background">
+<img src="./assets/detail-header-image-2560x330.png" alt="" />
+</div>
+<!-- /.detail-background -->
+<div class="container-xxl">
         <div class="position-relative py-43 py-lg-80">
             <div class="d-grid gap-10 text-center">
-
+                
             </div>
             <!-- /.heading-header -->
 
@@ -26,38 +28,28 @@
         <div class="row">
             <div class="col-12 col-lg-8 col-xl-9 order-lg-2">
                 <div class="d-grid d-xl-flex bg-white p-20 p-md-34 p-xxl-43 gap-34 rounded-20 shadow-2">
-
+                    
                 </div>
 
                 <div class="d-grid bg-white p-20 p-md-34 p-xxl-43 mt-24 gap-34 rounded-20 shadow-2">
                     <h2 class="heading-section-4 text-dark mb-0">Login</h2>
-                    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-                    <form method="POST" action="{{ route('login') }}" class="row">
-                        @csrf
-
+                    <form action="#" class="row">
                         <div class="col-md-6 col-xl-4 my-15 my-xl-24">
                             <label for="inputEmailaddress" class="form-label">Email Address</label>
-                            <input type="email" class="form-control rounded-pill" name="email" id="inputEmailaddress" placeholder="Type here" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-
+                            <input type="email" class="form-control rounded-pill" id="inputEmailaddress" placeholder="Type here" />
                         </div>
                         <!-- /.col -->
 
                         <div class="col-md-6 col-xl-4 my-15 my-xl-24">
                             <label for="inputPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control rounded-pill" name="password" id="inputPassword" placeholder="Type here" />
+                            <input type="password" class="form-control rounded-pill" id="inputPassword" placeholder="Type here" />
                         </div>
                         <!-- /.col -->
                         <button type="submit" class="btn btn-primary fw-semiBold py-12 px-24 px-md-60 rounded-pill" role="button">Submit</button>
 
                         <!-- /.col -->
                     </form>
-                    @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                    @endif
                     <!-- /.row -->
                 </div>
             </div>
@@ -84,7 +76,7 @@
                     </div>
 
                     <div class="row">
-
+                        
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
@@ -148,3 +140,7 @@
 </main>
 <!-- = /. Main Section = -->
 @endsection
+
+
+
+
