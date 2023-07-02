@@ -40,20 +40,6 @@ function nextPrev(n) {
     showTab(currentTab);
 }
 
-// function validateForm() {
-//     var x, y, i, valid = true;
-//     x = document.getElementsByClassName("tab");
-//     y = x[currentTab].getElementsByTagName("input");
-//     for (i = 0; i < y.length; i++) {
-//         if (y[i].value == "") {
-//             y[i].className += " invalid";
-//             valid = false;
-//         }
-//     }
-//     if (valid) { document.getElementsByClassName("step")[currentTab].className += " finish"; }
-//     return valid;
-// }
-
 function validateForm() {
     // This function deals with validation of the form fields
     var x, y, i, valid = true;
@@ -80,7 +66,10 @@ function validateForm() {
     }
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
-      document.getElementsByClassName("step")[currentTab].className += " finish";
+        var stepElements = document.getElementsByClassName("step");
+        if (stepElements.length > currentTab) {
+          stepElements[currentTab].className += " finish";
+        }
     }
     return valid; // return the valid status
   }

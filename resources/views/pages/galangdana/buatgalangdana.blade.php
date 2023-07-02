@@ -113,6 +113,98 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab">
+                    <p style="text-align: center;"> Penerima </p>
+                    <div>Nama acara/gerakan/kegiatan/program
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <textarea rows="4" cols="50" placeholder="Kegiatan ibu pkk sehari hari" style="width: 100%;" oninput="this.className = ''"></textarea>
+                        </div>
+                    </div>
+                    <div>Tujuan penyelenggaraan
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <textarea rows="4" cols="50" placeholder="Membiayai kegiatan 30 ibu pkk" style="width: 100%;" oninput="this.className = ''"></textarea>
+                        </div>
+                    </div>
+                    <div>Lokasi
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <textarea rows="4" cols="50" placeholder="Contoh: Kelurahan pulo gadung, kecamatan pulo gadung, kota jakarta timur" style="width: 100%;" oninput="this.className = ''"></textarea>
+                        </div>
+                    </div>
+                    <div>Gambar Kegiatan
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <input type="file" name="fileUpload" id="fileUpload" oninput="this.className = ''">
+                        </div>
+                        <div class="form-floating">
+                            <input type="file" name="fileUpload" id="fileUpload" oninput="this.className = ''">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <p style="text-align: center;">Target Donasi</p>
+                    <div>Tentukan perkiraan biaya yang dibutuhkan
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" placeholder="20000000" oninput="this.className = ''" name="biaya yang dibutuhkan"></input>
+                        </div>
+                    </div>
+                    <div>Tentukan lama galang dana berlangsung
+                    </div>
+                    <div>
+                        <div class="form-check">
+                            <label class="container">
+                                <p><b>30 hari</b></p>
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                <p><b>60 hari</b></p>
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                <p><b>120 hari</b></p>
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>Pilih Tanggal Mulai
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <input type="date" id="tanggalmulai" name="tanggalmulai" oninput="this.className = ''">
+                        </div>
+                    </div>
+                    <div>Isi rincian penggunaan dana
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <textarea rows="4" cols="50" placeholder="Contoh Biaya bahan bangunan Rp 20000000, 
+biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></textarea>
+                        </div>
+                    </div>
+                    <div>Beri judul untuk galang dana ini
+                    </div>
+                    <div>
+                        <div class="form-floating">
+                            <input type="text" placeholder="judul" oninput="this.className = ''" name="judul_galang_dana">
+                        </div>
+                    </div>
+                    <div>Buat Cerita Galang Dana
+                    </div>
+                    <div class="form-floating">
+                        <textarea rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea>
+                    </div>
+                </div>
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
                     <h3>Thanks for your Donation!</h3> <span>Your donation has been entered! We will contact you shortly!</span>
                 </div>
