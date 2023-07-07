@@ -215,5 +215,5 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></t
         </div>
     </div>
 </div>
-<script src="js/formgalangdana.js"></script>
+<script src="js/registergalangdanakaryakreatif.js"></script>
 @stop
