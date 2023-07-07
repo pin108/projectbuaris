@@ -38,12 +38,14 @@
                             </label>
                         </div>
                     </div>
-                    <div class="d-flex flex-column bd-highlight mb-3" style="margin-top: 3%;">
+                    <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <label class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <label class="container"><b>Acara/gerakan/kegiatan/program</b>
+                                        <label class="container">
+                                            <p><b>Karya, proyek, modal usaha</b></p>
+                                            <p style="font-size: 16px;">Contoh: Patungan untuk proyek pesawat nasional, modal untuk kelompok usaha di desa, dsb.</p>
                                             <input type="radio" checked="checked" name="radio">
                                             <span class="checkmark"></span>
                                         </label>
@@ -51,15 +53,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <p class="collapse" id="syarat2">
-                                            Tujuan galang dana sudah benar?
-                                            Galang dana acara/gerakan/kegiatan/program memerlukan informasi berikut:
-                                            Profil penyelenggara
-                                            Nama acara/gerakan/kegiatan/program
-                                            Latar belakang
-                                            Teknis penyelenggaraan
-                                        </p>
-                                        <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#syarat2" aria-expanded="false" aria-controls="collapseExample">
+                                        <div class="collapse" id="syarat1">
+                                            <p>Tujuan galang dana sudah benar?</p>
+                                            <p>Galang dana acara/gerakan/kegiatan/program memerlukan informasi berikut:</p>
+                                            <p><b>Profil penyelenggara</b></p>
+                                            <p><b>Nama acara/gerakan/kegiatan/program</b></p>
+                                            <p><b>Latar belakang</b></p>
+                                            <p><b>Teknis penyelenggaraan</b></p>
+                                        </div>
+                                        <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#syarat1" aria-expanded="false" aria-controls="collapseExample">
                                             <p style="color: blue;">Baca Syarat</p>
                                         </button>
                                     </div>

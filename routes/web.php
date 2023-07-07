@@ -26,50 +26,58 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/prof     ile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    //galang dana
+    Route::get('/galangdana', function () {
+        return view('pages.galangdana.galangdana');
+    });
+
+    //galang dana lainnya
+    Route::get('/galangdanalainnya', function () {
+        return view('pages.galangdana.galangdanalainnya');
+    })->name('galangdanalainnya');
+
+    Route::get('/registergalangdanakaryakreatif', function () {
+        return view('pages.galangdana.registergalangdanakaryakreatif');
+    })->name('registergalangdanakaryakreatif');
+
+    Route::get('/registergalangdanakegiatansosial', function () {
+        return view('pages.galangdana.registergalangdanakegiatansosial');
+    })->name('registergalangdanakegiatansosial');
+
+    Route::get('/daftar', function () {
+        return view('pages.signup');
+    })->name('daftar');
+
+    Route::get('/login', function () {
+        return view('pages.login');
+    });
+
+    Route::get('/detail', function () {
+        return view('pages.show');
+    });
+
+    Route::get('/showpengalangdana', function () {
+        return view('pages.showpengalangdana');
+    });
+
+    Route::get('/kirimdonasi', function () {
+        return view('pages.detaildonasi');
+    })->name('kirimdonasi');
+
+    Route::get('/adminpengalang', function () {
+        return view('pages.adminpengalang');
+    });
+    Route::get('/admindashboard', function () {
+        return view('pages.admindashboard');
+    });
+    Route::get('/informasibeasiswa', function () {
+        return view('pages.beasiswa.informasiprogram');
+    });
+    Route::get('/registerbeasiswa', function () {
+        return view('pages.beasiswa.pendaftaran');
+    });
 });
 
-<<<<<<< Updated upstream
-//galang dana lainnya
-Route::get('/galangdanalainnya', function () {
-    return view('pages.galangdana.galangdanalainnya');
-})->name('galangdanalainnya');
-
-Route::get('/registergalangdana', function () {
-    return view('pages.galangdana.buatgalangdana');
-})->name('registergalangdana');
-
-Route::get('/daftar', function () {
-    return view('pages.signup');
-})->name('daftar');
-
-Route::get('/login', function () {
-    return view('pages.login');
-});
-
-Route::get('/detail', function () {
-    return view('pages.show');
-});
-
-Route::get('/showpengalangdana', function () {
-    return view('pages.showpengalangdana');
-});
-
-Route::get('/kirimdonasi', function () {
-    return view('pages.detaildonasi');
-})->name('kirimdonasi');
-
-Route::get('/adminpengalang', function () {
-    return view('pages.adminpengalang');
-});
-Route::get('/admindashboard', function () {
-    return view('pages.admindashboard');
-});
-Route::get('/informasibeasiswa', function () {
-    return view('pages.beasiswa.informasiprogram');
-});
-Route::get('/registerbeasiswa', function () {
-    return view('pages.beasiswa.pendaftaran');
-});
-=======
-require __DIR__.'/auth.php';
->>>>>>> Stashed changes
+require __DIR__ . '/auth.php';
