@@ -181,21 +181,21 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Kegiatan ibu pkk sehari hari" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="bakti sosial osis smpn 01 tahun 2021 berjudul MISO(Misi Sosial untuk Mengabdi)" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Tujuan penyelenggaraan
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Membiayai kegiatan 30 ibu pkk" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="Membagikan paket sembako untuk PMKS di kelurahan jelambar grogol" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Lokasi
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Contoh: Kelurahan pulo gadung, kecamatan pulo gadung, kota jakarta timur" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="Contoh: Kelurahan Pulo Gadung, Kecamatan Pulo Gadung, Kota Jakarta Timur" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Gambar Kegiatan
