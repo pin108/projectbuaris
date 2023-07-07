@@ -38,9 +38,13 @@ Route::middleware('auth')->group(function () {
         return view('pages.galangdana.galangdanalainnya');
     })->name('galangdanalainnya');
 
-    Route::get('/registergalangdana', function () {
-        return view('pages.galangdana.buatgalangdana');
-    })->name('registergalangdana');
+    Route::get('/registergalangdanakaryakreatif', function () {
+        return view('pages.galangdana.registergalangdanakaryakreatif');
+    })->name('registergalangdanakaryakreatif');
+
+    Route::get('/registergalangdanakegiatansosial', function () {
+        return view('pages.galangdana.registergalangdanakegiatansosial');
+    })->name('registergalangdanakegiatansosial');
 
     Route::get('/daftar', function () {
         return view('pages.signup');

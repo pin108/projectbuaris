@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdana') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanakaryakreatif') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -182,19 +182,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>Kegiatan Sosial</b></p>
+                    <p>Galang dana bantuan kegiatan sosial kepada orang yang membutuhkan (cth. bantuan sosial untuk lansia, kegiatan sosial komunitas).</p>
+                    <p><b>Contoh penggalangan kegiatan sosial</b></p>
                     <div class="row">
                         <div class="col-md-6">
                             <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <p style="font-size: 10px;">Bantuan kegiatan sosial desa kulonprogo</p>
                         </div>
                         <div class="col-md-6">
                             <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <p style="margin-left: 15%;font-size:10px;">Bantuan kegiatan sosial desa ngampel</p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanakegiatansosial') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>

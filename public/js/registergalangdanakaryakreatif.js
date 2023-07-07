@@ -49,7 +49,10 @@ function validateForm() {
         if (y[i].type === "checkbox" && !y[i].checked) {
             y[i].classList.add("invalid");
             valid = false;
-        } else if (y[i].value === "") {
+        }else if (y[i].type === "radio" &&  !y[i].name) {
+            y[i].classList.add("invalid");
+            valid = false;
+        }else if (y[i].value === "") {
             y[i].classList.add("invalid");
             valid = false;
         }
@@ -64,6 +67,7 @@ function validateForm() {
         valid = false;
       }
     }
+    
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
         var stepElements = document.getElementsByClassName("step");

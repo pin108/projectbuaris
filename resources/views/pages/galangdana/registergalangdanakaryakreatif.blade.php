@@ -15,7 +15,7 @@
                                         <label class="container">
                                             <p><b>Acara/gerakan/kegiatan/program</b></p>
                                             <p style="font-size: 16px;">contoh Kegiatan pemberdayaan masyarakat, acara pementasan budaya, dsb.</p>
-                                            <input type="radio" checked="checked" name="radio">
+                                            <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -46,7 +46,7 @@
                                         <label class="container">
                                             <p><b>Karya, proyek, modal usaha</b></p>
                                             <p style="font-size: 16px;">Contoh: Patungan untuk proyek pesawat nasional, modal untuk kelompok usaha di desa, dsb.</p>
-                                            <input type="radio" checked="checked" name="radio">
+                                            <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
