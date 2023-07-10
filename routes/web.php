@@ -99,6 +99,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/registerbeasiswa', function () {
         return view('pages.beasiswa.pendaftaran');
     });
+
+    //profile
+    Route::get('/profile', function () {
+        return view('pages.profil.profile');
+    })->name('profile');
 });
 
 require __DIR__ . '/auth.php';
