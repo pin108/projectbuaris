@@ -189,7 +189,7 @@
                     <div>
                         <div class="form-floating">
                             <textarea rows="4" cols="50" placeholder="Contoh Biaya bahan bangunan Rp 20000000, 
-biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></textarea>
+biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''" id="editor"></textarea>
                         </div>
                     </div>
                     <div>Beri judul untuk galang dana ini
