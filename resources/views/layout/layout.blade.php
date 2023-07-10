@@ -20,6 +20,7 @@
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="./dist/css/style.css" />
 	<link rel="stylesheet" href="./dist/css/custom.css" />
+	<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
@@ -60,6 +61,7 @@
 
 	<!-- Template Function -->
 	<script src="./dist/js/theme.js"></script>
+	<script src="js/ckeditor.js"></script>
 </body>
 
 </html>
