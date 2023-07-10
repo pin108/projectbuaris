@@ -22,21 +22,21 @@ Route::get('/dashboard', function () {
     return view('pages.home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//galang dana
+Route::get('/galangdana', function () {
+    return view('pages.galangdana.galangdana');
+});
+
+//galang dana lainnya
+Route::get('/galangdanalainnya', function () {
+    return view('pages.galangdana.galangdanalainnya');
+})->name('galangdanalainnya');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/prof     ile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-    //galang dana
-    Route::get('/galangdana', function () {
-        return view('pages.galangdana.galangdana');
-    });
-
-    //galang dana lainnya
-    Route::get('/galangdanalainnya', function () {
-        return view('pages.galangdana.galangdanalainnya');
-    })->name('galangdanalainnya');
 
     Route::get('/registergalangdanakaryakreatif', function () {
         return view('pages.galangdana.registergalangdanakaryakreatif');
