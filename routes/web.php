@@ -46,6 +46,27 @@ Route::middleware('auth')->group(function () {
         return view('pages.galangdana.registergalangdanakegiatansosial');
     })->name('registergalangdanakegiatansosial');
 
+
+    Route::get('/registergalangdanadifabel', function () {
+        return view('pages.galangdana.registergalangdanadifabel');
+    })->name('registergalangdanadifabel');
+
+    Route::get('/registergalangdanapantiasuhan', function () {
+        return view('pages.galangdana.registergalangdanapantiasuhan');
+    })->name('registergalangdanapantiasuhan');
+
+    Route::get('/registergalangdanarumahibadah', function () {
+        return view('pages.galangdana.registergalangdanarumahibadah');
+    })->name('registergalangdanarumahibadah');
+
+    Route::get('/registergalangdanaorangsakit', function () {
+        return view('pages.galangdana.registergalangdanaorangsakit');
+    })->name('registergalangdanaorangsakit');
+
+    Route::get('/registergalangdanabencanaalam', function () {
+        return view('pages.galangdana.registergalangdanabencanaalam');
+    })->name('registergalangdanabencanaalam');
+
     Route::get('/daftar', function () {
         return view('pages.signup');
     })->name('daftar');
