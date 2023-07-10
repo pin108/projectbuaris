@@ -264,7 +264,7 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></t
                     <div>Buat Cerita Galang Dana
                     </div>
                     <div class="form-floating">
-                        <textarea rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea>
+                        <textarea id="editor" rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea>
                     </div>
                 </div>
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">

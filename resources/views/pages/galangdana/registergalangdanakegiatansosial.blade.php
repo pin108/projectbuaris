@@ -251,7 +251,7 @@
                     <div>
                         <div class="form-floating">
                             <textarea rows="4" cols="50" placeholder="Contoh Biaya bahan bangunan Rp 20000000, 
-biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''" id="editor"></textarea>
+biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Beri judul untuk galang dana ini
@@ -264,7 +264,7 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''" id=
                     <div>Buat Cerita Galang Dana
                     </div>
                     <div class="form-floating">
-                        <textarea rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea>
+                        <textarea id="editor" rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea>
                     </div>
                 </div>
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
