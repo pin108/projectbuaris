@@ -56,10 +56,7 @@
                         <button type="submit" class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" role="button">Log Out</button>
                     </form>
                     <!-- <span class="text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill">{{ Auth::user()->name }}</span> -->
-                    <form method="POST" action="{{ url('profile') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" role="button">profile</button>
-                    </form>
+                    <button type="button" class="btn btn-alice-blue text-dark fw-semiBold py-12 px-xl-34 ms-xl-12 rounded-pill" onclick="window.location.href=`{{ route('profile') }}`;" role="button">Profile</button>
                 </div>
                 @else
                 <div class="d-grid d-md-none d-xl-flex gap-15 gap-xl-0 order-3">
