@@ -158,11 +158,11 @@
                     <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/program kami.jpeg" alt="Modal Image" style="width: 300px; height:200px;">
                             <p style="font-size: 10px;">Bantuan karya kreatif desa kulonprogo</p>
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                             <p style="margin-left: 15%;font-size:10px;">Bantuan karya kreatif desa ngampel</p>
                         </div>
                     </div>
@@ -187,11 +187,11 @@
                     <p><b>Contoh penggalangan kegiatan sosial</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/program kami.jpeg" alt="Modal Image" style="width: 300px; height:200px;">
                             <p style="font-size: 10px;">Bantuan kegiatan sosial desa kulonprogo</p>
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                             <p style="margin-left: 15%;font-size:10px;">Bantuan kegiatan sosial desa ngampel</p>
                         </div>
                     </div>
@@ -211,19 +211,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>Difabel</b></p>
+                    <P>Galang dana untuk penyediaan alat bantu bagi difabel (cth. penyediaan kursi roda, sepatu terapi, dan alat bantu dengar).</P>
+                    <p><b>Contoh penggalangan difabel</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/DIFABEL.jpg" alt="Modal Image" style="width: 300px; height:200px;">
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/DIFABEL.jpg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanadifabel') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>
@@ -236,19 +238,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>Panti asuhan</b></p>
+                    <p>Galang dana bantuan untuk lembaga panti asuhan, seperti pengadaan logistik dan pembangunan rumah panti asuhan.</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/pantiasuhan.jpg" alt="Modal Image" style="width: 300px; height:200px;">
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/pantiasuhan.jpg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanapantiasuhan') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>
@@ -261,19 +264,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>Rumah ibadah</b></p>
+                    <p>Galang dana yang berkaitan dengan pembangunan area publik untuk aktivitas keagamaan atau tempat ibadah.</p>
+                    <p><b>Contoh penggalangan rumah ibadah</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/rumahibadah.jpg" alt="Modal Image" style="width: 300px; height:200px;">
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/rumahibadah.jpg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanarumahibadah') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>
@@ -286,19 +291,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>bantuan orang sakit</b></p>
+                    <p>Setiap sumbangan kecil pun memiliki kekuatan besar ketika digabungkan. Jadilah bagian dari upaya kita untuk mendukung dengan menyumbangkan dana untuk pengobatan dan perawatan mereka</p>
+                    <p><b>Contoh penggalangan dana orang sakit</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/orangsakitgalangdana.jpg" alt="Modal Image" style="width: 300px; height:200px;">
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/orangsakitgalangdana.jpg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanaorangsakit') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>
@@ -311,19 +318,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bantu dukung karya kreatif kami dengan berdonasi! Setiap sumbanganmu memberi energi baru untuk menciptakan lebih banyak karya inspiratif.</p>
-                    <p><b>Berikut merupakan contoh penggalangan karya kreatif</b></p>
+                    <p><b>Bencana alam</b></p>
+                    <p>Galang dana untuk penanganan bencana alam di Indonesia.</p>
+                    <p><b>Contoh penggalangan bencana alam</b></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="./images/program kami.jpeg" alt="Modal Image">
+                            <img src="./images/bencanaalamgalangdana.jpg" alt="Modal Image" style="width: 300px; height:200px;">
                         </div>
                         <div class="col-md-6">
-                            <img src=" ./images/program kami.jpeg" alt="Modal Image" style="margin-left: 15%;">
+                            <img src=" ./images/bencanaalamgalangdana.jpg" alt="Modal Image" style="margin-left: 30%; width: 300px; height:200px;">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;">galang dana</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanaorangsakit') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
         </div>

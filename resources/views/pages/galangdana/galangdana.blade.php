@@ -14,7 +14,7 @@
                     <h5 class="card-title">
                         Galang dana bantuan orang sakit</h5>
                     <p class="card-text">Khusus biaya pengobatan atau perawatan penyakit tertentu</p>
-                    <a href="#" class="btn btn-primary" style="width: 100%;">Buat galang dana orang sakit</a>
+                    <a href="{{url('registergalangdanaorangsakit')}}" class="btn btn-primary" style="width: 100%;">Buat galang dana orang sakit</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Galang dana bantuan bencana alam</h5>
                     <p class="card-text">Digunakan untuk menyalurkan bantuan sosial bencana alam</p>
-                    <a href="#" class="btn btn-primary" style="width: 100%;">Buat galang dana bencana alam</a>
+                    <a href="{{url('registergalangdanabencanaalam')}}" class="btn btn-primary" style="width: 100%;">Buat galang dana bencana alam</a>
                 </div>
             </div>
         </div>

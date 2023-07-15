@@ -14,7 +14,7 @@
                                     <div class="col">
                                         <label class="container">
                                             <p><b>Acara/gerakan/kegiatan/program</b></p>
-                                            <p style="font-size: 16px;">Contoh: Kegiatan sosial himpunan mahasiswa, gerakan sosial komunitas, dsb.</p>
+                                            <p style="font-size: 16px;">Contoh: Program patungan kursi roda, gerakan pembelian buku Braille, dsb.</p>
                                             <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
@@ -45,7 +45,7 @@
                                     <div class="col">
                                         <label class="container">
                                             <p><b>Bantuan/santunan</b></p>
-                                            <p style="font-size: 16px;">Contoh: Bantuan untuk seorang duafa, kelompok tunawisma, ojek online, dsb.</p>
+                                            <p style="font-size: 16px;">Contoh: Bantuan hidup untuk seorang difabel, santunan kebutuhan sehari-hari untuk sekelompok difabel, dsb.</p>
                                             <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
@@ -76,7 +76,7 @@
                                     <div class="col">
                                         <label class="container">
                                             <p><b>Biaya operasional lembaga/yayasan</b></p>
-                                            <p style="font-size: 16px;">Contoh: Biaya sewa tempat, pemeliharaan tempat, pembelian barang, dsb.</p>
+                                            <p style="font-size: 16px;">Contoh: Biaya sewa tempat penampungan difabel, biaya pemeliharaan tempat, kebutuhan sehari-hari difabel (makanan, pakaian, dsb.)</p>
                                             <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
@@ -107,7 +107,7 @@
                                     <div class="col">
                                         <label class="container">
                                             <p><b>Pembangunan/perbaikan/pembelian infrastruktur</b></p>
-                                            <p style="font-size: 16px;">Contoh: Pembangunan rumah masyarakat pra-sejahtera, perbaikan tempat tinggal lansia, dsb.</p>
+                                            <p style="font-size: 16px;">Contoh: Membangun fasilitas ramah difabel, memperbaiki rumah penampungan difabel, dsb.</p>
                                             <input type="radio" checked="checked" name="radiobtn" required>
                                             <span class="checkmark"></span>
                                         </label>
@@ -181,14 +181,14 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="bakti sosial osis smpn 01 tahun 2021 berjudul MISO(Misi Sosial untuk Mengabdi)" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="gerakan terjemahan buku braille 2021" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Tujuan penyelenggaraan
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Membagikan paket sembako untuk PMKS di kelurahan jelambar grogol" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="membiayai sukarelawan penerjemah buku braille" style="width: 100%;" oninput="this.className = ''"></textarea>
                         </div>
                     </div>
                     <div>Lokasi
@@ -277,5 +277,5 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></t
         </div>
     </div>
 </div>
-<script src="js/registergalangdanakegiatansosial.js"></script>
+<script src="js/registergalangdanadifabel.js"></script>
 @stop

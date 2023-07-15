@@ -78,19 +78,8 @@ function validateForm() {
     return valid; // return the valid status
   }
 
-// function fixStepIndicator(n) {
-//     var i, x = document.getElementsByClassName("step");
-//     for (i = 0; i < x.length; i++) { x[i].className = x[i].className.replace(" active", ""); }
-//     x[n].className += " active";
-// }
 function fixStepIndicator(n) {
     var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-        if (x[i]) { // Check if the element exists before accessing its className
-            x[i].className = x[i].className.replace(" active", "");
-        }
-    }
-    if (x[n]) { // Check if the element exists before adding the "active" class
-        x[n].className += " active";
-    }
+    for (i = 0; i < x.length; i++) { x[i].className = x[i].className.replace(" active", ""); }
+    x[n].className += " active";
 }

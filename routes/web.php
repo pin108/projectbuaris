@@ -22,21 +22,21 @@ Route::get('/dashboard', function () {
     return view('pages.home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//galang dana
+Route::get('/galangdana', function () {
+    return view('pages.galangdana.galangdana');
+});
+
+//galang dana lainnya
+Route::get('/galangdanalainnya', function () {
+    return view('pages.galangdana.galangdanalainnya');
+})->name('galangdanalainnya');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/prof     ile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-    //galang dana
-    Route::get('/galangdana', function () {
-        return view('pages.galangdana.galangdana');
-    });
-
-    //galang dana lainnya
-    Route::get('/galangdanalainnya', function () {
-        return view('pages.galangdana.galangdanalainnya');
-    })->name('galangdanalainnya');
 
     Route::get('/registergalangdanakaryakreatif', function () {
         return view('pages.galangdana.registergalangdanakaryakreatif');
@@ -45,6 +45,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/registergalangdanakegiatansosial', function () {
         return view('pages.galangdana.registergalangdanakegiatansosial');
     })->name('registergalangdanakegiatansosial');
+
+
+    Route::get('/registergalangdanadifabel', function () {
+        return view('pages.galangdana.registergalangdanadifabel');
+    })->name('registergalangdanadifabel');
+
+    Route::get('/registergalangdanapantiasuhan', function () {
+        return view('pages.galangdana.registergalangdanapantiasuhan');
+    })->name('registergalangdanapantiasuhan');
+
+    Route::get('/registergalangdanarumahibadah', function () {
+        return view('pages.galangdana.registergalangdanarumahibadah');
+    })->name('registergalangdanarumahibadah');
+
+    Route::get('/registergalangdanaorangsakit', function () {
+        return view('pages.galangdana.registergalangdanaorangsakit');
+    })->name('registergalangdanaorangsakit');
+
+    Route::get('/registergalangdanabencanaalam', function () {
+        return view('pages.galangdana.registergalangdanabencanaalam');
+    })->name('registergalangdanabencanaalam');
 
     Route::get('/daftar', function () {
         return view('pages.signup');
@@ -78,6 +99,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/registerbeasiswa', function () {
         return view('pages.beasiswa.pendaftaran');
     });
+
+    //profile
+    Route::get('/profile', function () {
+        return view('pages.profil.profile');
+    })->name('profile');
 });
 
 require __DIR__ . '/auth.php';
