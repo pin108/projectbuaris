@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-xl bg-ghost-white">
     <div class="container-xxl justify-content-md-start">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="./images/alsteduaribu.png" width="80" height="80" class="d-inline-block align-top" alt="Icon">
+            <img src="{{asset('images/alsteduaribu.png')}}" width="80" height="80" class="d-inline-block align-top" alt="Icon">
             <!-- <img src="./assets/logo.svg" alt="" /> -->
         </a>
         <!-- /.navbar-brand -->
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="./assets/icons/bars.svg" class="svg-inject svg-icon" alt="" />
+            <img src="{{asset('assets/icons/bars.svg')}}" class="svg-inject svg-icon" alt="" />
         </button>
         <!-- /.navbar-toggler-mobile -->
 
-        <div class="d-none d-md-flex d-xl-none ms-auto">
+        {{-- <div class="d-none d-md-flex d-xl-none ms-auto">
             <a class="btn btn-alice-blue text-dark fw-semiBold py-12 px-34 me-12 rounded-pill" href="/applicationform.html" role="button">Log In</a>
             <a class="btn btn-primary fw-semiBold py-12 px-43 rounded-pill" href="/applicationform.html" role="button">Sign Up</a>
-        </div>
+        </div> --}}
         <!-- /.btn-login and btn-signup mobile -->
 
         <div class="collapse navbar-collapse" id="navbarContent">
