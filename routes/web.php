@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GalangdanakaryakreatifController;
+use App\Http\Controllers\ProfilesettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +37,12 @@ Route::get('/galangdanalainnya', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/prof     ile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/registergalangdanakaryakreatif', function () {
-        return view('pages.galangdana.registergalangdanakaryakreatif');
-    })->name('registergalangdanakaryakreatif');
+    // Route::get('/registergalangdanakaryakreatif', function () {
+    //     return view('pages.galangdana.registergalangdanakaryakreatif');
+    // })->name('registergalangdanakaryakreatif');
 
     Route::get('/registergalangdanakegiatansosial', function () {
         return view('pages.galangdana.registergalangdanakegiatansosial');
@@ -100,10 +102,17 @@ Route::middleware('auth')->group(function () {
         return view('pages.beasiswa.pendaftaran');
     });
 
-    //profile
-    Route::get('/profile', function () {
-        return view('pages.profil.profile');
-    })->name('profile');
+    // profile setting
+    Route::get('/profile', [ProfilesettingController::class, 'index'])->name('profile');
+    Route::get('/profile/{id}/edit', [ProfilesettingController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update/{id}', [ProfilesettingController::class, 'update'])->name('items.update');
+
+
+
+    //galang dana karya kreatif
+    Route::get('/registergalangdana-successkaryakreatif', [GalangdanakaryakreatifController::class, 'notif'])->name('registergalangdana-successkaryakreatif');
+    Route::get('/index-registerkaryakreatif', [GalangdanakaryakreatifController::class, 'index'])->name('index-registerkaryakreatif');
+    Route::post('/process-form-registerkaryakreatif', [GalangdanakaryakreatifController::class, 'store'])->name('process-form-registerkaryakreatif');
 });
 
 require __DIR__ . '/auth.php';

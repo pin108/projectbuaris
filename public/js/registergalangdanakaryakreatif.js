@@ -29,13 +29,32 @@ function nextPrev(n) {
     x[currentTab].style.display = "none";
     currentTab = currentTab + n;
     if (currentTab >= x.length) {
-        // document.getElementById("regForm").submit();
-        // return false;
-        //alert("sdf");
+        document.getElementById("regForm").submit();
+        document.getElementsByName("id_user");
+        document.getElementsByName("kategori_galangdana");
+        document.getElementsByName("persetujuan_galangdana");
+        document.getElementsByName("nama");
+        document.getElementsByName("nomor_hp");
+        document.getElementsByName("pekerjaan");
+        document.getElementsByName("tempat_kerja");
+        document.getElementsByName("nama_kegiatan");
+        document.getElementsByName("tujuan_kegiatan");
+        document.getElementsByName("lokasi");
+        document.getElementsByName("gambar_satu");
+        document.getElementsByName("gambar_dua");
+        document.getElementsByName("targetdonasi");
+        document.getElementsByName("batas_waktu");
+        document.getElementsByName("tanggal_mulai");
+        document.getElementsByName("rincian_galangdana");
+        document.getElementsByName("tanggal_mulai");
+        document.getElementsByName("rincian_galangdana");
+        document.getElementsByName("judul");
+        document.getElementsByName("deskripsi")
         document.getElementById("nextprevious").style.display = "none";
         document.getElementById("all-steps").style.display = "none";
         document.getElementById("register").style.display = "none";
         document.getElementById("text-message").style.display = "block";
+        return false;
     }
     showTab(currentTab);
 }

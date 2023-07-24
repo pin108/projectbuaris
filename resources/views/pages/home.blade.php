@@ -2,7 +2,17 @@
 
 @section('utama')
 <div class="bg-ghost-white">
-	<div class="container-xxl" style="margin-top: 2%;">
+	@if (session('success'))
+	<div class="alert alert-success">
+		{{ session('success') }}
+	</div>
+	@endif
+	@if (session('error'))
+	<div class="alert alert-danger">
+		{{ session('error') }}
+	</div>
+	@endif
+	<div class="container-xxl">
 		<div class="row">
 			<div class="col-12 col-lg-4 col-xl-5 d-flex align-items-center my-34 my-lg-50 my-xl-120 order-2 order-lg-1">
 				<div class="swiper header-slider">
@@ -242,9 +252,6 @@
 			</div>
 		</div>
 	</section>
-
-
-
 </section>
 
 @stop

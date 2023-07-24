@@ -13,15 +13,26 @@ return new class extends Migration
     {
         Schema::create('programgalangdana', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
-            $table->string('nama_galangdana');
-            $table->string('alamat');
-            $table->string('deskripsi');
-            $table->string('target_donasi');
-            $table->string('rekening_tujuan');
+            $table->unsignedBigInteger('id_user'); //relasi dengan tabel user
+            $table->string('kategori_galangdana');
+            $table->string('persetujuan_galangdana');
+            $table->string('nama');
+            $table->string('nomor_hp');
+            $table->string('pekerjaan');
+            $table->string('tempat_kerja');
+            $table->string('nama_kegiatan');
+            $table->string('tujuan_kegiatan');
+            $table->string('lokasi');
             $table->string('gambar');
-            $table->string('kategori');
+            $table->integer('targetdonasi');
+            $table->integer('batas_waktu');
+            $table->date('tanggal_mulai');
+            $table->string('rincian_galangdana');
+            $table->string('judul');
+            $table->string('deskripsi');
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

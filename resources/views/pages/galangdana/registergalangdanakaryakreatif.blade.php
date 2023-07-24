@@ -1,12 +1,24 @@
 @extends('layout.layout')
 @section('content')
+@if (session('success'))
+<div class="alert alert-success" style="background-color: green;">
+    {{ session('success') }}
+</div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger" style="background-color: red;">
+    {{ session('error') }}
+</div>
+@endif
 <div class="container" style="margin-top: 5%;">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-6">
-            <form id="regForm">
+            <form id="regForm" method="post" action="{{ route('process-form-registerkaryakreatif') }}" enctype="multipart/form-data">
+                @csrf
                 <h1 id="register">Persyaratan Galang Dana</h1>
                 <div class="all-steps" id="all-steps"> <span class="step"></span> <span class="step"></span> <span class="step"></span> <span class="step"></span> </div>
                 <div class="tab">
+                    <input type="hidden" name="id_user" value="{{ $userId }}">
                     <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <label class="container">
@@ -15,7 +27,7 @@
                                         <label class="container">
                                             <p><b>Acara/gerakan/kegiatan/program</b></p>
                                             <p style="font-size: 16px;">contoh Kegiatan pemberdayaan masyarakat, acara pementasan budaya, dsb.</p>
-                                            <input type="radio" checked="checked" name="radiobtn" required>
+                                            <input type="radio" checked="checked" name="kategori_galangdana" value="gerakan karya pementasan">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -46,7 +58,7 @@
                                         <label class="container">
                                             <p><b>Karya, proyek, modal usaha</b></p>
                                             <p style="font-size: 16px;">Contoh: Patungan untuk proyek pesawat nasional, modal untuk kelompok usaha di desa, dsb.</p>
-                                            <input type="radio" checked="checked" name="radiobtn" required>
+                                            <input type="radio" checked="checked" name="kategori_galangdana" value="gerakan karya modal usaha" required>
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -74,7 +86,7 @@
                     <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" name="last1" required />
+                                <input class="form-check-input" type="checkbox" value="Pemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini" name="persetujuan_galangdana" required />
                                 <label class="form-check-label" for="flexCheckDefault">Pemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini.</label>
                             </div>
                         </div>
@@ -82,7 +94,7 @@
                     <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="2" name="last2" required />
+                                <input class="form-check-input" type="checkbox" value="Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana." name="persetujuan_galangdana" required />
                                 <label class="form-check-label" for="flexCheckChecked">Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana.</label>
                             </div>
                         </div>
@@ -109,7 +121,7 @@
                         </div>
                         <div class="col-md-6">
                             <div>Tempat kerja/sekolah</div>
-                            <input type="text" placeholder="tempat kerja/sekolah" oninput="this.className = ''" name="tempat">
+                            <input type="text" placeholder="tempat kerja/sekolah" oninput="this.className = ''" name="tempat_kerja">
                         </div>
                     </div>
                 </div>
@@ -119,31 +131,28 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Kegiatan ibu pkk sehari hari" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="Kegiatan ibu pkk sehari hari" style="width: 100%;" oninput="this.className = ''" name="nama_kegiatan"></textarea>
                         </div>
                     </div>
                     <div>Tujuan penyelenggaraan
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Membiayai kegiatan 30 ibu pkk" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="Membiayai kegiatan 30 ibu pkk" style="width: 100%;" oninput="this.className = ''" name="tujuan_kegiatan"></textarea>
                         </div>
                     </div>
                     <div>Lokasi
                     </div>
                     <div>
                         <div class="form-floating">
-                            <textarea rows="4" cols="50" placeholder="Contoh: Kelurahan pulo gadung, kecamatan pulo gadung, kota jakarta timur" style="width: 100%;" oninput="this.className = ''"></textarea>
+                            <textarea rows="4" cols="50" placeholder="Contoh: Kelurahan pulo gadung, kecamatan pulo gadung, kota jakarta timur" style="width: 100%;" oninput="this.className = ''" name="lokasi"></textarea>
                         </div>
                     </div>
                     <div>Gambar Kegiatan
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="file" name="fileUpload" id="fileUpload" oninput="this.className = ''">
-                        </div>
-                        <div class="form-floating">
-                            <input type="file" name="fileUpload" id="fileUpload" oninput="this.className = ''">
+                            <input type="file" id="image" oninput="this.className = ''" name="image" required>
                         </div>
                     </div>
                 </div>
@@ -153,7 +162,7 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="number" placeholder="20000000" oninput="this.className = ''" name="biaya yang dibutuhkan"></input>
+                            <input type="number" placeholder="20000000" oninput="this.className = ''" name="targetdonasi"></input>
                         </div>
                     </div>
                     <div>Tentukan lama galang dana berlangsung
@@ -162,17 +171,17 @@
                         <div class="form-check">
                             <label class="container">
                                 <p><b>30 hari</b></p>
-                                <input type="radio" checked="checked" name="radio">
+                                <input type="radio" checked="checked" name="batas_waktu" value="30">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
                                 <p><b>60 hari</b></p>
-                                <input type="radio" checked="checked" name="radio">
+                                <input type="radio" checked="checked" name="batas_waktu" value="60">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
                                 <p><b>120 hari</b></p>
-                                <input type="radio" checked="checked" name="radio">
+                                <input type="radio" checked="checked" name="batas_waktu" value="120">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -181,7 +190,7 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="date" id="tanggalmulai" name="tanggalmulai" oninput="this.className = ''">
+                            <input type="date" id="tanggalmulai" name="tanggal_mulai" oninput="this.className = ''">
                         </div>
                     </div>
                     <div>Isi rincian penggunaan dana
@@ -189,14 +198,14 @@
                     <div>
                         <div class="form-floating">
                             <textarea rows="4" cols="50" placeholder="Contoh Biaya bahan bangunan Rp 20000000, 
-biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></textarea>
+biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''" name="rincian_galangdana"></textarea>
                         </div>
                     </div>
                     <div>Beri judul untuk galang dana ini
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="text" placeholder="judul" oninput="this.className = ''" name="judul_galang_dana">
+                            <input type="text" placeholder="judul" oninput="this.className = ''" name="judul">
                         </div>
                     </div>
                     <div>Buat Cerita Galang Dana
@@ -204,7 +213,7 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></t
                     <div class="form-floating">
                         <!-- <textarea rows="4" cols="50" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea> -->
                         <!-- <textarea name="content" id="editor" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." style="width: 100%;" oninput="this.className = ''"></textarea> -->
-                        <textarea name="content" id="editor" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." oninput="this.className = ''"></textarea>
+                        <textarea name="deskripsi" id="deskripsi" placeholder="Perkenalkan, nama saya Rahmat Putra Ginting, founder organisasi Aku Bisa. Organisasi ini berfokus pada pemberdayaan masyarakat di berbagai bidang." oninput="this.className = ''" style="width: 100%;" name="deskripsi"></textarea>
                     </div>
                 </div>
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
@@ -217,5 +226,5 @@ biaya tukang Rp 10000000" style="width: 100%;" oninput="this.className = ''"></t
         </div>
     </div>
 </div>
-<script src="js/registergalangdanakaryakreatif.js"></script>
+<script src="{{ asset('js/registergalangdanakaryakreatif.js') }}"></script>
 @stop

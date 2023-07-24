@@ -1,0 +1,45 @@
+// public function notif()
+// {
+//     return view('pages.massage_success.index');
+// }
+
+// public function index()
+// {
+//     $userId = Auth::user()->id;
+//     return view('pages.galangdana.registergalangdanakaryakreatif', compact('userId'));
+// }
+// //form controller register galang dana kreatif
+// public function store(Request $request)
+// {
+//     // Get the data from the form
+//     $request->validate([
+//         'id_user' => 'required',
+//         'kategori_galangdana' => 'required',
+//         'persetujuan_galangdana' => 'required',
+//         'nama' => 'required',
+//         'nomor_hp' => 'required',
+//         'pekerjaan' => 'required',
+//         'tempat_kerja' => 'required',
+//         'nama_kegiatan' => 'required',
+//         'tujuan_kegiatan' => 'required',
+//         'lokasi' => 'required',
+//         'gambar_satu' => 'required',
+//         'gambar_dua' => 'required',
+//         'targetdonasi' => 'required',
+//         'batas_waktu' => 'required',
+//         'tanggal_mulai' => 'required',
+//         'rincian_galangdana' => 'required',
+//         'judul' => 'required',
+//         'deskripsi' => 'required',
+//     ]);
+//     // Handle image upload for 'gambar_satu' and 'gambar_dua'
+//     if ($request->hasFile('gambar_satu') && $request->hasFile('gambar_dua')) {
+//         $gambar_satu = $request->file('gambar_satu')->store('public/images');
+//         $gambar_dua = $request->file('gambar_dua')->store('public/images');
+//         // Remove 'public' from the image path to make it accessible from the web
+//         $gambar_satu = str_replace('public/', '', $gambar_satu);
+//         $gambar_dua = str_replace('public/', '', $gambar_dua);
+//     }
+//     GalangDana::create($request->all());
+
+//  return redirect()->route('registergalangdana-successkaryakreatif')->with('success', 'galang dana segera di proses.');

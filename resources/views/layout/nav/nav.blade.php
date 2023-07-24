@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl bg-ghost-white">
+<nav class="navbar navbar-expand-xl bg-ghost-white" style="width: 100%;">
     <div class="container-xxl justify-content-md-start">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('images/alsteduaribu.png')}}" width="80" height="80" class="d-inline-block align-top" alt="Icon">
