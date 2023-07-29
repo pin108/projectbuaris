@@ -31,25 +31,17 @@ function nextPrev(n) {
     if (currentTab >= x.length) {
         document.getElementById("regForm").submit();
         document.getElementsByName("id_user");
-        document.getElementsByName("kategori_galangdana");
-        document.getElementsByName("persetujuan_galangdana");
-        document.getElementsByName("nama");
-        document.getElementsByName("nomor_hp");
-        document.getElementsByName("pekerjaan");
-        document.getElementsByName("tempat_kerja");
-        document.getElementsByName("nama_kegiatan");
-        document.getElementsByName("tujuan_kegiatan");
-        document.getElementsByName("lokasi");
-        document.getElementsByName("gambar_satu");
-        document.getElementsByName("gambar_dua");
-        document.getElementsByName("targetdonasi");
-        document.getElementsByName("batas_waktu");
+        document.getElementsByName("id_kategoricampaign");
+        document.getElementsByName("judul_campaign");
+        document.getElementsByName("lokasi_campaign");
+        document.getElementsByName("tujuan_campaign");
+        document.getElementsByName("targetdonasi_campaign");
+        document.getElementsByName("rinciandana_campaign");
+        document.getElementsByName("deskripsi_campaign");
+        document.getElementsByName("foto_campaign");
         document.getElementsByName("tanggal_mulai");
-        document.getElementsByName("rincian_galangdana");
-        document.getElementsByName("tanggal_mulai");
-        document.getElementsByName("rincian_galangdana");
-        document.getElementsByName("judul");
-        document.getElementsByName("deskripsi")
+        document.getElementsByName("tanggal_akhir");
+        document.getElementsByName("praturan_campaign");
         document.getElementById("nextprevious").style.display = "none";
         document.getElementById("all-steps").style.display = "none";
         document.getElementById("register").style.display = "none";

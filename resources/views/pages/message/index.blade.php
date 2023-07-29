@@ -12,8 +12,8 @@
     </div>
     @endif
     <div class="container" style="margin-top: 5%;">
-        <div style="text-align: center;"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-            <h3>terimakasih telah registrasi galang dana!</h3> <span>kami akan menghubungi anda!</span>
+        <div style="text-align: center;"> <img src="https://png.pngtree.com/element_our/md/20180515/md_5afb099d307d3.jpg" width="100" class="mb-4">
+            <h3>{{$message}}</h3></span>
         </div>
     </div>
 </div>

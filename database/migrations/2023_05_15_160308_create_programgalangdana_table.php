@@ -14,22 +14,17 @@ return new class extends Migration
         Schema::create('programgalangdana', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user'); //relasi dengan tabel user
-            $table->string('kategori_galangdana');
-            $table->string('persetujuan_galangdana');
-            $table->string('nama');
-            $table->string('nomor_hp');
-            $table->string('pekerjaan');
-            $table->string('tempat_kerja');
-            $table->string('nama_kegiatan');
-            $table->string('tujuan_kegiatan');
-            $table->string('lokasi');
-            $table->string('gambar');
-            $table->integer('targetdonasi');
-            $table->integer('batas_waktu');
+            $table->unsignedBigInteger('id_kategoricampaign');
+            $table->string('judul_campaign');
+            $table->string('lokasi_campaign');
+            $table->string('tujuan_campaign');
+            $table->integer('targetdonasi_campaign');
+            $table->string('rinciandana_campaign');
+            $table->string('deskripsi_campaign');
+            $table->string('foto_campaign');
             $table->date('tanggal_mulai');
-            $table->string('rincian_galangdana');
-            $table->string('judul');
-            $table->string('deskripsi');
+            $table->date('tanggal_akhir');
+            $table->string('praturan_campaign');
             $table->boolean('is_active')->nullable();
             $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\GalangDana;
 use App\Models\Kategori;
+use App\Models\GalangDana;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class GalangdanakaryakreatifController extends Controller
+class GalangdanakegiatanrumahibadahController extends Controller
 {
-
     public function notif($message)
     {
         return view('pages.message.index', compact('message'));
@@ -20,7 +20,7 @@ class GalangdanakaryakreatifController extends Controller
         $user = Auth::user();
         $userId = $user->id;
         // Assuming you want to get all records with "Jenis_kategori" equal to 'some_value'
-        $kategoriRecords = Kategori::where('jenis_kategori', 'karya kreatif dan modal usaha')->get();
+        $kategoriRecords = Kategori::where('jenis_kategori', 'rumah ibadah')->get();
         if ($user->ktp == null) {
             $message = "Mohon Lengkapi Data Anda Pada Menu Profile";
             return $this->notif($message);

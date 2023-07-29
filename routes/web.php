@@ -1,9 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GalangdanakaryakreatifController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesettingController;
+use App\Http\Controllers\GalangdanadifabelController;
+use App\Http\Controllers\GalangdanakaryakreatifController;
+use App\Http\Controllers\GalangdanakegiatansosialController;
+use App\Http\Controllers\GalangdanabantuanbencanaalamController;
+use App\Http\Controllers\GalangdanakegiatanpantiasuhanController;
+use App\Http\Controllers\GalangdanakegiatanrumahibadahController;
+use App\Http\Controllers\GalangdanakegiatanbantuanorangsakitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,35 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Route::get('/registergalangdanakaryakreatif', function () {
-    //     return view('pages.galangdana.registergalangdanakaryakreatif');
-    // })->name('registergalangdanakaryakreatif');
-
-    Route::get('/registergalangdanakegiatansosial', function () {
-        return view('pages.galangdana.registergalangdanakegiatansosial');
-    })->name('registergalangdanakegiatansosial');
-
-
-    Route::get('/registergalangdanadifabel', function () {
-        return view('pages.galangdana.registergalangdanadifabel');
-    })->name('registergalangdanadifabel');
-
-    Route::get('/registergalangdanapantiasuhan', function () {
-        return view('pages.galangdana.registergalangdanapantiasuhan');
-    })->name('registergalangdanapantiasuhan');
-
-    Route::get('/registergalangdanarumahibadah', function () {
-        return view('pages.galangdana.registergalangdanarumahibadah');
-    })->name('registergalangdanarumahibadah');
-
-    Route::get('/registergalangdanaorangsakit', function () {
-        return view('pages.galangdana.registergalangdanaorangsakit');
-    })->name('registergalangdanaorangsakit');
-
-    Route::get('/registergalangdanabencanaalam', function () {
-        return view('pages.galangdana.registergalangdanabencanaalam');
-    })->name('registergalangdanabencanaalam');
 
     Route::get('/daftar', function () {
         return view('pages.signup');
@@ -107,12 +84,40 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/{id}/edit', [ProfilesettingController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update/{id}', [ProfilesettingController::class, 'update'])->name('items.update');
 
-
-
     //galang dana karya kreatif
     Route::get('/registergalangdana-successkaryakreatif', [GalangdanakaryakreatifController::class, 'notif'])->name('registergalangdana-successkaryakreatif');
     Route::get('/index-registerkaryakreatif', [GalangdanakaryakreatifController::class, 'index'])->name('index-registerkaryakreatif');
     Route::post('/process-form-registerkaryakreatif', [GalangdanakaryakreatifController::class, 'store'])->name('process-form-registerkaryakreatif');
+
+    //galang dana kegiatan sosial
+    Route::get('/registergalangdana-successkegiatansosial', [GalangdanakegiatansosialController::class, 'notif'])->name('registergalangdana-successkegiatansosial');
+    Route::get('/index-registerkegiatansosial', [GalangdanakegiatansosialController::class, 'index'])->name('index-registerkegiatansosial');
+    Route::post('/process-form-registerkegiatansosial', [GalangdanakegiatansosialController::class, 'store'])->name('process-form-registerkegiatansosial');
+
+    //galang dana difabel
+    Route::get('/registergalangdana-successdifabel', [GalangdanadifabelController::class, 'notif'])->name('registergalangdana-successdifabel');
+    Route::get('/index-registerdifabel', [GalangdanadifabelController::class, 'index'])->name('index-registerdifabel');
+    Route::post('/process-form-registerdifabel', [GalangdanadifabelController::class, 'store'])->name('process-form-registerdifabel');
+
+    //galang dana panti asuhan
+    Route::get('/registergalangdana-successkegiatanpantiasuhan', [GalangdanakegiatanpantiasuhanController::class, 'notif'])->name('registergalangdana-successkegiatanpantiasuhan');
+    Route::get('/index-registerkegitanpantiasuhan', [GalangdanakegiatanpantiasuhanController::class, 'index'])->name('index-registerkegiatanpantiasuhan');
+    Route::post('/process-form-registerkegiatanpantiasuhan', [GalangdanakegiatanpantiasuhanController::class, 'store'])->name('process-form-registerkegiatanpantiasuhan');
+
+    //galang dana rumah ibadah
+    Route::get('/registergalangdana-successkegiatanrumahibadah', [GalangdanakegiatanrumahibadahController::class, 'notif'])->name('registergalangdana-successkegiatanrumahibadah');
+    Route::get('/index-registerkegiatanrumahibadah', [GalangdanakegiatanrumahibadahController::class, 'index'])->name('index-registerkegiatanrumahibadah');
+    Route::post('/process-form-registerkegiatanrumahibadah', [GalangdanakegiatanrumahibadahController::class, 'store'])->name('process-form-registerkegiatanrumahibadah');
+
+    //galang dana bantuan orang sakit
+    Route::get('/registergalangdana-successbantuanorangsakit', [GalangdanakegiatanbantuanorangsakitController::class, 'notif'])->name('registergalangdana-successbantuanorangsakit');
+    Route::get('/index-registerbantuanorangsakit', [GalangdanakegiatanbantuanorangsakitController::class, 'index'])->name('index-registerbantuanorangsakit');
+    Route::post('/process-form-registerbantuanorangsakit', [GalangdanakegiatanbantuanorangsakitController::class, 'store'])->name('process-form-registerbantuanorangsakit');
+
+    //galangdana bantuan bencana alam
+    Route::get('/registergalangdana-successbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'notif'])->name('registergalangdana-successbantuanbencanaalam');
+    Route::get('/index-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'index'])->name('index-registerbantuanbencanaalam');
+    Route::post('/process-form-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'store'])->name('process-form-registerbantuanbencanaalam');
 });
 
 require __DIR__ . '/auth.php';
