@@ -17,8 +17,8 @@ class GalangDana extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
-    public function Kategori()
+    public function Kategorigalangdana()
     {
-        return $this->belongsTo(Kategori::class, 'id_kategoricampaign');
+        return $this->belongsTo(Kategorigalangdana::class, 'id_kategoricampaign');
     }
 }

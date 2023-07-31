@@ -124,7 +124,7 @@
 					<img src="./images/beasiswa3.jpg" class="d-block w-100" alt="Sunset Over the City" style="width: 400 px; height:600px" />
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Lihat Program</h5>
-						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('informasibeasiswa')}}" role="button">Informasi Beasiswa</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('index-informasibeasiswa')}}" role="button">Informasi Beasiswa</a>
 					</div>
 				</div>
 

@@ -6,6 +6,7 @@ use App\Models\Kategori;
 use App\Models\GalangDana;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Kategorigalangdana;
 use Illuminate\Support\Facades\Auth;
 
 class GalangdanadifabelController extends Controller
@@ -22,7 +23,7 @@ class GalangdanadifabelController extends Controller
         $user = Auth::user();
         $userId = $user->id;
         // Assuming you want to get all records with "Jenis_kategori" equal to 'some_value'
-        $kategoriRecords = Kategori::where('jenis_kategori', 'difabel')->get();
+        $kategoriRecords = Kategorigalangdana::where('jenis_kategori', 'difabel')->get();
         if ($user->ktp == null) {
             $message = "Mohon Lengkapi Data Anda Pada Menu Profile";
             return $this->notif($message);

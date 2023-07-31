@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kategori;
+use App\Models\Kategorigalangdana;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class KategoriTableSeeder extends Seeder
+class Kategorigalangdanaseeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -209,6 +209,6 @@ class KategoriTableSeeder extends Seeder
             // Tambahkan data lain sesuai kebutuhan
         ];
         // Memasukkan data ke dalam tabel products
-        Kategori::insert($kategoris);
+        Kategorigalangdana::insert($kategoris);
     }
 }
