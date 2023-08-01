@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategoribeasiswa;
 use Illuminate\Http\Request;
 
 class BeasiswaController extends Controller
@@ -9,6 +10,7 @@ class BeasiswaController extends Controller
     //
     public function index()
     {
-        return view('pages.beasiswa.cardinformasibeasiswa');
+        $data = Kategoribeasiswa::all();
+        return view('pages.beasiswa.cardinformasibeasiswa', compact('data'));
     }
 }

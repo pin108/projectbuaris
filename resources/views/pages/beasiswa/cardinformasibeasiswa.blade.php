@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @section('content')
 <div class="row">
+    @foreach($data as $item)
     <div class="col-md-6">
         <div>
             <div class="card-beasiswa">
@@ -9,33 +10,18 @@
                 </div>
                 <div class="card-inner">
                     <div class="header">
-                        <h2>Title</h2>
-                        <h3>Sub-Head</h2>
+                        <h2>{{$item->judul_kategoribeasiswa}}</h2>
+                        <p>pendaftaran: {{$item->tanggal_pendaftaranawal}} Sampai {{ $item->tanggal_pendaftaranakhir  }}
+                        </p>
                     </div>
                     <div class="content">
-                        <p>Content area</p>
+                        <p>{{$item->deskripsi_beasiswa}}</p>
+                        <a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('index-informasibeasiswa')}}" role="button">Daftar</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div>
-            <div class="card-beasiswa">
-                <div class="image">
-                    <img src="http://loremflickr.com/320/150?random=5" />
-                </div>
-                <div class="card-inner">
-                    <div class="header">
-                        <h2>Title</h2>
-                        <h3>Sub-Head</h2>
-                    </div>
-                    <div class="content">
-                        <p>Content area</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 @stop
