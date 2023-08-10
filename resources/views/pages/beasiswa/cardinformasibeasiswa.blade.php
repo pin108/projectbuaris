@@ -16,7 +16,7 @@
                     </div>
                     <div class="content">
                         <p>{{$item->deskripsi_beasiswa}}</p>
-                        <a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('index-informasibeasiswa')}}" role="button">Daftar</a>
+                        <a href="{{ route('pendaftaran-beasiswa', $item->id) }}" class="btn btn-primary">Daftar</a>
                     </div>
                 </div>
             </div>

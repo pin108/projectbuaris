@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('jenis_kategoribeasiswa');
             $table->string('judul_kategoribeasiswa');
             $table->string('banner_beasiswa')->nullable();
-            $table->string('deskripsi_beasiswa');
+            $table->text('deskripsi_beasiswa'); // Use TEXT data type
+            $table->text('syarat_beasiswa'); // Use TEXT data type
             $table->date('tanggal_pendaftaranawal');
             $table->date('tanggal_pendaftaranakhir');
             $table->date('tanggal_wawancara');

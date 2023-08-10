@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tujuan_campaign');
             $table->integer('targetdonasi_campaign');
             $table->string('rinciandana_campaign');
-            $table->string('deskripsi_campaign');
+            $table->text('deskripsi_campaign');
             $table->string('foto_campaign');
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('is_active')->nullable();
             $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_kategoricampaign')->references('id')->on('kategorigalangdanas');
         });
     }
 

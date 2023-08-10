@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('tempat_bekerja')->nullable();
             $table->string('fotodiri')->nullable();
             $table->string('ktp')->nullable();
+            $table->integer('roles')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

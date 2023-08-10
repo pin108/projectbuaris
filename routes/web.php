@@ -76,10 +76,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/informasibeasiswa', function () {
         return view('pages.beasiswa.informasiprogram');
     });
-    Route::get('/registerbeasiswa', function () {
-        return view('pages.beasiswa.pendaftaran');
-    });
-
     // profile setting
     Route::get('/profile', [ProfilesettingController::class, 'index'])->name('profile');
     Route::get('/profile/{id}/edit', [ProfilesettingController::class, 'edit'])->name('profile.edit');
@@ -122,6 +118,8 @@ Route::middleware('auth')->group(function () {
 
     //beasiswa controller
     route::get('/index-informasibeasiswa', [BeasiswaController::class, 'index'])->name('index-informasibeasiswa');
+    route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
+    Route::post('/store-beasiswa', [BeasiswaController::class, 'store'])->name('store_beasiswa');
 });
 
 require __DIR__ . '/auth.php';
