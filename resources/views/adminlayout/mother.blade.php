@@ -78,10 +78,10 @@
 
     <!-- plugins:js -->
     @include('script.script')
+    @yield('scripts')
     <!-- End custom js for this page-->
 </body>
 
 <!-- Script verifikasi data panen -->
-<script src="/public/themewagon/assets/js/verifypanen.js"></script>
 
 </html>

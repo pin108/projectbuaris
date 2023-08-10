@@ -14,6 +14,10 @@
 <link rel="stylesheet" href="{{ asset('template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
 <link rel="stylesheet" href="{{ asset('template/js/select.dataTables.min.css') }}">
 <!-- End plugin css for this page -->
+<link href="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- inject:css -->
 <link rel="stylesheet" href="{{ asset('template/css/vertical-layout-light/style.css') }}">
 <!-- endinject -->

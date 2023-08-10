@@ -51,9 +51,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/adminis', function () {
         return view('pages.admin.dashboard');
     });
-    Route::get('/adminis/permintaan', [admin::class, 'permintaan']);
+    Route::get('/adminis/permintaan', [admin::class, 'permintaan'])->name('admin.permintaan');
+    // updatestatus
+    Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updatestatus'])->name('updatestatus');
 
-    
 });
 
 Route::middleware('auth')->group(function () {

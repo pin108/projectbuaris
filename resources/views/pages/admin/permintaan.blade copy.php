@@ -12,11 +12,6 @@
         {{ session('error') }}
     </div>
 @endif
-@section('scripts')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-@endsection
 
 <!-- Tombol Tambah Galang Dana -->
 <div class="text-right mb-3">
@@ -188,101 +183,27 @@
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
-            <div class="modal-body">
-                <!-- Form untuk menambahkan data Galang Dana -->
-                <form action="{{ url('/adminis/permintaan/tambah') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <!-- Tambahkan input fields sesuai dengan tabel yang telah Anda buat -->
-                    <div class="form-group">
-                        <label for="judul_campaign">Judul Campaign</label>
-                        <input type="text" class="form-control" id="judul_campaign" name="judul_campaign" required>
-                    </div>
-                    <!-- Tambahkan input fields lainnya sesuai kebutuhan -->
-                    <div class="form-group">
-                        <label for="foto_campaign">Foto Campaign</label>
-                        <input type="file" class="form-control" id="foto_campaign" name="foto_campaign" accept="image/*" required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="lokasi_campaign">Lokasi Campaign</label>
-                      <input type="text" class="form-control" id="lokasi_campaign" name="lokasi_campaign" required>
-                  </div>
+          <div class="modal-body">
+              <!-- Form untuk menambahkan data Galang Dana -->
+              <form action="{{ url('/adminis/permintaan/tambah') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <!-- Tambahkan input fields sesuai dengan tabel yang telah Anda buat -->
                   <div class="form-group">
-                      <label for="tujuan_campaign">Tujuan Campaign</label>
-                      <input type="text" class="form-control" id="tujuan_campaign" name="tujuan_campaign" required>
+                      <label for="judul_campaign">Judul Campaign</label>
+                      <input type="text" class="form-control" id="judul_campaign" name="judul_campaign" required>
                   </div>
+                  <!-- Tambahkan input fields lainnya sesuai kebutuhan -->
                   <div class="form-group">
-                      <label for="targetdonasi_campaign">Target Donasi Campaign</label>
-                      <input type="number" class="form-control" id="targetdonasi_campaign" name="targetdonasi_campaign" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="rinciandana_campaign">Rincian Dana Campaign</label>
-                      <input type="text" class="form-control" id="rinciandana_campaign" name="rinciandana_campaign" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="deskripsi_campaign">Deskripsi Campaign</label>
-                      <textarea class="form-control" id="deskripsi_campaign" name="deskripsi_campaign" required></textarea>
-                  </div>
-                  <div class="form-group">
-                      <label for="tanggal_mulai">Tanggal Mulai</label>
-                      <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="tanggal_akhir">Tanggal Akhir</label>
-                      <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="praturan_campaign">Praturan Campaign</label>
-                      <textarea class="form-control" id="praturan_campaign" name="praturan_campaign" required></textarea>
+                      <label for="foto_campaign">Foto Campaign</label>
+                      <input type="file" class="form-control" id="foto_campaign" name="foto_campaign" accept="image/*" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Tambah Galang Dana</button>
-
-                </form>
-            </div>
+              </form>
+          </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
       </div>
   </div>
 </div>
-@endsection
-
-@section('scripts')
-<script>
-  // Function to display the Update Permintaan modal
-  function showUpdatePermintaanModal() {
-    $('#updatepermintaan').modal('show');
-  }
-
-  // Function to display the Edit Campaign modal
-  function showEditModal() {
-    $('#editModal').modal('show');
-  }
-
-  // Function to display the Delete Campaign modal
-  function showDeleteModal() {
-    $('#deleteModal').modal('show');
-  }
-
-  // Attach event handlers to the links
-  $(document).ready(function() {
-    // Click event for the "Update Permintaan" link
-    $('a.btn-info[href="#updatepermintaan"]').click(function(event) {
-      event.preventDefault();
-      showUpdatePermintaanModal();
-    });
-
-    // Click event for the "Edit" link
-    $('a.btn-warning[href="#editModal"]').click(function(event) {
-      event.preventDefault();
-      showEditModal();
-    });
-
-    // Click event for the "Hapus" link
-    $('a.btn-danger[href="#deleteModal"]').click(function(event) {
-      event.preventDefault();
-      showDeleteModal();
-    });
-  });
-</script>
 @endsection

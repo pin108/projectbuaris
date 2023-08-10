@@ -36,6 +36,7 @@
                         <div class="col-md-12"><label class="labels">Tempat bekerja/tempat sekolah</label><input type="text" class="form-control" placeholder="contoh:universitas dian nuswantoro/ PT maju bersama" name="tempat_bekerja" value="{{$data->tempat_bekerja}}"></div>
                         <div class="col-md-12"><label class="labels">Masukkan Foto Anda *jpg/png max 5mb</label><input type="file" class="form-control" name="fotodiri"></div>
                         <div class="col-md-12"><label class="labels">Masukkan KTP *pdf max 5mb</label><input type="file" class="form-control" name="ktp"></div>
+                        <input type="hidden" name="roles" value="">
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Password baru *optional</label><input type="password" class="form-control" placeholder="password" name="password"></div>
