@@ -27,15 +27,15 @@
                     @method('PUT')
                     <div class="row mt-2">
                         <input type="hidden" class="form-control" placeholder="id_user" value="" name>
-                        <div class="col-md-12"><label class="labels">Nama</label><input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name"></div>
+                        <div class="col-md-12"><label class="labels">Nama</label><input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name" readonly></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Alamat Email</label><input type="email" class="form-control" value="{{ Auth::user()->email }}" name="email"></div>
-                        <div class="col-md-12"><label class="labels">NIK</label><input type="number" class="form-control" name="NIK" placeholder="masukkan NIK" value="{{ Auth::user()->NIK }}"></div>
-                        <div class="col-md-12"><label class="labels">Nomor HP</label><input type="number" class="form-control" placeholder="masukkan nomor hp/wa" name="nomor_hp" value="{{ Auth::user()->nomor_hp }}"></div>
-                        <div class="col-md-12"><label class="labels">Alamat Rumah Domisili <br></label><input type="text" placeholder="masukkan alamat rumah lengkap" name="alamat_rumah" class="form-control" value="{{ Auth::user()->alamat_rumah }}"></input></div>
-                        <div class="col-md-12"><label class="labels">Pekerja/pelajar</label><input type="text" class="form-control" placeholder="pelajar/mahasiswa/pekerja" name="jenis_pekerjaan" value="{{ Auth::user()->jenis_pekerjaan }}"></div>
-                        <div class="col-md-12"><label class="labels">Tempat bekerja/tempat sekolah</label><input type="text" class="form-control" placeholder="contoh:universitas dian nuswantoro/ PT maju bersama" name="tempat_bekerja" value="{{ Auth::user()->tempat_bekerja }}"></div>
+                        <div class="col-md-12"><label class="labels">Alamat Email</label><input type="email" class="form-control" value="{{ Auth::user()->email }}" name="email" readonly></div>
+                        <div class="col-md-12"><label class="labels">NIK</label><input type="number" class="form-control" name="NIK" placeholder="masukkan NIK" value="{{ Auth::user()->NIK }}" readonly></div>
+                        <div class="col-md-12"><label class="labels">Nomor HP</label><input type="number" class="form-control" placeholder="masukkan nomor hp/wa" name="nomor_hp" value="{{ Auth::user()->nomor_hp }}" readonly></div>
+                        <div class="col-md-12"><label class="labels">Alamat Rumah Domisili <br></label><input type="text" placeholder="masukkan alamat rumah lengkap" name="alamat_rumah" class="form-control" value="{{ Auth::user()->alamat_rumah }}" readonly></input></div>
+                        <div class="col-md-12"><label class="labels">Pekerja/pelajar</label><input type="text" class="form-control" placeholder="pelajar/mahasiswa/pekerja" name="jenis_pekerjaan" value="{{ Auth::user()->jenis_pekerjaan }}" readonly></div>
+                        <div class="col-md-12"><label class="labels">Tempat bekerja/tempat sekolah</label><input type="text" class="form-control" placeholder="contoh:universitas dian nuswantoro/ PT maju bersama" name="tempat_bekerja" value="{{ Auth::user()->tempat_bekerja }}" readonly></div>
                     </div>
                     <div class="mt-5 text-center" style="background-color: blue; color:aliceblue">
                         <a href="/profile/{{ Auth::user()->id }}/edit" class="badge bg-warning border-0">Lengkapi data disini</a>

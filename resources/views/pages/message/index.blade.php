@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-<div style="margin-top: 1%;">
+<div style="margin-top: 1%; margin-bottom:10%">
     @if (session('success'))
     <div class="alert alert-success" style="background-color: green;">
         {{ session('success') }}

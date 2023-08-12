@@ -4,11 +4,11 @@
     <!-- <div class="container" style="margin-top: 2%;">
         <img src="./images/bannerregister.png" class="d-block w-100" alt="Sunset Over the City" style="width: 400 px; height:400px" />
     </div> -->
-    <!-- @if(session('error'))
+    @if(session('error'))
     <div class="alert alert-danger mt-3" style="background-color: red;">
         {{ session('error') }}
     </div>
-    @endif -->
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-md-4">
