@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin;
 use App\Http\Controllers\BeasiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,20 @@ Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
 })->name('galangdanalainnya');
 
+Route::get('/admindashboardss', function () {
+    return view('pages.admindashboardsss');
+})->middleware('admin')->name('admindashboard');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/adminis', function () {
+        return view('pages.admin.dashboard');
+    });
+    Route::get('/adminis/permintaan', [admin::class, 'permintaan'])->name('admin.permintaan');
+    // updatestatus
+    Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updatestatus'])->name('updatestatus');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -62,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/showpengalangdana', function () {
         return view('pages.showpengalangdana');
     });
+
+   
 
     Route::get('/kirimdonasi', function () {
         return view('pages.detaildonasi');
@@ -121,5 +138,6 @@ Route::middleware('auth')->group(function () {
     route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
     Route::post('/store-beasiswa', [BeasiswaController::class, 'store'])->name('store_beasiswa');
 });
+
 
 require __DIR__ . '/auth.php';

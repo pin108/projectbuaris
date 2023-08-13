@@ -30,7 +30,8 @@ class User extends Authenticatable
         'jenis_pekerjaan',
         'tempat_bekerja',
         'fotodiri',
-        'ktp'
+        'ktp',
+        'roles'
     ];
 
     /**
