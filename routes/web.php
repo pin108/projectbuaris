@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin;
-use App\Http\Controllers\BeasiswaController;
+use App\Http\Controllers\adminbeasiswa;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesettingController;
@@ -59,7 +59,26 @@ Route::middleware('admin')->group(function () {
     Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updategalangdana'])->name('admin.update');
 
     Route::delete('/adminis/permintaan/delete/{id}', [admin::class, 'hapusgalangdana'])->name('admin.destroy');
+    Route::get('/adminis/beasiswa', [adminbeasiswa::class, 'index'])->name('admin.beasiswa');
 
+    // Menampilkan halaman detail pendaftaran beasiswa
+    Route::get('/adminis/beasiswa/{id}', [adminbeasiswa::class, 'show'])->name('admin.beasiswa.detail');
+
+    // Menampilkan halaman tambah pendaftaran beasiswa
+    Route::get('/adminis/beasiswa/tambah', [adminbeasiswa::class, 'create'])->name('admin.beasiswa.tambah');
+
+    // Menyimpan data pendaftaran beasiswa yang baru
+    Route::post('/adminis/beasiswa/tambah', [adminbeasiswa::class, 'store'])->name('admin.beasiswa.simpan');
+
+    // Menampilkan halaman edit pendaftaran beasiswa
+    Route::get('/adminis/beasiswa/edit/{id}', [adminbeasiswa::class, 'edit'])->name('admin.beasiswa.edit');
+
+    // Mengupdate data pendaftaran beasiswa yang ada
+    Route::put('/adminis/beasiswa/edit/{id}', [adminbeasiswa::class, 'update'])->name('admin.beasiswa.update');
+
+    // Menghapus data pendaftaran beasiswa
+    Route::delete('/adminis/beasiswa/hapus/{id}', [adminbeasiswa::class, 'destroy'])->name('admin.beasiswa.hapus');
+    Route::put('/adminis/beasiswa/status/{id}', [adminbeasiswa::class, 'updateStatus'])->name('admin.beasiswa.updatestatus');
 });
 
 Route::middleware('auth')->group(function () {
@@ -139,9 +158,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/process-form-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'store'])->name('process-form-registerbantuanbencanaalam');
 
     //beasiswa controller
-    route::get('/index-informasibeasiswa', [BeasiswaController::class, 'index'])->name('index-informasibeasiswa');
-    route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
-    Route::post('/store-beasiswa', [BeasiswaController::class, 'store'])->name('store_beasiswa');
+    route::get('/index-informasibeasiswa', [adminbeasiswa::class, 'index'])->name('index-informasibeasiswa');
+    route::get('/pendaftaran-beasiswa/{id}', [adminbeasiswa::class, 'register'])->name('pendaftaran-beasiswa');
+    Route::post('/store-beasiswa', [adminbeasiswa::class, 'store'])->name('store_beasiswa');
 });
 
 

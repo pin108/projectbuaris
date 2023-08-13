@@ -37,6 +37,8 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('id_peserta')->references('id')->on('users');
             $table->foreign('id_kategoribeasiswa')->references('id')->on('kategoribeasiswas');
+            $table->integer('is_active')->nullable();
+
         });
     }
 

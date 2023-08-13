@@ -9,7 +9,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ url('adminis/permintaan') }}">
                 <i class="menu-icon mdi mdi-map-marker"></i>
-                <span class="menu-title">Permintaan</span>
+                <span class="menu-title">Galang Dana</span>
             </a>
         </li>
         <li class="nav-item">
@@ -19,9 +19,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('transasksireport') }}">
+            <a class="nav-link" href="{{ url('adminis/beasiswa') }}">
                 <i class="menu-icon mdi mdi-map-marker"></i>
-                <span class="menu-title">Tambah Data Beasiswa</span>
+                <span class="menu-title">Informasi Beasiswa</span>
             </a>
         </li>
         <li class="nav-item">
