@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\GalangDana;
 use App\Models\Kategorigalangdana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class admin extends Controller
 {
@@ -20,9 +21,11 @@ class admin extends Controller
     }
 
         public function permintaan(){
-            $data =  DB::table('programgalangdana')->get();
+            $data1 =  DB::table('programgalangdana')->get();
+            $data2 =  DB::table('kategorigalangdanas')->get();
+
             // dd($data);
-            return view('pages.admin.permintaan', ['data' => $data]);
+            return view('pages.admin.permintaan', ['data1' => $data1, 'data2' => $data2]);
         }
     /**
      * Store a newly created resource in storage.
@@ -34,7 +37,7 @@ class admin extends Controller
 
     public function storegalangdana(Request $request){
         $programGalangDana = new admingalangdana;
-        $programGalangDana->id_user = $request->input('id_user');
+        $programGalangDana->id_user = '2308000001';
         $programGalangDana->id_kategoricampaign = $request->input('id_kategoricampaign');
         $programGalangDana->judul_campaign = $request->input('judul_campaign');
         $programGalangDana->lokasi_campaign = $request->input('lokasi_campaign');
@@ -42,7 +45,15 @@ class admin extends Controller
         $programGalangDana->targetdonasi_campaign = $request->input('targetdonasi_campaign');
         $programGalangDana->rinciandana_campaign = $request->input('rinciandana_campaign');
         $programGalangDana->deskripsi_campaign = $request->input('deskripsi_campaign');
-        $programGalangDana->foto_campaign = $request->input('foto_campaign');
+        
+        if ($request->hasFile('foto_campaign')) {
+            $image = $request->file('foto_campaign')->store('public/images');
+            $image = str_replace('public/', '', $image);
+            $programGalangDana->foto_campaign = $image;
+        } else {
+            return redirect()->route('index-registerkaryakreatif')->with('error', 'Please upload an image.');
+        }
+        
         $programGalangDana->tanggal_mulai = $request->input('tanggal_mulai');
         $programGalangDana->tanggal_akhir = $request->input('tanggal_akhir');
         $programGalangDana->praturan_campaign = $request->input('praturan_campaign');
@@ -50,7 +61,7 @@ class admin extends Controller
     
         return redirect('/adminis/permintaan')->with('success', 'Galang Dana berhasil ditambahkan');
     }
-    public function updatestatus(Request $request, string $id)
+        public function updatestatus(Request $request, string $id)
     {
         $data = admingalangdana::find($id);
     if (!$data) {
@@ -68,7 +79,60 @@ class admin extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function updategalangdana(Request $request, string $id)
+    {
+        $data = admingalangdana::find($id);
+    
+        if (!$data) {
+            return redirect()->route('admin.permintaan')->with('error', 'Data not found');
+        }
+    
+        $request->validate([
+            'judul_campaign' => 'required|string|max:255',
+            'lokasi_campaign' => 'required|string',
+            'tujuan_campaign' => 'required|string',
+            'targetdonasi_campaign' => 'required|numeric',
+            'rinciandana_campaign' => 'required|string',
+            'deskripsi_campaign' => 'required|string',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_akhir' => 'required|date|after_or_equal:tanggal_mulai',
+            'praturan_campaign' => 'required|string',
+        ]);
+    
+        // Update data campaign dengan data yang diberikan oleh request
+        $data->judul_campaign = $request->input('judul_campaign');
+        $data->lokasi_campaign = $request->input('lokasi_campaign');
+        $data->tujuan_campaign = $request->input('tujuan_campaign');
+        $data->targetdonasi_campaign = $request->input('targetdonasi_campaign');
+        $data->rinciandana_campaign = $request->input('rinciandana_campaign');
+        $data->deskripsi_campaign = $request->input('deskripsi_campaign');
+        $data->tanggal_mulai = $request->input('tanggal_mulai');
+        $data->tanggal_akhir = $request->input('tanggal_akhir');
+        $data->praturan_campaign = $request->input('praturan_campaign');
+        // ... update field lainnya jika ada ...
+    
+        $data->save();
+    
+        return redirect()->route('admin.permintaan')->with('success', 'Data campaign berhasil diperbarui');
+    }
+     public function hapusgalangdana(string $id)
+     {
+         $programGalangDana = admingalangdana::find($id);
+         if (!$programGalangDana) {
+             return redirect()->route('admin.permintaan')->with('error', 'Data not found');
+         }
+     
+         // Hapus gambar dari storage jika ada
+         if (!empty($programGalangDana->foto_campaign)) {
+             Storage::delete('public/images/' . $programGalangDana->foto_campaign);
+         }
+     
+         $programGalangDana->delete();
+     
+         return redirect()->route('admin.permintaan')->with('success', 'Galang Dana berhasil dihapus');
+     }
+     
+     public function show(string $id)
     {
     
     }

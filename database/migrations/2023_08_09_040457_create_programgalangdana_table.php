@@ -25,7 +25,7 @@ return new class extends Migration
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
             $table->string('praturan_campaign');
-            $table->boolean('is_active')->nullable();
+            $table->integer('is_active')->nullable();
             $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_kategoricampaign')->references('id')->on('kategorigalangdanas');

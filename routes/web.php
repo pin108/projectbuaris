@@ -46,14 +46,19 @@ Route::get('/admindashboardss', function () {
     return view('pages.admindashboardsss');
 })->middleware('admin')->name('admindashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('admin')->group(function () {
 
     Route::get('/adminis', function () {
         return view('pages.admin.dashboard');
     });
     Route::get('/adminis/permintaan', [admin::class, 'permintaan'])->name('admin.permintaan');
     // updatestatus
-    Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updatestatus'])->name('updatestatus');
+    Route::post('/adminis/permintaan/updatestatus/{id}', [admin::class, 'updatestatus'])->name('updatestatus');
+    Route::post('/adminis/permintaan/tambah', [admin::class, 'storegalangdana'])->name('tambahgalangdana');
+    Route::post('/adminis/permintaan/tambah', [admin::class, 'storegalangdana'])->name('admin.edit');
+    Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updategalangdana'])->name('admin.update');
+
+    Route::delete('/adminis/permintaan/delete/{id}', [admin::class, 'hapusgalangdana'])->name('admin.destroy');
 
 });
 

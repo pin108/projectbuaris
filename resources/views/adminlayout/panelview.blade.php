@@ -91,7 +91,7 @@
             </div>
         </div>
         <!-- To do section tab ends -->
-        @include('layouts.chat')
+        {{-- @include('layouts.chat') --}}
         <!-- chat tab ends -->
     </div>
 </div>
