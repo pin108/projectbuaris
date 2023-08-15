@@ -38,7 +38,7 @@ class adminbeasiswa extends Controller
     {
         $pendaftaranBeasiswa = pendaftaran_beasiswa::findOrFail($id);
 
-        return view('pages.admin.beasiswa_detail', compact('pendaftaranBeasiswa'));
+        return view('pages.admin.beasiswa', compact('pendaftaranBeasiswa'));
     }
 
     public function update(Request $request, $id)
@@ -47,7 +47,17 @@ class adminbeasiswa extends Controller
             'nama_depan' => 'required|string',
             'nama_belakang' => 'required|string',
             'email' => 'required|email',
-            // ... tambahkan validasi field lainnya sesuai kebutuhan ...
+            'nomor_hp' => 'required|string',
+            'kelurahan' => 'required|string',
+            'kecamatan' => 'required|string',
+            'kabupaten' => 'required|string',
+            'RT' => 'required|string',
+            'RW' => 'required|string',
+            'provinsi' => 'required|string',
+            'nomor_identitas' => 'required|string',
+            'ratarata_nilai' => 'required|string',
+            'semester' => 'required|string',
+            // Add validation rules for other fields as needed
         ]);
 
         $pendaftaranBeasiswa = pendaftaran_beasiswa::findOrFail($id);
