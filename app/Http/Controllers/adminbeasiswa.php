@@ -23,7 +23,7 @@ class adminbeasiswa extends Controller
         $pendaftaranBeasiswa->is_active = $request->is_active;
         $pendaftaranBeasiswa->save();
 
-        return redirect()->route('pages.admin.beasiswa')->with('success', 'Status pendaftaran beasiswa berhasil diperbarui.');
+        return redirect()->route('admin.beasiswa')->with('success', 'Status pendaftaran beasiswa berhasil diperbarui.');
     }
 
     public function index()
@@ -54,7 +54,7 @@ class adminbeasiswa extends Controller
 
         $pendaftaranBeasiswa->update($request->all());
 
-        return redirect()->route('pages.admin.beasiswa')->with('success', 'Data pendaftaran beasiswa berhasil diperbarui');
+        return redirect()->route('admin.beasiswa')->with('success', 'Data pendaftaran beasiswa berhasil diperbarui');
     }
 
     public function destroy($id)
@@ -63,6 +63,6 @@ class adminbeasiswa extends Controller
 
         $pendaftaranBeasiswa->delete();
 
-        return redirect()->route('pages.admin.beasiswa')->with('success', 'Data pendaftaran beasiswa berhasil dihapus');
+        return redirect()->route('admin.beasiswa')->with('success', 'Data pendaftaran beasiswa berhasil dihapus');
     }
 }
