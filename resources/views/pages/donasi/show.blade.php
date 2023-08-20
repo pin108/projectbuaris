@@ -42,14 +42,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="container">
-                        <h1 class="mt-4">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h1>
-                        <p>Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
+                        <h1 class="mt-4">{{$donasiDetail->judul_campaign}}</h1>
+                        <p>{{$donasiDetail->deskripsi_campaign}}</p>
                         <div class="row">
                             <div class="col-sm-4">
                                 Rp122.292.050
                             </div>
                             <div class="col-sm-4">
-                                Terkumpul dari Rp400.000.000
+                                Terkumpul dari target donasi {{ $donasiDetail->targetdonasi_campaign }}
                             </div>
                         </div>
                         <div class="row" style="margin-top: 2%;">
@@ -148,3 +148,20 @@
     </div>
 </main>
 @endsection
+
+<!-- "id" => 7
+    "id_user" => 2308000002
+    "id_kategoricampaign" => 7
+    "judul_campaign" => "Judul Campaign 7"
+    "lokasi_campaign" => "Lokasi Campaign 7"
+    "tujuan_campaign" => "Tujuan Campaign 7"
+    "targetdonasi_campaign" => 17000
+    "rinciandana_campaign" => "Rincian Dana Campaign 7"
+    "deskripsi_campaign" => "Deskripsi Campaign 7"
+    "foto_campaign" => "nama-file-gambar-7.jpg"
+    "tanggal_mulai" => "2023-08-10"
+    "tanggal_akhir" => "2023-08-24"
+    "praturan_campaign" => "Praturan Campaign 7"
+    "is_active" => 1
+    "created_at" => "2023-08-17 10:14:37"
+    "updated_at" => "2023-08-17 10:14:37" -->

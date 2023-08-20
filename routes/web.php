@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\admin;
-use App\Http\Controllers\adminbeasiswa;
-use App\Http\Controllers\BeasiswaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminbeasiswa;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BeasiswaController;
 use App\Http\Controllers\ProfilesettingController;
 use App\Http\Controllers\GalangdanadifabelController;
 use App\Http\Controllers\GalangdanakaryakreatifController;
@@ -25,9 +26,15 @@ use App\Http\Controllers\GalangdanakegiatanbantuanorangsakitController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+// Route::get('/', function () {
+//     return view('pages.home');
+// });
+//not middleware
+Route::get('/', [HomeController::class, 'main'])->name('/');
+Route::get('/donasi/{id}', [HomeController::class, 'detail'])->name('detail');
+// Route::get('/detail', function () {
+//     return view('pages.show');
+// });
 
 Route::get('/dashboard', function () {
     return view('pages.home');
@@ -93,10 +100,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/login', function () {
         return view('pages.login');
-    });
-
-    Route::get('/detail', function () {
-        return view('pages.show');
     });
 
     Route::get('/showpengalangdana', function () {
