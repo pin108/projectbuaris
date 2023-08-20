@@ -26,7 +26,7 @@
             <a class="nav-link" href="{{ url('kirimdonasi') }}">Donasi Saya</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/joblist.html">Lamaran Beasiswa</a>
+            <a class="nav-link" href="{{url('lamaranbeasiswa')}}">Lamaran Beasiswa</a>
           </li>
 
           <li class="nav-item">

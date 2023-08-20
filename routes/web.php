@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin;
 use App\Http\Controllers\adminbeasiswa;
+use App\Http\Controllers\BeasiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilesettingController;
@@ -102,7 +103,7 @@ Route::middleware('auth')->group(function () {
         return view('pages.showpengalangdana');
     });
 
-   
+
 
     Route::get('/kirimdonasi', function () {
         return view('pages.detaildonasi');
@@ -158,9 +159,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/process-form-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'store'])->name('process-form-registerbantuanbencanaalam');
 
     //beasiswa controller
-    route::get('/index-informasibeasiswa', [adminbeasiswa::class, 'index'])->name('index-informasibeasiswa');
-    route::get('/pendaftaran-beasiswa/{id}', [adminbeasiswa::class, 'register'])->name('pendaftaran-beasiswa');
-    Route::post('/store-beasiswa', [adminbeasiswa::class, 'store'])->name('store_beasiswa');
+    route::get('/index-informasibeasiswa', [BeasiswaController::class, 'index'])->name('index-informasibeasiswa');
+    route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
+    route::get('/lamaranbeasiswa/', [BeasiswaController::class, 'proseslamaran'])->name('lamaranbeasiswa');
+    Route::post('/store-beasiswa', [BeasiswaController::class, 'store'])->name('store_beasiswa');
 });
 
 

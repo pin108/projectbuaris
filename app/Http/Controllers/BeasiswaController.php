@@ -12,6 +12,21 @@ use Illuminate\Support\Facades\Auth;
 class BeasiswaController extends Controller
 {
     //
+    public function proseslamaran()
+    {
+        $checkauth = Auth::user();
+        $id_user = $checkauth->id;
+
+        $pendaftarans = pendaftaran_beasiswa::with('user', 'kategoribeasiswa')
+            ->where('id_peserta', $id_user)
+            ->get();
+        if ($pendaftarans->isEmpty()) {
+            $message = "Anda belum mendaftar beasiswa";
+            return $this->notif($message);
+        }
+
+        return view('pages.beasiswa.lamaranbeasiswa', compact('pendaftarans'));
+    }
     public function notif($message)
     {
         return view('pages.message.index', compact('message'));
