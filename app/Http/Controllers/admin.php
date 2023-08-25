@@ -17,16 +17,23 @@ class admin extends Controller
      */
     public function index()
     {
-        return view('pages.admin.dashboard');
+        $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')
+            ->where('is_active', 1)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('pages.admin.dashboard', compact('activeGalangDanas'));
     }
 
-        public function permintaan(){
-            $data1 =  DB::table('programgalangdana')->get();
-            $data2 =  DB::table('kategorigalangdanas')->get();
+    public function permintaan()
+    {
+        $data1 =  DB::table('programgalangdana')->get();
+        $data2 =  DB::table('kategorigalangdanas')->get();
 
-            // dd($data);
-            return view('pages.admin.permintaan', ['data1' => $data1, 'data2' => $data2]);
-        }
+        // dd($data);
+        return view('pages.admin.permintaan', ['data1' => $data1, 'data2' => $data2]);
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -35,7 +42,8 @@ class admin extends Controller
         //
     }
 
-    public function storegalangdana(Request $request){
+    public function storegalangdana(Request $request)
+    {
         $programGalangDana = new admingalangdana;
         $programGalangDana->id_user = '2308000001';
         $programGalangDana->id_kategoricampaign = $request->input('id_kategoricampaign');
@@ -45,7 +53,7 @@ class admin extends Controller
         $programGalangDana->targetdonasi_campaign = $request->input('targetdonasi_campaign');
         $programGalangDana->rinciandana_campaign = $request->input('rinciandana_campaign');
         $programGalangDana->deskripsi_campaign = $request->input('deskripsi_campaign');
-        
+
         if ($request->hasFile('foto_campaign')) {
             $image = $request->file('foto_campaign')->store('public/images');
             $image = str_replace('public/', '', $image);
@@ -53,28 +61,28 @@ class admin extends Controller
         } else {
             return redirect()->route('index-registerkaryakreatif')->with('error', 'Please upload an image.');
         }
-        
+
         $programGalangDana->tanggal_mulai = $request->input('tanggal_mulai');
         $programGalangDana->tanggal_akhir = $request->input('tanggal_akhir');
         $programGalangDana->praturan_campaign = $request->input('praturan_campaign');
         $programGalangDana->save();
-    
+
         return redirect('/adminis/permintaan')->with('success', 'Galang Dana berhasil ditambahkan');
     }
-        public function updatestatus(Request $request, string $id)
+    public function updatestatus(Request $request, string $id)
     {
         $data = admingalangdana::find($id);
-    if (!$data) {
-        return redirect()->route('admin.permintaan')->with('error', 'Data not found');
-    }
+        if (!$data) {
+            return redirect()->route('admin.permintaan')->with('error', 'Data not found');
+        }
 
-    $request->validate([
-        'is_active' => 'required|integer',
-    ]);
+        $request->validate([
+            'is_active' => 'required|integer',
+        ]);
 
-    $data->is_active = $request->is_active;
-    $data->save();
-    return redirect()->route('admin.permintaan')->with('success', 'Data berhasil diperbarui');
+        $data->is_active = $request->is_active;
+        $data->save();
+        return redirect()->route('admin.permintaan')->with('success', 'Data berhasil diperbarui');
     }
     /**
      * Display the specified resource.
@@ -82,11 +90,11 @@ class admin extends Controller
     public function updategalangdana(Request $request, string $id)
     {
         $data = admingalangdana::find($id);
-    
+
         if (!$data) {
             return redirect()->route('admin.permintaan')->with('error', 'Data not found');
         }
-    
+
         $request->validate([
             'judul_campaign' => 'required|string|max:255',
             'lokasi_campaign' => 'required|string',
@@ -98,7 +106,7 @@ class admin extends Controller
             'tanggal_akhir' => 'required|date|after_or_equal:tanggal_mulai',
             'praturan_campaign' => 'required|string',
         ]);
-    
+
         // Update data campaign dengan data yang diberikan oleh request
         $data->judul_campaign = $request->input('judul_campaign');
         $data->lokasi_campaign = $request->input('lokasi_campaign');
@@ -110,31 +118,30 @@ class admin extends Controller
         $data->tanggal_akhir = $request->input('tanggal_akhir');
         $data->praturan_campaign = $request->input('praturan_campaign');
         // ... update field lainnya jika ada ...
-    
+
         $data->save();
-    
+
         return redirect()->route('admin.permintaan')->with('success', 'Data campaign berhasil diperbarui');
     }
-     public function hapusgalangdana(string $id)
-     {
-         $programGalangDana = admingalangdana::find($id);
-         if (!$programGalangDana) {
-             return redirect()->route('admin.permintaan')->with('error', 'Data not found');
-         }
-     
-         // Hapus gambar dari storage jika ada
-         if (!empty($programGalangDana->foto_campaign)) {
-             Storage::delete('public/images/' . $programGalangDana->foto_campaign);
-         }
-     
-         $programGalangDana->delete();
-     
-         return redirect()->route('admin.permintaan')->with('success', 'Galang Dana berhasil dihapus');
-     }
-     
-     public function show(string $id)
+    public function hapusgalangdana(string $id)
     {
-    
+        $programGalangDana = admingalangdana::find($id);
+        if (!$programGalangDana) {
+            return redirect()->route('admin.permintaan')->with('error', 'Data not found');
+        }
+
+        // Hapus gambar dari storage jika ada
+        if (!empty($programGalangDana->foto_campaign)) {
+            Storage::delete('public/images/' . $programGalangDana->foto_campaign);
+        }
+
+        $programGalangDana->delete();
+
+        return redirect()->route('admin.permintaan')->with('success', 'Galang Dana berhasil dihapus');
+    }
+
+    public function show(string $id)
+    {
     }
 
     /**

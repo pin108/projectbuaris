@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\GalangDana;
 use App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminbeasiswa;
@@ -37,7 +38,12 @@ Route::get('/donasi/{id}', [HomeController::class, 'detail'])->name('detail');
 // });
 
 Route::get('/dashboard', function () {
-    return view('pages.home');
+    $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')
+        ->where('is_active', 1)
+        ->latest()
+        ->take(5)
+        ->get();
+    return view('pages.home', compact('activeGalangDanas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 //galang dana
