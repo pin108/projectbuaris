@@ -7,6 +7,7 @@ use App\Http\Controllers\adminbeasiswa;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BeasiswaController;
+use App\Http\Controllers\FindGalangdanaController;
 use App\Http\Controllers\ProfilesettingController;
 use App\Http\Controllers\GalangdanadifabelController;
 use App\Http\Controllers\GalangdanakaryakreatifController;
@@ -167,6 +168,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/index-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'index'])->name('index-registerbantuanbencanaalam');
     Route::post('/process-form-registerbantuanbencanaalam', [GalangdanabantuanbencanaalamController::class, 'store'])->name('process-form-registerbantuanbencanaalam');
 
+    //find kategori galang dana
+    Route::get('carigalangdana-bencanaalam', [FindGalangdanaController::class, 'findbencanaalam'])->name('carigalangdana-bencanaalam');
+    Route::get('carigalangdana-orangsakit', [FindGalangdanaController::class, 'findorangsakit'])->name('carigalangdana-orangsakit');
+    Route::get('carigalangdana-difabel', [FindGalangdanaController::class, 'finddifabel'])->name('carigalangdana-difabel');
     //beasiswa controller
     route::get('/index-informasibeasiswa', [BeasiswaController::class, 'index'])->name('index-informasibeasiswa');
     route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
