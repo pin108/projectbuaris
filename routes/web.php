@@ -172,6 +172,11 @@ Route::middleware('auth')->group(function () {
     Route::get('carigalangdana-bencanaalam', [FindGalangdanaController::class, 'findbencanaalam'])->name('carigalangdana-bencanaalam');
     Route::get('carigalangdana-orangsakit', [FindGalangdanaController::class, 'findorangsakit'])->name('carigalangdana-orangsakit');
     Route::get('carigalangdana-difabel', [FindGalangdanaController::class, 'finddifabel'])->name('carigalangdana-difabel');
+    Route::get('carigalangdana-karyakreatif', [FindGalangdanaController::class, 'findkaryakreatif'])->name('carigalangdana-karyakreatif');
+    Route::get('carigalangdana-kegiatansosial', [FindGalangdanaController::class, 'findkegiatansosial'])->name('carigalangdana-kegiatansosial');
+    Route::get('carigalangdana-pantiasuhan', [FindGalangdanaController::class, 'findpantiasuhan'])->name('carigalangdana-pantiasuhan');
+    Route::get('carigalangdana-rumahibadah', [FindGalangdanaController::class, 'findrumahibadah'])->name('carigalangdana-rumahibadah');
+    Route::get('carigalangdana-lainnya', [FindGalangdanaController::class, 'findlainnya'])->name('carigalangdanlain');
     //beasiswa controller
     route::get('/index-informasibeasiswa', [BeasiswaController::class, 'index'])->name('index-informasibeasiswa');
     route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');

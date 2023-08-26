@@ -227,7 +227,7 @@
 				<div class="col md-6">
 					<div class="card-category">
 						<div class="card-category-icon">
-							<a href="#">
+							<a href="{{route('carigalangdanlain')}}">
 								<img src="./images/other_admission_FILL0_wght400_GRAD0_opsz48.png" alt="Lainnya" />
 							</a>
 						</div>
