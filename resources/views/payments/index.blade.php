@@ -40,9 +40,6 @@
                         @else
                             Sudah Dikirim / proses review
                         @endif
-
-                        status 2 = tertolak 
-                        status 3 = berhasil
                     </td>
                     <td>
                         @if ($payment->status == 0)
