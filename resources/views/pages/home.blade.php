@@ -170,6 +170,7 @@
 		<div class="container-fluid">
 			<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 				@foreach ($activeGalangDanas as $galangdana)
+				{{ $galangdana->id }}
 				<div class="col-5">
 					<div class="card">
 						<img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="card-img-top" alt="Donation Image">

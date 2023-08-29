@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'roles' => 0,
         ]);
 
-        
+
 
         $kategorisBeasiswa = [
             [
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             [
                 'jenis_kategori' => 'karya kreatif dan modal usaha',
                 'nama_kategori' => 'film dan video',
-            ],[
+            ], [
                 'jenis_kategori' => 'karya kreatif dan modal usaha',
                 'nama_kategori' => 'musik',
             ],

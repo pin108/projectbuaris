@@ -34,7 +34,6 @@ use App\Http\Controllers\payment;
 // });
 //not middleware
 Route::get('/', [HomeController::class, 'main'])->name('/');
-Route::get('/donasi/{id}', [HomeController::class, 'detail'])->name('detail');
 // Route::get('/detail', function () {
 //     return view('pages.show');
 // });
@@ -114,12 +113,6 @@ Route::middleware('auth')->group(function () {
         return view('pages.showpengalangdana');
     });
 
-
-
-    Route::get('/kirimdonasi', function () {
-        return view('pages.detaildonasi');
-    })->name('kirimdonasi');
-
     Route::get('/adminpengalang', function () {
         return view('pages.adminpengalang');
     });
@@ -186,13 +179,20 @@ Route::middleware('auth')->group(function () {
 
 
     //payment transaksi
-    Route::post('payments', [payment::class, 'store'])->name('payments.store');
+    Route::post('payments', [payment::class, 'store'])->name('payments');
     Route::get('payments/create/{galangdana_id}', [payment::class, 'create'])->name('payments.create');
     Route::get('payments/index', [payment::class, 'index'])->name('payments.index');
     Route::get('payments/history', [payment::class, 'index'])->name('payments.history');
 
     Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
     Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
+
+    //donasi
+    Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
+    Route::get('/kirimdonasi/{id}', [payment::class, 'senddonasi'])->name('senddonasi');
+    // Route::get('/kirimdonasi', function () {
+    //     return view('pages.detaildonasi');
+    // })->name('kirimdonasi');
 });
 
 

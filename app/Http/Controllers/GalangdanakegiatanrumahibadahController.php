@@ -48,7 +48,7 @@ class GalangdanakegiatanrumahibadahController extends Controller
                 'foto_campaign' => 'required|image|mimes:jpeg,png,jpg,gif',
                 'tanggal_mulai' => 'required',
                 'tanggal_akhir' => 'required',
-                'praturan_campaign' => 'required',
+                'praturan_campaign' => 'required'
             ]);
 
             // Check if the record already exists in the database based on certain criteria (e.g., id_user)
@@ -83,7 +83,7 @@ class GalangdanakegiatanrumahibadahController extends Controller
                 'foto_campaign' => $image,
                 'tanggal_mulai' => $request->input('tanggal_mulai'),
                 'tanggal_akhir' =>  $request->input('tanggal_akhir'),
-                'praturan_campaign' => $request->input('praturan_campaign'),
+                'praturan_campaign' => $request->input('praturan_campaign')
             ]);
             $data->save();
 

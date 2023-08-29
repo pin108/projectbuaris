@@ -105,7 +105,8 @@
                                 <div>pencairan dana</div>
                             </div>
                         </div>
-                        <a href="{{url('kirimdonasi')}}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
+                        {{ $donasiDetail->id }}
+                        <a href="{{ route('senddonasi', ['id' => $donasiDetail->id]) }}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
                     </div>
                 </div>
             </div>

@@ -19,11 +19,4 @@ class HomeController extends Controller
 
         return view('pages.home', compact('activeGalangDanas'));
     }
-    public function detail($id)
-    {
-        $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
-            ->findOrFail($id);
-
-        return view('pages.donasi.show', compact('donasiDetail'));
-    }
 }

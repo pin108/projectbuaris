@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\admingalangdana;
 use App\Models\GalangDana;
-use App\Models\payment as ModelsPayment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -30,51 +30,62 @@ class payment extends Controller
     {
         try {
             $request->validate([
-                'id_galangdana' => 'required|exists:programgalangdana,id',
-                'total' => 'required|numeric',
+                'id_galangdana' => 'required',
+                'jumlah_donasi' => 'required|numeric',
+                'bukti_transaksi' => 'required|image|mimes:jpeg,png,jpg,gif'
             ]);
-    
+
             $user = Auth::user();
-            $galangDana = admingalangdana::findOrFail($request->id_galangdana);
-    
-            // Generate kode invoice (misalnya: INV-yyyy-mm-dd-123)
-            $invoiceCode = 'INV-' . date('Y-m-d') . '-' . ModelsPayment::count();
-            $total = str_replace(',', '', $request->total); // Hilangkan tanda koma jika ada
+            $galangDana = GalangDana::findOrFail($request->id_galangdana);
+
+            // Upload bukti transaksi
+            if ($request->hasFile('bukti_transaksi')) {
+                $buktiTransaksiPath = $request->file('bukti_transaksi')->store('public/invoicepembayaran');
+                $buktiTransaksiPath = str_replace('public/', '', $buktiTransaksiPath);
+            } else {
+                return redirect()->route('senddonasi', $galangDana->id)->with('error', 'Please upload an image.');
+            }
+
+            $invoiceCode = 'INV-' . date('Y-m-d') . Str::uuid()->toString();
+            $total = str_replace(',', '', $request->jumlah_donasi);
             $total = floatval($total);
-    
+            $statusupdate = 1;
             \App\Models\payment::create([
                 'user_id' => $user->id,
                 'id_galangdana' => $galangDana->id,
                 'total' => $total,
+                'buktitransaksi' => $buktiTransaksiPath,
                 'invoice_code' => $invoiceCode,
+                'status' => $statusupdate
             ]);
-    
-            return redirect()->route('payments.index')->with('success', 'Pembayaran berhasil disimpan.');
+
+            return redirect()->route('payments.index')->with('success', 'Payment successfully saved.');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
     }
+
     public function updateBuktiTransaksi(Request $request, $id)
     {
         $request->validate([
             'buktitransaksi' => 'required|file|mimes:jpeg,png,pdf,jpg',
         ]);
-    
+
         try {
             $payment = \App\Models\Payment::findOrFail($id);
-    
+
             if ($request->hasFile('buktitransaksi')) {
                 // Menghapus bukti transaksi lama jika ada
                 if ($payment->buktitransaksi) {
                     Storage::delete($payment->buktitransaksi);
                 }
-    
+
                 // Upload bukti transaksi baru
                 $buktiTransaksiPath = $request->file('buktitransaksi')->store('bukti_transaksi');
                 $payment->buktitransaksi = $buktiTransaksiPath;
                 $payment->status = 1; // Mengubah status menjadi 'Sudah Dikirim'
                 $payment->save();
-    
+
                 return redirect()->route('payments.index')->with('success', 'Bukti transaksi berhasil diunggah.');
             } else {
                 return redirect()->route('payments.index')->with('error', 'Tidak ada berkas yang diunggah.');
@@ -84,16 +95,31 @@ class payment extends Controller
         }
     }
 
-public function showUploadBuktiTransaksi($id)
-{
-    try {
-        $payment = \App\Models\payment::findOrFail($id);
+    public function showUploadBuktiTransaksi($id)
+    {
+        try {
+            $payment = \App\Models\payment::findOrFail($id);
 
-        // Pastikan pengguna hanya bisa mengunggah bukti transaksi untuk pembayarannya sendiri
+            // Pastikan pengguna hanya bisa mengunggah bukti transaksi untuk pembayarannya sendiri
 
-        return view('payments.upload', compact('payment'));
-    } catch (\Exception $e) {
-        dd($e->getMessage());
-    }   
-}
+            return view('payments.upload', compact('payment'));
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    public function detail($id)
+    {
+        $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
+            ->findOrFail($id);
+
+        return view('pages.donasi.show', compact('donasiDetail'));
+    }
+
+    public function senddonasi($id)
+    {
+        $sendDonasi = GalangDana::with('user', 'kategorigalangdana')
+            ->findOrFail($id);
+        return view('pages.donasi.detaildonasi', compact('sendDonasi'));
+    }
 }

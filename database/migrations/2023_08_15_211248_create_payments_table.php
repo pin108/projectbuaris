@@ -17,14 +17,14 @@ return new class extends Migration
             $table->string('id_galangdana'); // Menghubungkan ke tabel fundraisings
             $table->integer('total');
             // $table->string('payer_name');
-            $table->string('buktitransaksi')->nullable(); // Nama berkas bukti transaksi
+            $table->text('buktitransaksi')->nullable(); // Nama berkas bukti transaksi
             $table->string('invoice_code')->unique();
-            $table->tinyInteger('status')->default(0); // Kolom status dengan nilai default 0
+            $table->tinyInteger('status')->nullable(); // Kolom status dengan nilai default 0
 
             $table->timestamps();
 
             // Definisi relasi
-         
+
         });
     }
 
