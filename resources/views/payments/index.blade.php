@@ -38,8 +38,11 @@
                         @if ($payment->status == 0)
                             Belum Dikirim
                         @else
-                            Sudah Dikirim
+                            Sudah Dikirim / proses review
                         @endif
+
+                        status 2 = tertolak 
+                        status 3 = berhasil
                     </td>
                     <td>
                         @if ($payment->status == 0)
