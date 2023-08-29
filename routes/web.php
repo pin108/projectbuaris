@@ -16,6 +16,7 @@ use App\Http\Controllers\GalangdanabantuanbencanaalamController;
 use App\Http\Controllers\GalangdanakegiatanpantiasuhanController;
 use App\Http\Controllers\GalangdanakegiatanrumahibadahController;
 use App\Http\Controllers\GalangdanakegiatanbantuanorangsakitController;
+use App\Http\Controllers\payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -182,6 +183,16 @@ Route::middleware('auth')->group(function () {
     route::get('/pendaftaran-beasiswa/{id}', [BeasiswaController::class, 'register'])->name('pendaftaran-beasiswa');
     route::get('/lamaranbeasiswa/', [BeasiswaController::class, 'proseslamaran'])->name('lamaranbeasiswa');
     Route::post('/store-beasiswa', [BeasiswaController::class, 'store'])->name('store_beasiswa');
+
+
+    //payment transaksi
+    Route::post('payments', [payment::class, 'store'])->name('payments.store');
+    Route::get('payments/create/{galangdana_id}', [payment::class, 'create'])->name('payments.create');
+    Route::get('payments/index', [payment::class, 'index'])->name('payments.index');
+    Route::get('payments/history', [payment::class, 'index'])->name('payments.history');
+
+    Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
+    Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
 });
 
 

@@ -27,7 +27,10 @@ return new class extends Migration
             $table->string('praturan_campaign');
             $table->integer('is_active')->nullable();
             $table->timestamps();
+            $table->decimal('pendapatan_campaign', 10, 2)->default(0); // Kolom pendapatan_campaign
+
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+
             $table->foreign('id_kategoricampaign')->references('id')->on('kategorigalangdanas');
         });
     }

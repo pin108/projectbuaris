@@ -62,6 +62,12 @@ class User extends Authenticatable
         return $this->hasMany(pendaftaran_beasiswa::class, 'id_peserta');
     }
 
+    public function payment()
+    {
+        return $this->belongsTo(payment::class, 'id_user');
+    }
+
+
     protected static function boot()
     {
         parent::boot();
