@@ -179,7 +179,7 @@ Route::middleware('auth')->group(function () {
 
 
     //payment transaksi
-    Route::post('payments', [payment::class, 'store'])->name('payments.store');
+    Route::post('payments', [payment::class, 'store'])->name('payments');
     Route::get('payments/create/{galangdana_id}', [payment::class, 'create'])->name('payments.create');
     Route::get('payments/index', [payment::class, 'index'])->name('payments.index');
     Route::get('payments/history', [payment::class, 'index'])->name('payments.history');
