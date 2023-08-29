@@ -179,11 +179,11 @@ Route::middleware('auth')->group(function () {
 
 
     //payment transaksi
-    Route::post('payments', [payment::class, 'store'])->name('payments');
+    Route::post('payments', [payment::class, 'store'])->name('payments.store');
     Route::get('payments/create/{galangdana_id}', [payment::class, 'create'])->name('payments.create');
     Route::get('payments/index', [payment::class, 'index'])->name('payments.index');
     Route::get('payments/history', [payment::class, 'index'])->name('payments.history');
-
+    // unggah bukti
     Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
     Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
 
