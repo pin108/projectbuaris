@@ -23,7 +23,7 @@
             <a class="nav-link" href="{{ url('galangdana') }}">Galang Dana</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('kirimdonasi') }}">Donasi Saya</a>
+            <a class="nav-link" href="{{ url('payments/history') }}">Donasi Saya</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('lamaranbeasiswa')}}">Lamaran Beasiswa</a>
