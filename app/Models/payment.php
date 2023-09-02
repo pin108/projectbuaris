@@ -11,4 +11,9 @@ class payment extends Model
     protected $fillable = [
         'user_id', 'id_galangdana', 'total', 'buktitransaksi', 'invoice_code', 'status'
     ];
+
+    public function galangdana()
+    {
+        return $this->belongsTo(admingalangdana::class, 'id_galangdana');
+    }
 }

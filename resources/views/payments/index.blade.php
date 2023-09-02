@@ -25,6 +25,7 @@
             <thead>
                 <tr>
                     <th>Kode Invoice</th>
+                    <th>Nama Galang Dana</th>
                     <th>Jumlah Pembayaran</th>
                     <th>Tanggal Pembayaran</th>
                     <th>Status</th>
@@ -35,6 +36,7 @@
                 @foreach($payments as $payment)
                 <tr>
                     <td>{{ $payment->invoice_code }}</td>
+                    <td>{{ $payment->galangdana->judul_campaign }}</td>
                     <td>{{ 'Rp ' . number_format($payment->total, 2, ',', '.') }}</td>
                     <td>{{ $payment->created_at }}</td>
                     <td>

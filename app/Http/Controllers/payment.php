@@ -15,9 +15,13 @@ class payment extends Controller
     public function index()
     {
         $user = Auth::user();
-        $payments = \App\Models\payment::where('user_id', $user->id)->get();
+        $payments = \App\Models\payment::where('user_id', $user->id)->with('galangdana')->get();
+        
 
-        return view('payments.index', compact('payments'));
+    // Cetak informasi pembayaran dan judul kampanye
+    // dump($paymentInfo);
+return view('payments.index', compact('payments'));
+
     }
     public function create($galangdana_id)
     {

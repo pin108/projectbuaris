@@ -20,9 +20,7 @@ return new class extends Migration
             $table->text('buktitransaksi')->nullable(); // Nama berkas bukti transaksi
             $table->string('invoice_code')->unique();
             $table->tinyInteger('status')->nullable(); // Kolom status dengan nilai default 0
-
             $table->timestamps();
-
             // Definisi relasi
 
         });
