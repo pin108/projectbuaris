@@ -190,9 +190,6 @@ Route::middleware('auth')->group(function () {
     //donasi
     Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
     Route::get('/kirimdonasi/{id}', [payment::class, 'senddonasi'])->name('senddonasi');
-    // Route::get('/kirimdonasi', function () {
-    //     return view('pages.detaildonasi');
-    // })->name('kirimdonasi');
 });
 
 

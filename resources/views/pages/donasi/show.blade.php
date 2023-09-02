@@ -105,7 +105,6 @@
                                 <div>pencairan dana</div>
                             </div>
                         </div>
-                        {{ $donasiDetail->id }}
                         <a href="{{ route('senddonasi', ['id' => $donasiDetail->id]) }}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
                     </div>
                 </div>
@@ -149,20 +148,3 @@
     </div>
 </main>
 @endsection
-
-<!-- "id" => 7
-    "id_user" => 2308000002
-    "id_kategoricampaign" => 7
-    "judul_campaign" => "Judul Campaign 7"
-    "lokasi_campaign" => "Lokasi Campaign 7"
-    "tujuan_campaign" => "Tujuan Campaign 7"
-    "targetdonasi_campaign" => 17000
-    "rinciandana_campaign" => "Rincian Dana Campaign 7"
-    "deskripsi_campaign" => "Deskripsi Campaign 7"
-    "foto_campaign" => "nama-file-gambar-7.jpg"
-    "tanggal_mulai" => "2023-08-10"
-    "tanggal_akhir" => "2023-08-24"
-    "praturan_campaign" => "Praturan Campaign 7"
-    "is_active" => 1
-    "created_at" => "2023-08-17 10:14:37"
-    "updated_at" => "2023-08-17 10:14:37" -->

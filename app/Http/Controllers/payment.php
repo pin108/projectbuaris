@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
-use App\Models\admingalangdana;
 use App\Models\GalangDana;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\admingalangdana;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -67,30 +68,40 @@ class payment extends Controller
 
     public function updateBuktiTransaksi(Request $request, $id)
     {
+        // Validate the uploaded file
         $request->validate([
             'buktitransaksi' => 'required|file|mimes:jpeg,png,pdf,jpg',
         ]);
 
         try {
-            $payment = \App\Models\Payment::findOrFail($id);
+            // Find the payment record by ID
+            $payment = \App\Models\payment::findOrFail($id);
 
             if ($request->hasFile('buktitransaksi')) {
-                // Menghapus bukti transaksi lama jika ada
+                // Delete the old bukti transaksi file if it exists
                 if ($payment->buktitransaksi) {
                     Storage::delete($payment->buktitransaksi);
                 }
 
-                // Upload bukti transaksi baru
-                $buktiTransaksiPath = $request->file('buktitransaksi')->store('bukti_transaksi');
+                // Upload the new bukti transaksi file to storage
+                $buktiTransaksiPath = $request->file('buktitransaksi')->store('public/invoicepembayaran');
+
+                // Modify the path to make it relative to the 'public' directory
+                $buktiTransaksiPath = str_replace('public/', '', $buktiTransaksiPath);
+
+                // Update the payment record with the new file path and set the status
                 $payment->buktitransaksi = $buktiTransaksiPath;
-                $payment->status = 1; // Mengubah status menjadi 'Sudah Dikirim'
+                $payment->status = 1; // Set status to 'Sudah Dikirim'
                 $payment->save();
 
+                // Redirect with a success message
                 return redirect()->route('payments.index')->with('success', 'Bukti transaksi berhasil diunggah.');
             } else {
+                // If no file is uploaded, redirect with an error message
                 return redirect()->route('payments.index')->with('error', 'Tidak ada berkas yang diunggah.');
             }
         } catch (\Exception $e) {
+            // Handle any exceptions and redirect with an error message
             return redirect()->route('payments.index')->with('error', 'Terjadi kesalahan saat mengunggah bukti transaksi: ' . $e->getMessage());
         }
     }

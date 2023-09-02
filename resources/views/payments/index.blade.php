@@ -1,4 +1,7 @@
-@if(session('success'))
+@extends('layout.layout')
+@section('utama')
+<main>
+    @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
@@ -51,3 +54,5 @@
             </tbody>
         </table>
 </div>
+</main>
+@endsection
