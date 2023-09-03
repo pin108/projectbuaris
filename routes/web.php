@@ -39,8 +39,25 @@ Route::get('/', [HomeController::class, 'main'])->name('/');
 // });
 
 Route::get('/dashboard', function () {
+    // $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')
+    //     ->where('is_active', 1)
+    //     ->latest()
+    //     ->take(5)
+    //     ->get();
+    $currentDate = now()->toDateString(); // Get the current date in 'YYYY-MM-DD' format
+
+    $galangDanasToDelete = GalangDana::whereDate('tanggal_akhir', '=', $currentDate)
+        ->where('is_active', 1)
+        ->get();
+
+    foreach ($galangDanasToDelete as $galangDana) {
+        $galangDana->delete();
+    }
+
+    // Optionally, you can retrieve the remaining active GalangDana records after deletion.
     $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')
         ->where('is_active', 1)
+        ->whereDate('tanggal_akhir', '>', $currentDate) // Exclude records with tanggal_akhir greater than the current date
         ->latest()
         ->take(5)
         ->get();
@@ -190,6 +207,7 @@ Route::middleware('auth')->group(function () {
     //donasi
     Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
     Route::get('/kirimdonasi/{id}', [payment::class, 'senddonasi'])->name('senddonasi');
+    Route::post('/kirimdoa', [payment::class, 'storedoa'])->name('kirimdoa');
 });
 
 

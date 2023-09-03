@@ -299,7 +299,7 @@ class DatabaseSeeder extends Seeder
 
         $pendaftaranBeasiswaData = [
             [
-                'id_peserta' => 2308000001,
+                'id_peserta' =>  $user->id,
                 'id_kategoribeasiswa' => 1,
                 'nama_depan' => 'John',
                 'nama_belakang' => 'Doe',
@@ -319,7 +319,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_peserta' => 2308000001,
+                'id_peserta' => $user->id,
                 'id_kategoribeasiswa' => 2,
                 'nama_depan' => 'Jane',
                 'nama_belakang' => 'Smith',

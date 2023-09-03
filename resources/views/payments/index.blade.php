@@ -16,12 +16,6 @@
     <h2>Riwayat Pembayaran</h2>
     <table class="table">
         <thead>
-            <tr>
-                <th>Kode Invoice</th>
-                <th>Jumlah Pembayaran</th>
-                <th>Tanggal Pembayaran</th>
-                <!-- Tambahkan kolom lain sesuai kebutuhan -->
-            </tr>
             <thead>
                 <tr>
                     <th>Kode Invoice</th>
@@ -29,7 +23,6 @@
                     <th>Jumlah Pembayaran</th>
                     <th>Tanggal Pembayaran</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

@@ -7,21 +7,26 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\admingalangdana;
 use App\Http\Controllers\Controller;
+use App\Models\DoaDonasi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
 
 class payment extends Controller
 {
+    public function notif($message)
+    {
+        return view('pages.message.index', compact('message'));
+    }
     public function index()
     {
         $user = Auth::user();
         $payments = \App\Models\payment::where('user_id', $user->id)->with('galangdana')->get();
-        
 
-    // Cetak informasi pembayaran dan judul kampanye
-    // dump($paymentInfo);
-return view('payments.index', compact('payments'));
 
+        // Cetak informasi pembayaran dan judul kampanye
+        // dump($paymentInfo);
+        return view('payments.index', compact('payments'));
     }
     public function create($galangdana_id)
     {
@@ -125,10 +130,19 @@ return view('payments.index', compact('payments'));
 
     public function detail($id)
     {
+        $targetDate = now()->format('Y-m-d');
         $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
-
-        return view('pages.donasi.show', compact('donasiDetail'));
+        $modelsdoa = DoaDonasi::query();
+        $query = $modelsdoa->where('id_galangdana', $id)->latest()
+            ->take(5)
+            ->get();
+        $result = $query;
+        $histori =  \App\Models\payment::query();
+        $resulthistori = $histori->where('id_galangdana', $id)->whereDate('created_at', '=', $targetDate)->latest()
+            ->take(5)
+            ->get();;
+        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori'));
     }
 
     public function senddonasi($id)
@@ -136,5 +150,32 @@ return view('payments.index', compact('payments'));
         $sendDonasi = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
         return view('pages.donasi.detaildonasi', compact('sendDonasi'));
+    }
+
+    public function storedoa(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'id_galangdana' => 'required',
+                'nama' => 'nullable|string|max:25',
+                'doa' => 'nullable|string|max:300'
+            ]);
+
+            $id = $request->input('id_galangdana');
+            $sendDonasi = GalangDana::with('user', 'kategorigalangdana')
+                ->findOrFail($id);
+
+            $data = new DoaDonasi([
+                'id_galangdana' => $request->input('id_galangdana'),
+                'nama' => $request->input('nama'),
+                'deskripsi_doa' => $request->input('doa')
+            ]);
+            $data->save();
+            $successMessage = 'Terima kasih, semoga doa Anda bermanfaat bagi galang dana ini. Aamiin';
+            return view('pages.donasi.detaildonasi', compact('sendDonasi'))->with('success', $successMessage);
+        } else {
+            $message = "periksa kembali kami tidak bisa menyimpan data";
+            return $this->notif($message);
+        }
     }
 }

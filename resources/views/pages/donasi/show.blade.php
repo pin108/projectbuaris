@@ -32,13 +32,6 @@
                             <span class="visually-hidden">Next</span>
                         </a>
                     </div>
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1" style="margin-top: 2%;">Kirim Doa</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 2%;">Kirim</button>
-                    </form>
                 </div>
                 <div class="col-md-6">
                     <div class="container">
@@ -111,36 +104,28 @@
             </div>
             <div class="row mt-8" style="margin-top: 2%;">
                 <div class="col-md-6">
-                    <h2>Doa</h2>
+                    <p>DO'A</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">John Doe</h5>
-                            <p class="card-text">"Semoga Alula segera sembuh dan mendapatkan kesembuhan yang
-                                sempurna."</p>
-                        </div>
-                    </div>
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Jane Smith</h5>
-                            <p class="card-text">"Semoga Alula diberikan kekuatan dan ketabahan dalam menghadapi
-                                proses penyembuhan."</p>
+                            @foreach($result as $item)
+                                <h5 class="card-title">{{ $item->nama }}</h5>
+                                <p class="card-text">{{ $item->deskripsi_doa }}</p>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <h2>History Donasi</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="fw-bold">John Doe</span> donated $100
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">Jane Smith</span> donated $50
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">Michael Johnson</span> donated $200
-                        </li>
-                    </ul>
+                        <div class="card-body">
+                            @foreach($resulthistori as $stori)
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="fw-bold">{{ $stori->created_at }}</span> donated {{ $stori->total }}
+                                </li>
+                            </ul>
+                            @endforeach
+                        </div>
+                </div>
                 </div>
             </div>
         </div>

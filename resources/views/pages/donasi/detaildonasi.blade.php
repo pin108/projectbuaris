@@ -1,17 +1,18 @@
 @extends('layout.layout')
 
 @section('utama')
-@if (session('success'))
-	<div class="alert alert-success" style="background-color: green">
-		{{ session('success') }}
-	</div>
-	@endif
-	@if (session('error'))
-	<div class="alert alert-danger" style="background-color: red">
-		{{ session('error') }}
-	</div>
-	@endif
 <main>
+    @if (session('success'))
+    <div class="alert alert-success" style="background-color: green">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger" style="background-color: red">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="container">
         <h4 style="text-align: center; margin-top:9%">Donasi</h4>
         <div class="container py-5">
@@ -28,17 +29,18 @@
             <div class="row mt-5">
                 <div class="col-md-6">
                     <h2>Form Doa</h2>
-                    <form action="" method="POST">
+                    <form action="{{ route('kirimdoa', ['id_galangdana' => $sendDonasi->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
+                            <input type="hidden" class="form-control" id="id_galangdana" name="id_galangdana"  value="{{ $sendDonasi->id }}">
                             <label for="name" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="nama" name="nama">
                         </div>
                         <div class="mb-3">
                             <label for="prayer" class="form-label">Doa</label>
-                            <textarea class="form-control" id="prayer" name="prayer" rows="4" required></textarea>
+                            <textarea class="form-control" id="doa" name="doa"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim Doa</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 5%">Kirim Doa</button>
                     </form>
                 </div>
 
@@ -78,7 +80,7 @@
                                 <label for="amount" class="form-label">Bukti Transfer *JPG</label>
                                 <input type="file" class="form-control" id="bukti_transaksi" name="bukti_transaksi" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Kirim Donasi</button>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 5%">Kirim Donasi</button>
                         </form>
                     </div>
                     
