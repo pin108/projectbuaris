@@ -73,6 +73,7 @@
 
                             <a href="#updatestatus{{ $item->id }}" class="btn btn-sm btn-info"
                                 data-toggle="modal">Update Status</a>
+                                <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#kirimEmailModal{{ $item->id }}">Kirim Email Status</a>
                         </td>
                     </tr>
                 @endforeach
@@ -249,5 +250,30 @@
                 </div>
             </div>
         </div>
-    @endforeach
+<!-- Modal for Kirim Email Status -->
+<div class="modal fade" id="kirimEmailModal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="kirimEmailModalLabel{{ $item->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kirimEmailModalLabel{{ $item->id }}">Kirim Email Status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Konten modal untuk mengirim email status -->
+                <p>Anda akan mengirim email status kepada: {{ $item->email }}</p>
+                <p>Status: <span class="{{ $is_active_color }}">{{ $is_active_text }}</span></p>
+                <!-- Tambahkan formulir atau konten lain yang diperlukan di sini -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary" id="kirimEmailButton{{ $item->email }}">Kirim Email</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endforeach
+
 @endsection

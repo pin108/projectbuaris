@@ -203,6 +203,7 @@ Route::middleware('auth')->group(function () {
     // unggah bukti
     Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
     Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
+    Route::get('kirim-email/{email}','App\Http\Controllers\MailController@index')->name('kirim-email');
 
     //donasi
     Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');

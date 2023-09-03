@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class adminbeasiswa extends Controller
 {
+    
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
