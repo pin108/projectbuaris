@@ -4,6 +4,7 @@ use App\Models\GalangDana;
 use App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminbeasiswa;
+use App\Http\Controllers\adminkeuangancontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BeasiswaController;
@@ -74,10 +75,6 @@ Route::get('/galangdanalainnya', function () {
     return view('pages.galangdana.galangdanalainnya');
 })->name('galangdanalainnya');
 
-Route::get('/admindashboardss', function () {
-    return view('pages.admindashboardsss');
-})->middleware('admin')->name('admindashboard');
-
 Route::middleware('admin')->group(function () {
 
     Route::get('/adminis', function () {
@@ -111,6 +108,8 @@ Route::middleware('admin')->group(function () {
     // Menghapus data pendaftaran beasiswa
     Route::delete('/adminis/beasiswa/hapus/{id}', [adminbeasiswa::class, 'destroy'])->name('admin.beasiswa.hapus');
     Route::put('/adminis/beasiswa/status/{id}', [adminbeasiswa::class, 'updateStatus'])->name('admin.beasiswa.updatestatus');
+    Route::get('/adminis/payment/', [adminkeuangancontroller::class, 'index'])->name('admin.payment');
+    Route::put('/adminis/payment/status/{id}', [adminkeuangancontroller::class, 'updateStatus'])->name('admin.payment.updatestatus');
 });
 
 Route::middleware('auth')->group(function () {

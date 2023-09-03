@@ -16,4 +16,9 @@ class payment extends Model
     {
         return $this->belongsTo(admingalangdana::class, 'id_galangdana');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
