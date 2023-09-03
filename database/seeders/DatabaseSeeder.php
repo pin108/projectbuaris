@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         // Create a user with the role of "user"
         $user = User::create([
             'name' => 'Jane Doe',
-            'email' => 'janedoe@example.com',
+            'email' => 'qiqikan87@gmail.com',
             'password' => Hash::make('password'),
             'roles' => 0,
         ]);
@@ -323,7 +323,7 @@ class DatabaseSeeder extends Seeder
                 'id_kategoribeasiswa' => 2,
                 'nama_depan' => 'Jane',
                 'nama_belakang' => 'Smith',
-                'email' => 'jane@example.com',
+                'email' => 'qiqikan87@gmail.com',
                 'nomor_hp' => '9876543210',
                 'kelurahan' => 'Sample Kelurahan 2',
                 'kecamatan' => 'Sample Kecamatan 2',

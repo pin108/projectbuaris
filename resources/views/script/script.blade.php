@@ -33,4 +33,13 @@
       $('#campaignTable').DataTable();
     });
   </script>
-  
+  <script>
+    @foreach ($pendaftaranBeasiswa as $item)
+        document.getElementById('kirimEmailButton{{ $item->id }}').addEventListener('click', function() {
+            // Di sini Anda dapat menambahkan logika pengiriman email atau tindakan lain yang diperlukan
+
+            // Setelah selesai, Anda bisa menutup modal
+            $('#kirimEmailModal{{ $item->id }}').modal('hide');
+        });
+    @endforeach
+</script>
