@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Kategoribeasiswa;
 use App\Models\Kategorigalangdana;
+use App\Models\payment;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -359,6 +360,34 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+        }
+        $payments = [
+            [
+                'user_id' => $user->id, // Gantilah dengan ID user yang sesuai
+                'id_galangdana' => '1', // Gantilah dengan ID galangdana yang sesuai
+                'total' => 100000, // Total pembayaran
+                'buktitransaksi' => 'bukti1.jpg', // Nama berkas bukti transaksi
+                'invoice_code' => 'INV001', // Kode faktur unik
+                'status' => 2, // Status pembayaran (2 = Pembayaran Disetujui)
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => $user->id, // Gantilah dengan ID user yang sesuai
+                'id_galangdana' => '2', // Gantilah dengan ID galangdana yang sesuai
+                'total' => 150000, // Total pembayaran
+                'buktitransaksi' => 'bukti2.jpg', // Nama berkas bukti transaksi
+                'invoice_code' => 'INV002', // Kode faktur unik
+                'status' => 1, // Status pembayaran (1 = Bukti Telah Dikirim dan Perlu Direview)
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            // Tambahkan data lain sesuai kebutuhan Anda
+        ];
+
+        // Loop melalui data dan masukkan ke dalam tabel payments
+        foreach ($payments as $payment) {
+            payment::create($payment);
         }
     }
 }

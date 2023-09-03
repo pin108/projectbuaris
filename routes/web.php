@@ -109,7 +109,7 @@ Route::middleware('admin')->group(function () {
     Route::delete('/adminis/beasiswa/hapus/{id}', [adminbeasiswa::class, 'destroy'])->name('admin.beasiswa.hapus');
     Route::put('/adminis/beasiswa/status/{id}', [adminbeasiswa::class, 'updateStatus'])->name('admin.beasiswa.updatestatus');
     Route::get('/adminis/payment/', [adminkeuangancontroller::class, 'index'])->name('admin.payment');
-    Route::put('/adminis/payment/status/{id}', [adminkeuangancontroller::class, 'updateStatus'])->name('admin.payment.updatestatus');
+    Route::post('/adminis/payment/status/{id}', [adminkeuangancontroller::class, 'updateStatus'])->name('admin.payment.updatestatus');
 });
 
 Route::middleware('auth')->group(function () {

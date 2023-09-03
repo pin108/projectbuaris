@@ -30,6 +30,7 @@
             <tr>
                 <th>ID</th>
                 <th>Judul Campaign</th>
+                <th>Pendapatan Rupiah</th>
                 <th>Foto Campaign</th>
                 <th>Is Active</th>
                 <th>Tanggal Mulai</th>
@@ -41,6 +42,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->judul_campaign }}</td>
+                    <td>{{$item->pendapatan_campaign}}</td>
                     <td>
                         <img src="{{ asset($item->foto_campaign) }}" alt="Campaign Image" width="100">
                     </td>
@@ -95,7 +97,10 @@
                                 <p>Deskripsi: {{ $item->deskripsi_campaign }}</p>
                                 <p>Praturan: {{ $item->praturan_campaign }}</p>
                                 <p>Tanggal Mulai: {{ $item->tanggal_mulai }}</p>
+                               
                                 <p>Tanggal Akhir: {{ $item->tanggal_akhir }}</p>
+                                <p>Pendapatan: {{ $item->pendapatan_campaign }}</p>
+
                                 <p>Is Active: {{ $is_active_text }}</p>
                             </div>
                             <div class="modal-footer">

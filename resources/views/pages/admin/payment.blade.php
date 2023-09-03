@@ -62,6 +62,8 @@
             </tbody>
         </table>
     </div>
+    @foreach ($payment as $item)
+
     <div class="modal fade" id="updatestatus{{ $item->id }}" tabindex="-1" role="dialog"
         aria-labelledby="updatestatus{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -76,7 +78,7 @@
                 <div class="modal-body">
                     <form action="{{ route('admin.payment.updatestatus', $item->id) }}" method="POST">
                         @csrf
-                        @method('PUT')
+                        @method('POST')
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select class="form-control" id="status" name="status" required>
@@ -84,13 +86,21 @@
                                 </option>
                                 <option value="1" {{ $item->status === 1 ? 'selected' : '' }}>Bukti Telah Dikirim
                                 </option>
-                                <option value="2" {{ $item->status === 2 ? 'selected' : '' }}>Pembayaran Telah Setujui
+                                <option value="2" {{ $item->status === 2 ? 'selected' : '' }}>Pembayaran Telah Disetujui
                                 </option>
                                 <option value="3" {{ $item->status === 3 ? 'selected' : '' }}>Pembayaran Ditolak
                                 </option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                        @if ($item->status === 2)
+                            <div class="alert alert-warning">
+                                Anda tidak dapat mengupdate status karena pembayaran telah disetujui.
+                            </div>
+                            <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                        @else
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        @endif
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -99,6 +109,7 @@
             </div>
         </div>
     </div>
+    
 
     <div class="modal fade" id="detailModal{{ $item->id }}" tabindex="-1" role="dialog"
         aria-labelledby="detailModalLabel{{ $item->id }}" aria-hidden="true">
@@ -122,4 +133,5 @@
             </div>
         </div>
     </div>
-@endsection
+@endforeach
+    @endsection

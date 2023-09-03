@@ -33,11 +33,17 @@
                     <td>{{ 'Rp ' . number_format($payment->total, 2, ',', '.') }}</td>
                     <td>{{ $payment->created_at }}</td>
                     <td>
-                        @if ($payment->status == 0)
-                            Belum Dikirim
-                        @else
-                            Sudah Dikirim / proses review
-                        @endif
+                        @if ($payment->status === 0)
+                                <span class="text-danger">User Belum Mengirim Bukti Pembayaran</span>
+                            @elseif ($payment->status === 1)
+                                <span class="text-warning">Bukti Telah Dikirim dan Menunggu direview oleh admin</span>
+                            @elseif ($payment->status === 2)
+                                <span class="text-success">Pembayaran Disetujui</span>
+                            @elseif ($payment->status === 3)
+                                <span class="text-danger">Pembayaran Ditolak</span>
+                            @else
+                                <span>Status Tidak Dikenali</span>
+                            @endif
                     </td>
                     <td>
                         @if ($payment->status == 0)
