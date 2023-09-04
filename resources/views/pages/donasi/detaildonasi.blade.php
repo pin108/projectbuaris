@@ -61,11 +61,11 @@
                     </div>
                     <div class="mt-3">
                         <label for="bank_account" class="form-label">Nomor Rekening Bank BRI:</label>
-                        <input type="text" class="form-control" id="bank_account" name="bank_account" value="132123123" readonly>
+                        <input type="text" class="form-control" id="bank_account" name="bank_account" value="BRI - 12321-2313-2313-23132" readonly>
                     </div>
                     <div class="mt-3">
                         <label for="bank_account_name" class="form-label">Nama Pemilik Rekening:</label>
-                        <input type="text" class="form-control" id="bank_account_name" name="bank_account_name" value="Alvin Steven" readonly>
+                        <input type="text" class="form-control" id="bank_account_name" name="bank_account_name" value="Yayasan Alfo Indonesia" readonly>
                     </div>
                     <div class="mt-4">
                         <h2>Kirim Donasi</h2>

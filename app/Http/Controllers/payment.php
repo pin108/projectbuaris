@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\admingalangdana;
 use App\Http\Controllers\Controller;
 use App\Models\DoaDonasi;
+use App\Models\payment as ModelsPayment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
@@ -139,9 +140,11 @@ class payment extends Controller
             ->get();
         $result = $query;
         $histori =  \App\Models\payment::query();
-        $resulthistori = $histori->where('id_galangdana', $id)->whereDate('created_at', '=', $targetDate)->latest()
+        $resulthistori = ModelsPayment::where('id_galangdana', $id)->whereDate('created_at', '=', $targetDate)->latest()
             ->take(5)
             ->get();;
+
+            // dd($donasiDetail, $result, $resulthistori);
         return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori'));
     }
 
