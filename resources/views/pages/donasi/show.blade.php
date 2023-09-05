@@ -39,30 +39,44 @@
                         <p>{{$donasiDetail->deskripsi_campaign}}</p>
                         <div class="row">
                             <div class="col-sm-4">
-                                Rp122.292.050
+                              Terkumpul Sekarang ini Rp. {{$donasiDetail->pendapatan_campaign}}
                             </div>
                             <div class="col-sm-4">
-                                Terkumpul dari target donasi {{ $donasiDetail->targetdonasi_campaign }}
+                                Target Donassi Rp. {{ $donasiDetail->targetdonasi_campaign }}
                             </div>
                         </div>
                         <div class="row" style="margin-top: 2%;">
-                            <div class="col-sm-4">
-                                <div>
-                                    <a href="#" class="btn btn-primary" style="width: 180px; height: 50px;">laporan keuangan</a>
-                                </div>
-                            </div>
                             <div class="col-sm-4">
                                 <div>
                                     <a href="{{url('showpengalangdana')}}" class="btn btn-primary" style="width: 180px; height: 50px;">tentang yayasan</a>
                                 </div>
                             </div>
                         </div>
-                        <P style="margin-top: 2%;">4 hari lagi</P>
-                        <div class="progress" style="margin-top: 2%;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar">
+                                <div class="progress-description">
+                                    <?php
+                                    $tanggalMulai = strtotime($donasiDetail['tanggal_mulai']); // Tanggal mulai dalam timestamp
+                                    $tanggalAkhir = strtotime($donasiDetail['tanggal_akhir']); // Tanggal akhir dalam timestamp
+                                    $tanggalSekarang = strtotime(date('Y-m-d')); // Tanggal saat ini dalam timestamp
+                                
+                                    if ($tanggalSekarang < $tanggalMulai) {
+                                        echo "Donasi akan dimulai pada tanggal " . date('Y-m-d', $tanggalMulai);
+                                    } elseif ($tanggalSekarang >= $tanggalAkhir) {
+                                        echo "Donasi telah berakhir pada tanggal " . date('Y-m-d', $tanggalAkhir);
+                                    } else {
+                                        $totalHari = $tanggalAkhir - $tanggalMulai; // Total hari antara tanggal mulai dan tanggal akhir
+                                        $hariSudahBerlalu = $tanggalSekarang - $tanggalMulai; // Hari yang sudah berlalu
+                                
+                                        $persentaseKemajuan = ($hariSudahBerlalu / $totalHari) * 100;
+                                        echo "Donasi berlangsung, selesai pada tanggal " . date('Y-m-d', $tanggalAkhir) . ". Kemajuan: " . round($persentaseKemajuan, 2) . "%";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 2%;">
+                    {{-- <div class="container" style="margin-top: 2%;">
                         <div class="row border-top">
                             <div class="col-sm border">
                                 <div class="row">
@@ -99,7 +113,7 @@
                             </div>
                         </div>
                         <a href="{{ route('senddonasi', ['id' => $donasiDetail->id]) }}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="row mt-8" style="margin-top: 2%;">
