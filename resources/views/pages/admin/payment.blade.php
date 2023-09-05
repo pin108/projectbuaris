@@ -50,7 +50,8 @@
                             @else
                                 <span>Status Tidak Dikenali</span>
                             @endif
-                        </td>                        <td>{{ $item->total }}</td>
+                        </td>                        
+                        <td>{{ $item->total }}</td>
                         <td>{{ $item->galangdana->judul_campaign}}</td>
                         <td>
                             <a href="#updatestatus{{ $item->id }}" class="btn btn-sm btn-info"
@@ -134,4 +135,4 @@
         </div>
     </div>
 @endforeach
-    @endsection
+@endsection

@@ -1,3 +1,17 @@
+@extends('layout.layout')
+@section('utama')
+<main>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 <div class="container">
     <h2>Unggah Bukti Transaksi</h2>
     <form action="{{ route('payments.updateBuktiTransaksi', $payment->id) }}" method="POST" enctype="multipart/form-data">
@@ -12,3 +26,5 @@
         <button type="submit" class="btn btn-primary">Unggah</button>
     </form>
 </div>
+</main>
+@endsection

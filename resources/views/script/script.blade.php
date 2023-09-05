@@ -32,5 +32,4 @@
     $(document).ready(function() {
       $('#campaignTable').DataTable();
     });
-  </script>
-  
+</script>

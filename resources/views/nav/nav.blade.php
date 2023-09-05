@@ -24,6 +24,17 @@
                 <span class="menu-title">Laporan Pembayaran</span>
             </a>
         </li>
-       
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/adminis/kategoribeasiswabaru/') }}">
+                <i class="menu-icon mdi mdi-map-marker"></i>
+                <span class="menu-title">kategori Beasiswa Baru</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/adminis/index/kategorigalangdana') }}">
+                <i class="menu-icon mdi mdi-map-marker"></i>
+                <span class="menu-title">kategori Galang Dana Baru</span>
+            </a>
+        </li>
     </ul>
 </nav>

@@ -9,6 +9,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--  CSS nama pengepul dengan AJAX-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+      <!-- data tables -->
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+      <link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet" />
     <style>
         .select2-container--default .select2-selection--single {
             height: 2.6rem !important;
@@ -79,6 +83,13 @@
     <!-- plugins:js -->
     @include('script.script')
     @yield('scripts')
+     <!-- datatables -->
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#table').DataTable();
+      });
+  </script>
     <!-- End custom js for this page-->
 </body>
 

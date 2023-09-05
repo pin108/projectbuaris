@@ -4,6 +4,8 @@ use App\Models\GalangDana;
 use App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminbeasiswa;
+use App\Http\Controllers\AdminkategoribeasiswaController;
+use App\Http\Controllers\AdminkategorigalangdanaController;
 use App\Http\Controllers\adminkeuangancontroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -45,17 +47,23 @@ Route::get('/dashboard', function () {
     //     ->latest()
     //     ->take(5)
     //     ->get();
-    $currentDate = now()->toDateString(); // Get the current date in 'YYYY-MM-DD' format
+    // Calculate the number of days to add to the current date
+    $daysToAdd = rand(1, 30); // You can adjust the range as needed
 
-    $galangDanasToDelete = GalangDana::whereDate('tanggal_akhir', '=', $currentDate)
+    // Calculate the end date by adding the random number of days to the current date
+    $endDate = now()->addDays($daysToAdd)->toDateString();
+
+    $galangDanasToUpdate = GalangDana::whereDate('tanggal_akhir', '=', $endDate)
         ->where('is_active', 1)
         ->get();
 
-    foreach ($galangDanasToDelete as $galangDana) {
-        $galangDana->delete();
+    foreach ($galangDanasToUpdate as $galangDana) {
+        $galangDana->update(['is_active' => 0]);
     }
 
-    // Optionally, you can retrieve the remaining active GalangDana records after deletion.
+    // Optionally, you can retrieve the remaining active GalangDana records after updating.
+    $currentDate = now()->toDateString(); // Get the current date in 'YYYY-MM-DD' format
+
     $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')
         ->where('is_active', 1)
         ->whereDate('tanggal_akhir', '>', $currentDate) // Exclude records with tanggal_akhir greater than the current date
@@ -110,6 +118,25 @@ Route::middleware('admin')->group(function () {
     Route::put('/adminis/beasiswa/status/{id}', [adminbeasiswa::class, 'updateStatus'])->name('admin.beasiswa.updatestatus');
     Route::get('/adminis/payment/', [adminkeuangancontroller::class, 'index'])->name('admin.payment');
     Route::post('/adminis/payment/status/{id}', [adminkeuangancontroller::class, 'updateStatus'])->name('admin.payment.updatestatus');
+
+    //kategori beasiswa
+    Route::get('/adminis/kategoribeasiswabaru/', [AdminkategoribeasiswaController::class, 'index'])->name('kategoribeasiswas.index');
+    route::get('/adminis/create/tambahdatakategori', [AdminkategoribeasiswaController::class, 'create'])->name('kategoribeasiswa.create');
+    route::get('/adminis/edit/datakategori/{id}', [AdminkategoribeasiswaController::class, 'update'])->name('kategoribeasiswa.update');
+    Route::post('/adminis/store/kategoribeasiswabaru/', [AdminkategoribeasiswaController::class, 'store'])->name('kategoribeasiswas.store');
+    Route::put('/adminis/put/kategoribeasiswabaru/{id}', [AdminkategoribeasiswaController::class, 'put'])->name('kategoribeasiswas.put');
+    Route::delete('adminis/delete/kategoribeasiswa/{id}', [AdminkategoribeasiswaController::class, 'destroy'])->name('kategoribeasiswa.destroy');
+
+    //kategori galangdana
+    route::get('adminis/index/kategorigalangdana', [AdminkategorigalangdanaController::class, 'index'])->name('kategorigalangdana.index');
+    route::get('adminis/create/kategorigalangdana', [AdminkategorigalangdanaController::class, 'create'])->name('kategorigalangdana.create');
+    route::post('adminis/store/kategorigalangdana', [AdminkategorigalangdanaController::class, 'store'])->name('kategorigalangdana.store');
+    route::get('adminis/indexedit/kategorigalangdana/{id}', [AdminkategorigalangdanaController::class, 'edit'])->name('kategorigalangdana.edit');
+    route::put('adminis/update/kategorigalangdana/{id}', [AdminkategorigalangdanaController::class, 'update'])->name('kategorigalangdana.update');
+    route::delete(
+        'adminis/delete/kategorigalangdana/{id}',
+        [AdminkategorigalangdanaController::class, 'destroy']
+    )->name('kategorigalangdana.destroy');
 });
 
 Route::middleware('auth')->group(function () {
@@ -202,7 +229,7 @@ Route::middleware('auth')->group(function () {
     // unggah bukti
     Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
     Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
-    Route::get('kirim-email/{id}','App\Http\Controllers\MailController@index')->name('kirim-email');
+    Route::get('kirim-email/{id}', 'App\Http\Controllers\MailController@index')->name('kirim-email');
 
     //donasi
     Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
