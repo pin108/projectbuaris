@@ -7,6 +7,7 @@ use App\Http\Controllers\adminbeasiswa;
 use App\Http\Controllers\AdminkategoribeasiswaController;
 use App\Http\Controllers\AdminkategorigalangdanaController;
 use App\Http\Controllers\adminkeuangancontroller;
+use App\Http\Controllers\AdminlulusbeasiswaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BeasiswaController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\GalangdanakegiatanpantiasuhanController;
 use App\Http\Controllers\GalangdanakegiatanrumahibadahController;
 use App\Http\Controllers\GalangdanakegiatanbantuanorangsakitController;
 use App\Http\Controllers\payment;
+use App\Http\Controllers\ProgressgalangdanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,8 +96,10 @@ Route::middleware('admin')->group(function () {
     Route::post('/adminis/permintaan/tambah', [admin::class, 'storegalangdana'])->name('tambahgalangdana');
     Route::post('/adminis/permintaan/tambah', [admin::class, 'storegalangdana'])->name('admin.edit');
     Route::post('/adminis/permintaan/update/{id}', [admin::class, 'updategalangdana'])->name('admin.update');
-
     Route::delete('/adminis/permintaan/delete/{id}', [admin::class, 'hapusgalangdana'])->name('admin.destroy');
+
+    //cek berkas galang dana
+    route::post('/adminis/cekberkas/galangdana', [admin::class, 'cekberkas'])->name('galangdana.cekberkas');
     Route::get('/adminis/beasiswa', [adminbeasiswa::class, 'index'])->name('admin.beasiswa');
 
     // Menampilkan halaman detail pendaftaran beasiswa
@@ -137,6 +141,10 @@ Route::middleware('admin')->group(function () {
         'adminis/delete/kategorigalangdana/{id}',
         [AdminkategorigalangdanaController::class, 'destroy']
     )->name('kategorigalangdana.destroy');
+
+    //konfirmasi lulus beasiswa
+    route::get('adminis/index/lulusbeasiswa', [AdminlulusbeasiswaController::class, 'index'])->name('lulusbeasiswa.index');
+    route::post('adminis/unduh/lulusbeasiswa', [AdminlulusbeasiswaController::class, 'generatepdf'])->name('lulusbeasiswa.generatepdf');
 });
 
 Route::middleware('auth')->group(function () {
@@ -235,6 +243,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
     Route::get('/kirimdonasi/{id}', [payment::class, 'senddonasi'])->name('senddonasi');
     Route::post('/kirimdoa', [payment::class, 'storedoa'])->name('kirimdoa');
+
+    //proses galang dana
+    route::get('prosesgalangdana/index', [ProgressgalangdanaController::class, 'index'])->name('progressgalangdana.index');
 });
 
 

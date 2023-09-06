@@ -34,7 +34,7 @@
 					<!-- /.header-slider-content -->
 
 					<div class="d-flex flex-wrap align-items-center mt-60 gap-20">
-						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="/joblist.html" role="button">Donasi</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{route('carigalangdanlain')}}" role="button">Donasi</a>
 						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('galangdana')}}" role="button">Galang Dana</a>
 
 					</div>
@@ -172,7 +172,7 @@
 				@foreach ($activeGalangDanas as $galangdana)
 				<div class="col-5">
 					<div class="card">
-						<img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="card-img-top" alt="Donation Image">
+						<img src="{{ asset('storage/'. $galangdana->foto_campaign) }}" alt="Campaign Image" class="card-img-top custom-img">
 						<div class="card-body">
 							<h5 class="card-title">Galang Dana :{{ $galangdana->judul_campaign}}</h5>
 							<p class="card-text">{{ $galangdana->deskripsi_campaign}}</p>

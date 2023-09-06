@@ -303,3 +303,9 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 
 }
+
+.custom-img {
+  width: 100%; /* Set the maximum width to 100% to ensure responsiveness */
+  height: 200px; /* Set the desired height */
+  object-fit: cover; /* Maintain aspect ratio and cover container */
+}

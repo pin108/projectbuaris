@@ -30,7 +30,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/joblist.html">Akun</a>
+            <a class="nav-link" href="{{ route('progressgalangdana.index') }}">Proses Galang Dana</a>
           </li>
 
           @if(Auth::check())

@@ -14,15 +14,15 @@ class pendaftaran_beasiswa extends Model
         'nomor_hp', 'kelurahan', 'kecamatan', 'kabupaten', 'RT', 'RW', 'provinsi', 'nomor_identitas',
         'ratarata_nilai', 'semester', 'kartu_identitas', 'kartu_keluarga', 'ktp_peserta', 'ktp_orangtuapeserta', 'foto_peserta', 'sertifikat_peserta'
     ];
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_peserta');
+        return $this->belongsTo(User::class, 'id_peserta', 'id');
     }
 
     public function kategoribeasiswa()
     {
-        return $this->belongsTo(Kategoribeasiswa::class, 'id_kategoribeasiswa');
+        return $this->belongsTo(Kategoribeasiswa::class, 'id_kategoribeasiswa', 'id');
     }
 }

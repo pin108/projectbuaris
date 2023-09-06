@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Response;
+use Mpdf\Mpdf;
 use App\Models\admingalangdana;
 use Illuminate\Support\Facades\DB;
-
+use PDF;
 use App\Models\GalangDana;
 use App\Models\Kategorigalangdana;
 use Illuminate\Http\Request;
@@ -138,6 +140,53 @@ class admin extends Controller
         $programGalangDana->delete();
 
         return redirect()->route('admin.permintaan')->with('success', 'Galang Dana berhasil dihapus');
+    }
+
+    public function cekberkas(Request $request)
+    {
+        $id = $request->input('id');
+
+        // Lakukan query ke database berdasarkan ID
+        $result = GalangDana::with('user', 'kategorigalangdana')->find($id);
+
+        if (!$result) {
+            return redirect()->route('admin.permintaan')->with('error', 'Data tidak ditemukan');
+        }
+
+        // Buat instance mpdf
+        $mpdf = new Mpdf();
+
+        // Konten HTML untuk PDF
+        $html = view('pages.pdf.pdfgalangdana', compact('result'))->render();
+
+        // Tambahkan konten ke PDF
+        $mpdf->WriteHTML($html);
+
+        // Tambahkan halaman baru
+        $mpdf->AddPage();
+
+        //Tambahkan konten gambar berkas ke halaman kedua PDF
+        $fileImagePath = public_path('storage/' . $result->foto_campaign);
+        if (file_exists($fileImagePath)) {
+            $mpdf->Image($fileImagePath, $x = 10, $y = 10, $w = 100, $h = 100);
+        }
+
+        $mpdf->AddPage();
+
+        //Tambahkan konten gambar berkas ke halaman kedua PDF
+        $fileImagePath = public_path('storage/' . $result->user->ktp);
+        if (file_exists($fileImagePath)) {
+            $mpdf->Image($fileImagePath, $x = 10, $y = 10, $w = 100, $h = 100);
+        }
+
+        // Render PDF content
+        $pdfContent = $mpdf->Output('', 'S');
+
+        // Send the PDF content as a response
+        return Response::make($pdfContent, 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename=data_peserta.pdf',
+        ]);
     }
 
     public function show(string $id)

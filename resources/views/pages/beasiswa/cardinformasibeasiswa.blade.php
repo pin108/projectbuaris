@@ -6,7 +6,7 @@
         <div>
             <div class="card-beasiswa">
                 <div class="image">
-                    <img src="http://loremflickr.com/320/150?random=4" />
+                    <img src="{{ asset($item->banner_beasiswa) }}" alt="{{ $item->judul_kategoribeasiswa }}" />
                 </div>
                 <div class="card-inner">
                     <div class="header">

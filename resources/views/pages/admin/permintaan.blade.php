@@ -44,7 +44,7 @@
                     <td>{{ $item->judul_campaign }}</td>
                     <td>{{$item->pendapatan_campaign}}</td>
                     <td>
-                        <img src="{{ asset($item->foto_campaign) }}" alt="Campaign Image" width="100">
+                        <img src="{{ asset('storage/'. $item->foto_campaign) }}" alt="Campaign Image" style="width: 40px; height: 40px">
                     </td>
                     @php
                         $is_active_text = '';
@@ -66,6 +66,11 @@
                     <td class="{{ $is_active_color }}">{{ $is_active_text }}</td>
                     <td>{{ $item->tanggal_mulai }}</td>
                     <td>
+                        <form action="{{ route('galangdana.cekberkas') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type='hidden' name='id' value='{{ $item->id }}'>
+                            <button class="badge bg-primary border-0" onclick="return confirm('unduh data?')">cek berkas</button>
+                        </form>
                         <a href="#detailModal{{ $item->id }}" class="btn btn-sm btn-info"
                             data-toggle="modal">Detail</a>
                         <a href="#updatepermintaan{{ $item->id }}" class="btn btn-sm btn-info"

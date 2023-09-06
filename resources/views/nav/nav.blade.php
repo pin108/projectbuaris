@@ -19,9 +19,15 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ url('adminis/index/lulusbeasiswa') }}">
+                <i class="menu-icon mdi mdi-map-marker"></i>
+                <span class="menu-title">lulus beasiswa</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{ url('adminis/payment') }}">
                 <i class="menu-icon mdi mdi-map-marker"></i>
-                <span class="menu-title">Laporan Pembayaran</span>
+                <span class="menu-title">Laporan Keuangan Galang Dana</span>
             </a>
         </li>
         <li class="nav-item">

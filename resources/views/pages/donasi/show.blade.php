@@ -14,23 +14,9 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="d-block w-100" alt="Campaign Image">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="d-block w-100" alt="Campaign Image">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="d-block w-100" alt="Campaign Image">
+                                <img src="{{ asset('storage/'. $donasiDetail->foto_campaign) }}" alt="Campaign Image"  style="width: 100%; height:400px">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#slider" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#slider" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </a>
                     </div>
                 </div>
                 <div class="col-md-6">

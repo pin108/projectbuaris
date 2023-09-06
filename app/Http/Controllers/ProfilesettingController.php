@@ -34,7 +34,7 @@ class ProfilesettingController extends Controller
             'jenis_pekerjaan' => 'nullable|string',
             'tempat_bekerja' => 'nullable|string',
             'fotodiri' => 'nullable|mimes:jpeg,png|max:5000', // Optional image upload, max 5MB
-            'ktp' => 'nullable|mimes:pdf|max:5000', // Optional PDF upload, max 5MB
+            'ktp' => 'nullable|mimes:jpeg,png|max:5000', // Optional PDF upload, max 5MB
             'password' => 'nullable|string'
             // Add more validation rules as needed
         ]);

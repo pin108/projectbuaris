@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class adminbeasiswa extends Controller
 {
-    
+
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
@@ -30,7 +30,7 @@ class adminbeasiswa extends Controller
     public function index()
     {
         $kategoriBeasiswa = Kategoribeasiswa::all();
-        $pendaftaranBeasiswa = pendaftaran_beasiswa::all();
+        $pendaftaranBeasiswa = pendaftaran_beasiswa::with('user', 'kategoribeasiswa')->get();
 
         return view('pages.admin.beasiswa', compact('kategoriBeasiswa', 'pendaftaranBeasiswa'));
     }

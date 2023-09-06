@@ -25,10 +25,11 @@
 
     <!-- Tabel Pendaftaran Beasiswa -->
     <div class="table-responsive">
-        <table class="table table-bordered" id="pendaftaranBeasiswaTable">
+        <table class="table table-bordered" id="table">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Kategori Beasiswa</th>
                     <th>Nama Depan</th>
                     <th>Nama Belakang</th>
                     <th>Email</th>
@@ -41,6 +42,7 @@
                 @foreach ($pendaftaranBeasiswa as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
+                        <td>{{ $item->kategoribeasiswa->judul_kategoribeasiswa }}</td>
                         <td>{{ $item->nama_depan }}</td>
                         <td>{{ $item->nama_belakang }}</td>
                         <td>{{ $item->email }}</td>
@@ -93,6 +95,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div style="text-align: center"><h4>{{ $item->kategoribeasiswa->judul_kategoribeasiswa }}</h4></div>
+                    {{-- <div>
+                        <img src="{{ asset($item->foto_peserta) }}" alt="Foto Peserta" style="width: 40px; height:30px">
+                    </div> --}}
+                    <div>
+                        <img src="{{ asset('storage/' . $item->foto_peserta) }}" alt="Foto Peserta" style="width: 80px; height: 80px; text-alignment:center">
+                    </div>
                     <!-- Display detailed information here -->
                     <p>ID: {{ $item->id }}</p>
                     <p>Nama Depan: {{ $item->nama_depan }}</p>
@@ -108,6 +117,12 @@
                     <p>Nomor Identitas: {{ $item->nomor_identitas }}</p>
                     <p>Rata-rata Nilai: {{ $item->ratarata_nilai }}</p>
                     <p>Semester: {{ $item->semester }}</p>
+                    @if ($item->sertifikat_peserta == null)
+                    <p>sertifikat kosong</p>
+                @else
+                   <p>sertifikat: </p> 
+                   <embed src="{{ asset('storage/' . $item->sertifikat_peserta) }}" type="application/pdf" width="100%" height="500px" />
+                @endif                
                     <!-- Add more fields as needed -->
                 </div>
                 <div class="modal-footer">
@@ -117,7 +132,7 @@
         </div>
     </div>
     <!-- Other modals for update status and delete remain unchanged -->
-@endforeach
+    @endforeach
 
     @foreach ($pendaftaranBeasiswa as $item)
         <!-- Modal for Update Status Pendaftaran Beasiswa -->
@@ -169,53 +184,52 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Include your edit form here with appropriate fields -->
                         <form action="{{ route('admin.beasiswa.update', $item->id) }}" method="POST">
                             @csrf
                             @method('PUT')
-                            <!-- Include your form fields here -->
-                            <label for="nama_depan">Nama Depan</label>
-                            <input type="text" name="nama_depan" value="{{ $item->nama_depan }}" required>
-                          
-                            <label for="nama_belakang">Nama Belakang</label>
-                            <input type="text" name="nama_belakang" value="{{ $item->nama_belakang }}" required>
-                          
-                            <label for="email">Email</label>
-                            <input type="email" name="email" value="{{ $item->email }}" required>
-                          
-                            <label for="nomor_hp">Nomor HP</label>
-                            <input type="text" name="nomor_hp" value="{{ $item->nomor_hp }}" required>
-                          
-                            <label for="kelurahan">Kelurahan</label>
-                            <input type="text" name="kelurahan" value="{{ $item->kelurahan }}" required>
-                          
-                            <label for="kecamatan">Kecamatan</label>
-                            <input type="text" name="kecamatan" value="{{ $item->kecamatan }}" required>
-                          
-                            <label for="kabupaten">Kabupaten</label>
-                            <input type="text" name="kabupaten" value="{{ $item->kabupaten }}" required>
-                          
-                            <label for="RT">RT</label>
-                            <input type="text" name="RT" value="{{ $item->RT }}" required>
-                          
-                            <label for="RW">RW</label>
-                            <input type="text" name="RW" value="{{ $item->RW }}" required>
-                          
-                            <label for="provinsi">Provinsi</label>
-                            <input type="text" name="provinsi" value="{{ $item->provinsi }}" required>
-                          
-                            <label for="nomor_identitas">Nomor Identitas</label>
-                            <input type="text" name="nomor_identitas" value="{{ $item->nomor_identitas }}" required>
-                          
-                            <label for="ratarata_nilai">Rata-rata Nilai</label>
-                            <input type="text" name="ratarata_nilai" value="{{ $item->ratarata_nilai }}" required>
-                          
-                            <label for="semester">Semester</label>
-                            <input type="text" name="semester" value="{{ $item->semester }}" required>
-                          
+                            
+                            <label for="nama_depan">Nama Depan</label><br>
+                            <input type="text" name="nama_depan" value="{{ $item->nama_depan }}" required><br><br>
+                            
+                            <label for="nama_belakang">Nama Belakang</label><br>
+                            <input type="text" name="nama_belakang" value="{{ $item->nama_belakang }}" required><br><br>
+                            
+                            <label for="email">Email</label><br>
+                            <input type="email" name="email" value="{{ $item->email }}" required><br><br>
+                            
+                            <label for="nomor_hp">Nomor HP</label><br>
+                            <input type="text" name="nomor_hp" value="{{ $item->nomor_hp }}" required><br><br>
+                            
+                            <label for="kelurahan">Kelurahan</label><br>
+                            <input type="text" name="kelurahan" value="{{ $item->kelurahan }}" required><br><br>
+                            
+                            <label for="kecamatan">Kecamatan</label><br>
+                            <input type="text" name="kecamatan" value="{{ $item->kecamatan }}" required><br><br>
+                            
+                            <label for="kabupaten">Kabupaten</label><br>
+                            <input type="text" name="kabupaten" value="{{ $item->kabupaten }}" required><br><br>
+                            
+                            <label for="RT">RT</label><br>
+                            <input type="text" name="RT" value="{{ $item->RT }}" required><br><br>
+                            
+                            <label for="RW">RW</label><br>
+                            <input type="text" name="RW" value="{{ $item->RW }}" required><br><br>
+                            
+                            <label for="provinsi">Provinsi</label><br>
+                            <input type="text" name="provinsi" value="{{ $item->provinsi }}" required><br><br>
+                            
+                            <label for="nomor_identitas">Nomor Identitas</label><br>
+                            <input type="text" name="nomor_identitas" value="{{ $item->nomor_identitas }}" required><br><br>
+                            
+                            <label for="ratarata_nilai">Rata-rata Nilai</label><br>
+                            <input type="text" name="ratarata_nilai" value="{{ $item->ratarata_nilai }}" required><br><br>
+                            
+                            <label for="semester">Semester</label><br>
+                            <input type="text" name="semester" value="{{ $item->semester }}" required><br><br>
+                            
                             <button type="submit" class="btn btn-primary">Save Changes</button>
-                          </form>
-                    </div>
+                        </form>
+                    </div>                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>

@@ -1,17 +1,17 @@
 @extends('layout.layout')
 @section('content')
 <div class="container" style="margin-bottom: 10%;">
-    <h1>Lamaran Beasiswa</h1>
+    <h1>Progress Galang Dana</h1>
     <div class="row">
         @foreach ($pendaftarans as $pendaftaran)
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{  asset($pendaftaran->kategoribeasiswa->banner_beasiswa) }}" alt="Campaign Image" class="card-img-top custom-img"/>
+                <img src="{{  asset('storage/'.$pendaftaran->foto_campaign) }}" alt="Campaign Image" style="width: 100%; height:200px"/>
                 <div class="card-body">
-                    <h5 class="card-title">Jenis: {{ $pendaftaran->kategoribeasiswa->jenis_kategoribeasiswa }}</h5>
-                    <p class="card-text">{{ $pendaftaran->kategoribeasiswa->judul_kategoribeasiswa }}</p>
+                    <h5 class="card-title">Judul: {{ $pendaftaran->kategorigalangdana->jenis_kategori }}</h5>
+                    <p class="card-text">{{ $pendaftaran->judul_campaign}}</p>
                     @if ($pendaftaran->is_active == 1)
-                    <span class="badge badge-success" style="background-color: green;">Lulus</span>
+                    <span class="badge badge-success" style="background-color: green;">Disetujui</span>
                     @elseif ($pendaftaran->is_active == 2)
                     <span class="badge badge-danger" style="background-color: red;">Ditolak</span>
                     @else
