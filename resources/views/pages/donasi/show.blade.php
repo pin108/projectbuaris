@@ -127,24 +127,7 @@
                             @endforeach
                         </div>
                 </div>
-                <div class="mt-7">
-                    <h2>Kirim Donasi</h2>
-
-                    <h> Kirim Donasi Ke rekening : 02931313123 Bri A/N Yayasan Alfo Indonesia</h>
-                    <form action="{{ route('payments') }}" enctype="multipart/form-data" method="POST">
-                        @csrf
-                        <input type="hidden" name="id_galangdana" value="{{ $donasiDetail->id }}">
-                        <div class="mb-3">
-                            <label for="amount" class="form-label">Jumlah Donasi</label>
-                            <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="amount" class="form-label">Bukti Transfer *JPG</label>
-                            <input type="file" class="form-control" id="bukti_transaksi" name="bukti_transaksi" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 5%">Kirim Donasi</button>
-                    </form>
-                </div>
+                
                 </div>
             </div>
         </div>
