@@ -3,7 +3,7 @@
 @section('utama')
 <main class="main position-relative">
     <div class="detail-header-background">
-        <img src="./assets/detail-header-image-2560x330.png" alt="" />
+        {{-- <img src="./assets/detail-header-image-2560x330.png" alt="" /> --}}
     </div>
     <!-- /.detail-background -->
     <div class="container-xxl">
@@ -35,6 +35,7 @@
 
                     <form method="POST" action="{{ route('login') }}" class="row">
                         @csrf
+                        
 
                         <div class="col-md-6 col-xl-4 my-15 my-xl-24">
                             <label for="inputEmailaddress" class="form-label">Email Address</label>
@@ -48,6 +49,12 @@
                             <label for="inputPassword" class="form-label">Password</label>
                             <input type="password" class="form-control rounded-pill" name="password" id="inputPassword" placeholder="Type here" />
                         </div>
+
+                        <div class="form-group row">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                        </div>
+
                         <!-- /.col -->
                         <button type="submit" class="btn btn-primary fw-semiBold py-12 px-24 px-md-60 rounded-pill" role="button">Submit</button>
 
@@ -66,9 +73,9 @@
             <div class="col-12 col-lg-4 col-xl-3 mt-20 mt-lg-0 order-lg-1">
                 <div class="d-grid gap-34 bg-white p-20 py-43 rounded-20 shadow-2">
                     <div class="d-grid text-center gap-34 mx-auto">
-                        <img src="./assets/company-logo-120x120.png" class="img-avatar mx-auto rounded-pill" alt="job-logo-1" />
+                        {{-- <img src="./assets/company-logo-120x120.png"  alt="job-logo-1" /> --}}
                         <!-- /.company-image -->
-
+                        <img src="{{ asset('images/alsteduaribu.png') }}" class="img-avatar mx-auto rounded-pill" alt="Nama Alternatif Gambar">
                         <div class="d-grid gap-10">
                             <h6 class="heading-text-1 fw-medium mb-0">
                                 <a class="text-dark text-decoration-none" href="#">Yayasan Alfo Indonesia</a>
