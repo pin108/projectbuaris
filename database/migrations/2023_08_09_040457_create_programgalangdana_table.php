@@ -29,9 +29,8 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('pendapatan_campaign')->nullable(); // Kolom pendapatan_campaign
             $table->integer('pencairangalangdana')->nullable();
-
+            $table->integer('statuspencairandana')->default('0')->nullable();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
-
             $table->foreign('id_kategoricampaign')->references('id')->on('kategorigalangdanas');
         });
     }

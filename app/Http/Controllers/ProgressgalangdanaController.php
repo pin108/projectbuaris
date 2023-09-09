@@ -27,7 +27,7 @@ class ProgressgalangdanaController extends Controller
             $message = "Anda belum mendaftar galangdana";
             return $this->notif($message);
         }
-        dd($pendaftarans);
-        // return view('pages.galangdana.prosesgalangdana', compact('pendaftarans'));
+        // dd($pendaftarans);
+        return view('pages.galangdana.prosesgalangdana', compact('pendaftarans'));
     }
 }
