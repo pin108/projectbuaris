@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('is_active')->nullable();
             $table->timestamps();
             $table->integer('pendapatan_campaign')->nullable(); // Kolom pendapatan_campaign
+            $table->integer('pencairangalangdana')->nullable();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
 

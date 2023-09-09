@@ -58,11 +58,12 @@
                                         echo "Donasi berlangsung, selesai pada tanggal " . date('Y-m-d', $tanggalAkhir) . ". Kemajuan: " . round($persentaseKemajuan, 2) . "%";
                                     }
                                     ?>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="container" style="margin-top: 2%;">
+                    <div class="container" style="margin-top: 2%;">
                         <div class="row border-top">
                             <div class="col-sm border">
                                 <div class="row">
@@ -99,7 +100,7 @@
                             </div>
                         </div>
                         <a href="{{ route('senddonasi', ['id' => $donasiDetail->id]) }}" class="btn btn-primary mt-3" style="margin-top: 2%;">Masukkan Donasi Anda</a>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
             <div class="row mt-8" style="margin-top: 2%;">
@@ -126,6 +127,7 @@
                             @endforeach
                         </div>
                 </div>
+                
                 </div>
             </div>
         </div>
