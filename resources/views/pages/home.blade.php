@@ -2,7 +2,17 @@
 
 @section('utama')
 <div class="bg-ghost-white">
-	<div class="container-xxl" style="margin-top: 2%;">
+	@if (session('success'))
+	<div class="alert alert-success">
+		{{ session('success') }}
+	</div>
+	@endif
+	@if (session('error'))
+	<div class="alert alert-danger">
+		{{ session('error') }}
+	</div>
+	@endif
+	<div class="container-xxl">
 		<div class="row">
 			<div class="col-12 col-lg-4 col-xl-5 d-flex align-items-center my-34 my-lg-50 my-xl-120 order-2 order-lg-1">
 				<div class="swiper header-slider">
@@ -24,7 +34,7 @@
 					<!-- /.header-slider-content -->
 
 					<div class="d-flex flex-wrap align-items-center mt-60 gap-20">
-						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="/joblist.html" role="button">Donasi</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{route('carigalangdanlain')}}" role="button">Donasi</a>
 						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('galangdana')}}" role="button">Galang Dana</a>
 
 					</div>
@@ -114,7 +124,7 @@
 					<img src="./images/beasiswa3.jpg" class="d-block w-100" alt="Sunset Over the City" style="width: 400 px; height:600px" />
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Lihat Program</h5>
-						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('informasibeasiswa')}}" role="button">Informasi Beasiswa</a>
+						<a class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill" href="{{url('index-informasibeasiswa')}}" role="button">Informasi Beasiswa</a>
 					</div>
 				</div>
 
@@ -157,36 +167,21 @@
 			<h2>Pilih Donasi</h2>
 			<p>Donasimu adalah investasi dalam kebaikan, yang akan memberikan imbalan tak terhingga bagi mereka yang menerimanya.</p>
 		</div>
-		<div class="row">
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="card">
-					<img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="card-img-top" alt="Donation Image">
-					<div class="card-body">
-						<h5 class="card-title">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h5>
-						<p class="card-text">Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
-						<a href="{{url('detail')}}" class="btn btn-primary">Donasi Sekarang</a>
+		<div class="container-fluid">
+			<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+				@foreach ($activeGalangDanas as $galangdana)
+				<div class="col-5">
+					<div class="card">
+						<img src="{{ asset('storage/'. $galangdana->foto_campaign) }}" alt="Campaign Image" class="card-img-top custom-img">
+						<div class="card-body">
+							<h5 class="card-title">Galang Dana :{{ $galangdana->judul_campaign}}</h5>
+							<p class="card-text">{{ $galangdana->deskripsi_campaign}}</p>
+							<p class="card-text">{{ $galangdana->lokasi_campaign}}</p>
+							<a href="{{ route('detail', ['id' => $galangdana->id]) }}" class="btn btn-primary">Donasi Sekarang</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="card">
-					<img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="card-img-top" alt="Donation Image">
-					<div class="card-body">
-						<h5 class="card-title">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h5>
-						<p class="card-text">Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
-						<a href="{{url('detail')}}" class="btn btn-primary">Donasi Sekarang</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="card">
-					<img src="https://imgix.kitabisa.com/7a0870c7-ac2b-4ac9-8b53-e46816b0b36a.jpg?auto=format&ch=Width,DPR,Save-Data,Viewport-Width" class="card-img-top" alt="Donation Image">
-					<div class="card-body">
-						<h5 class="card-title">Komplikasi 3 Penyakit Renggut Masa Kecil Alula</h5>
-						<p class="card-text">Mari bantu pasien di RSHS Bandung berobat sampai sembuh!</p>
-						<a href="{{url('detail')}}" class="btn btn-primary">Donasi Sekarang</a>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -202,7 +197,7 @@
 				<div class="col md-6">
 					<div class="card-category">
 						<div class="card-category-icon">
-							<a href="#">
+							<a href="{{ route('carigalangdana-bencanaalam') }}">
 								<img src="./images/another.png" alt="Bencana Alam" />
 							</a>
 						</div>
@@ -212,27 +207,27 @@
 				<div class="col md-6">
 					<div class="card-category">
 						<div class="card-category-icon">
-							<a href="#">
-								<img src="./images/child_care_FILL0_wght400_GRAD0_opsz48.png" alt="Balita & Anak Sakit" />
+							<a href="{{ route('carigalangdana-orangsakit') }}">
+								<img src="./images/sick.png" alt="Balita & Anak Sakit" />
 							</a>
 						</div>
-						<h4 class="card-category-title">Balita & Anak Sakit</h4>
+						<h4 class="card-category-title">Orang Sakit</h4>
 					</div>
 				</div>
 				<div class="col md-6">
 					<div class="card-category">
 						<div class="card-category-icon">
-							<a href="#">
-								<img src="./images/health_and_safety_FILL0_wght400_GRAD0_opsz48.png" alt="Bantuan Medis & Kesehatan" />
+							<a href="{{ route('carigalangdana-difabel') }}">
+								<img src="./images/disabel.png" alt="Bantuan Medis & Kesehatan" />
 							</a>
 						</div>
-						<h4 class="card-category-title">Bantuan Medis & Kesehatan</h4>
+						<h4 class="card-category-title">Difabel</h4>
 					</div>
 				</div>
 				<div class="col md-6">
 					<div class="card-category">
 						<div class="card-category-icon">
-							<a href="#">
+							<a href="{{route('carigalangdanlain')}}">
 								<img src="./images/other_admission_FILL0_wght400_GRAD0_opsz48.png" alt="Lainnya" />
 							</a>
 						</div>
@@ -242,9 +237,6 @@
 			</div>
 		</div>
 	</section>
-
-
-
 </section>
 
 @stop

@@ -1,36 +1,73 @@
 @extends('layout.layout')
 @section('content')
-<div class="container rounded bg-white mt-5 mb-5" style="margin-top: 30%;">
+@if (session('success'))
+<div class="alert alert-success" style="background-color:green">
+    {{ session('success') }}
+</div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger" style="background-color: red">
+    {{ session('error') }}
+</div>
+@endif
+<div class="container-fluid" style="margin-top:5%; margin-bottom:5% ">
     <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{ Auth::user()->name }}</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-user-circle"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{ Auth::user()->id }}/edit">
+                            <i class="fas fa-user-edit"></i> Edit Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profile.password', Auth::user()->id) }}">
+                            <i class="fas fa-key"></i> Change Password
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
+        
+
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="container mt-5">
+                <h2 class="mb-4">User Profile</h2>
+                <!-- Profile information -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- User profile picture -->
+                                <div class="col-md-4 border-right text-center">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                        <img class="rounded-circle mb-3" width="120" height="120" src="{{ asset('storage/' . $user->fotodiri) }}" alt="User Profile">
+                                        <h5 class="font-weight-bold">{{ Auth::user()->name }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="mb-4"><strong>Nama:</strong> {{ Auth::user()->name }}</h3>
+                                <!-- NIK (National Identification Number) -->
+                                <p class="mb-3"><strong>Email:</strong> {{ Auth::user()->email }}</p>
+                                <p class="mb-3"><strong>NIK:</strong> {{ Auth::user()->NIK }}</p>
+                                <!-- Status -->
+                                <p class="mb-3"><strong>Status:</strong> {{ Auth::user()->roles == 1 ? 'Admin' : 'User' }}</p>
+                                <!-- Address -->
+                                <p class="mb-3"><strong>Alamat:</strong> {{ Auth::user()->alamat_rumah }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>        
     </div>
 </div>
 </div>

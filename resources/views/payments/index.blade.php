@@ -1,0 +1,59 @@
+@extends('layout.layout')
+@section('utama')
+<main>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+<div class="container">
+    <h2>Riwayat Pembayaran</h2>
+    <table class="table">
+        <thead>
+            <thead>
+                <tr>
+                    <th>Kode Invoice</th>
+                    <th>Nama Galang Dana</th>
+                    <th>Jumlah Pembayaran</th>
+                    <th>Tanggal Pembayaran</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($payments as $payment)
+                <tr>
+                    <td>{{ $payment->invoice_code }}</td>
+                    <td>{{ $payment->galangdana->judul_campaign }}</td>
+                    <td>{{ 'Rp ' . number_format($payment->total, 2, ',', '.') }}</td>
+                    <td>{{ $payment->created_at }}</td>
+                    <td>
+                        @if ($payment->status === 0)
+                                <span class="text-danger">User Belum Mengirim Bukti Pembayaran</span>
+                            @elseif ($payment->status === 1)
+                                <span class="text-warning">Bukti Telah Dikirim dan Menunggu direview oleh admin</span>
+                            @elseif ($payment->status === 2)
+                                <span class="text-success">Pembayaran Disetujui</span>
+                            @elseif ($payment->status === 3)
+                                <span class="text-danger">Pembayaran Ditolak</span>
+                            @else
+                                <span>Status Tidak Dikenali</span>
+                            @endif
+                    </td>
+                    <td>
+                        @if ($payment->status == 0)
+                            <a href="{{ route('payments.upload', $payment->id) }}" class="btn btn-primary">Unggah Bukti</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+</div>
+</main>
+@endsection

@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 <div class="container">
-    <h1 style="text-align: center; margin-top:3%">galang dana lainnya</h1>
+    <h1 style="text-align: center; margin-top:3%">Jenis Galang Dana</h1>
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanakaryakreatif') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerkaryakreatif') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanakegiatansosial') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerkegiatansosial') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -224,7 +224,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanadifabel') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerdifabel') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -250,7 +250,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanapantiasuhan') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerkegiatanpantiasuhan') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -277,7 +277,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanarumahibadah') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerkegiatanrumahibadah') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -304,7 +304,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanaorangsakit') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerbantuanorangsakit') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>
@@ -331,7 +331,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('registergalangdanaorangsakit') }}`;">galang dana kategori ini</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('index-registerbantuanbencanaalam') }}`;">galang dana kategori ini</button>
                     <button type="button" class="btn btn-secondary" style="background-color: blue; color:white;" onclick="window.location.href=`{{ route('galangdanalainnya') }}`;">kategori lain</button>
                 </div>
             </div>

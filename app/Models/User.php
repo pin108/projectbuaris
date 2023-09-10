@@ -17,10 +17,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $guarded = [
+        'id',
+    ];
     protected $fillable = [
         'name',
         'email',
         'password',
+        'NIK',
+        'nomor_hp',
+        'alamat_rumah',
+        'jenis_pekerjaan',
+        'tempat_bekerja',
+        'fotodiri',
+        'ktp',
+        'roles'
     ];
 
     /**
@@ -41,4 +52,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function galangdana()
+    {
+        return $this->hasMany(GalangDana::class, 'id_user');
+    }
+    public function pendaftaran_beasiswa()
+    {
+        return $this->hasMany(pendaftaran_beasiswa::class, 'id_peserta');
+    }
+
+    public function payment()
+    {
+        return $this->belongsTo(payment::class, 'id_user');
+    }
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Define the 'creating' event handler
+        static::creating(function ($user) {
+            $lastId = static::max('id');
+
+            // Extract the last two digits of the year (YY)
+            $year = date('ym');
+
+            // Get the sequence number from the last ID and increment it
+            $sequenceNumber = ($lastId ? (int) substr($lastId, -6) : 0) + 1;
+
+            // Generate the formatted ID with leading zeros
+            $idUser = $year . str_pad($sequenceNumber, 6, '0', STR_PAD_LEFT);
+
+            $user->id = $idUser;
+        });
+    }
 }

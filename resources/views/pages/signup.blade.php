@@ -1,11 +1,9 @@
 @extends('layout.layout')
 
 @section('utama')
-	
 
 <main class="main position-relative">
 			<div class="detail-header-background">
-				<img src="./assets/detail-header-image-2560x330.png" alt="" />
 			</div>
 			<!-- /.detail-background -->
 
