@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="progress-bar">
+                        <div class="progress-bar" style="margin-top:2% ">
                             <div class="progress-bar">
                                 <div class="progress-description">
                                     <?php
@@ -71,10 +71,10 @@
                                         <i class="fas fa-heart"></i>
                                     </div>
                                     <div class="col-sm">
-                                        99999
+                                        Jumlah Donasi
                                     </div>
                                 </div>
-                                <div> jumlah donasi</div>
+                                <div>{{ $jumlahDonasi }}</div>
                             </div>
                             <div class="col-sm border">
                                 <div class="row">

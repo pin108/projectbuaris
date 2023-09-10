@@ -134,6 +134,7 @@ class payment extends Controller
         $targetDate = now()->format('Y-m-d');
         $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
+        $jumlahDonasi = GalangDana::where('id', $id)->count();
         $modelsdoa = DoaDonasi::query();
         $query = $modelsdoa->where('id_galangdana', $id)->latest()
             ->take(5)
@@ -144,8 +145,8 @@ class payment extends Controller
             ->take(5)
             ->get();;
 
-            // dd($donasiDetail, $result, $resulthistori);
-        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori'));
+        // dd($donasiDetail, $result, $resulthistori);
+        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori', 'jumlahDonasi'));
     }
 
     public function senddonasi($id)
