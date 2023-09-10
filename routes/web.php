@@ -176,6 +176,8 @@ Route::middleware('auth')->group(function () {
     // profile setting
     Route::get('/profile', [ProfilesettingController::class, 'index'])->name('profile');
     Route::get('/profile/{id}/edit', [ProfilesettingController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/changepassword/{id}', [ProfilesettingController::class, 'password'])->name('profile.password');
+    Route::put('/profile/updatepassword', [ProfilesettingController::class, 'updatepassword'])->name('profile.updatepassword');
     Route::put('/profile/update/{id}', [ProfilesettingController::class, 'update'])->name('items.update');
 
     //galang dana karya kreatif

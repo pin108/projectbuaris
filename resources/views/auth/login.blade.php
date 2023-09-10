@@ -50,9 +50,12 @@
                             <input type="password" class="form-control rounded-pill" name="password" id="inputPassword" placeholder="Type here" />
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row mb-5">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="text-danger" style="background-color: red">{{ $errors->first('g-recaptcha-response') }}</span>
+                            @endif
                         </div>
 
                         <!-- /.col -->

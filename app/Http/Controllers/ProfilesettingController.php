@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilesettingController extends Controller
 {
@@ -77,5 +79,31 @@ class ProfilesettingController extends Controller
         $updateUser->update($data);
 
         return redirect()->route('profile')->with('success', 'Profile updated successfully.');
+    }
+
+    public function password($id)
+    {
+        $user = User::findOrFail($id);
+        return view('pages.profil.changepassword', compact('user'));
+    }
+
+    public function updatepassword(Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'id' => 'required|exists:users,id',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // Retrieve the user by ID
+        $user = User::findOrFail($validatedData['id']);
+
+        // Update the user's password
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+
+        // Redirect to a success page or return a response
+        return redirect()->route('profile')->with('success', 'password has been update'); // Customize this route
+
     }
 }
