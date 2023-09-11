@@ -1,4 +1,4 @@
-<script src="{{ asset('template/vendors/js/vendor.bundle.base.js') }}"></script>
+{{-- <script src="{{ asset('template/vendors/js/vendor.bundle.base.js') }}"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
 <script src="{{ asset('template/vendors/chart.js/Chart.min.js') }}"></script>
@@ -23,7 +23,7 @@
 <script src="{{ asset('themewagon/vendors/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('themewagon/vendors/is/is.min.js') }}"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-<script src="{{ asset('themewagon/assets/js/theme.js') }}"></script>
+<script src="{{ asset('themewagon/assets/js/theme.js') }}"></script> --}}
 
 <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

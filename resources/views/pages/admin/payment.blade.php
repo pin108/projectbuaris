@@ -20,7 +20,7 @@
 
     <!-- Ubah nama tabel menjadi "paymentsTable" -->
     <div class="table-responsive">
-        <table class="table table-bordered" id="paymentsTable">
+        <table class="table table-bordered" id="campaignTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -122,12 +122,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {{-- <div class="modal-body">
+                <div class="modal-body">
                     <!-- Put your campaign detail information here -->
-                    kuh perbaiki foto ini
-                    <img src="{{ asset('storage/public/invoicepembayaran')}}" alt="buktibayar" width="500" height="600">
+                    <img src="{{ asset('storage/' . $item->buktitransaksi) }}" alt="buktibayar" width="200" height="200">
 
-                </div> --}}
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

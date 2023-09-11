@@ -123,6 +123,14 @@ Route::middleware('admin')->group(function () {
     Route::get('/adminis/payment/', [adminkeuangancontroller::class, 'index'])->name('admin.payment');
     Route::post('/adminis/payment/status/{id}', [adminkeuangancontroller::class, 'updateStatus'])->name('admin.payment.updatestatus');
 
+    //laporan galang dana
+    route::get('/adminis/laporangalangdana', [adminkeuangancontroller::class, 'laporangalangdana'])->name('adminpayment.laporangalangdana');
+
+    //pencairan galang dana
+    route::get('adminis/index/pencairandana', [adminkeuangancontroller::class, 'indexperncairandana'])->name('dana.index');
+    route::post('adminis/store/pencairandana', [adminkeuangancontroller::class, 'storepencairan'])->name('dana.store');
+    route::post('adminis/unduh/rekapgalangdana', [adminkeuangancontroller::class, 'generatepdf'])->name('rekapgalangdana.generatepdf');
+
     //kategori beasiswa
     Route::get('/adminis/kategoribeasiswabaru/', [AdminkategoribeasiswaController::class, 'index'])->name('kategoribeasiswas.index');
     route::get('/adminis/create/tambahdatakategori', [AdminkategoribeasiswaController::class, 'create'])->name('kategoribeasiswa.create');

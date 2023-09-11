@@ -146,7 +146,7 @@
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <center><button class="btn btn-danger btn-sm mt-2" type="submit">Keluar</button></center>
+                        <center><button class="btn btn-danger btn-sm mt-2" type="submit">Keluar niy</button></center>
                     </form>
                 </div>
             </li>

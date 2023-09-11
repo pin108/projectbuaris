@@ -25,7 +25,7 @@
                         <p>{{$donasiDetail->deskripsi_campaign}}</p>
                         <div class="row">
                             <div class="col-sm-4">
-                              Terkumpul Sekarang ini Rp. {{$donasiDetail->pendapatan_campaign}}
+                              Terkumpul Sekarang ini Rp. {{$totaldonasi}}
                             </div>
                             <div class="col-sm-4">
                                 Target Donassi Rp. {{ $donasiDetail->targetdonasi_campaign }}
@@ -118,7 +118,7 @@
                 <div class="col-md-6">
                     <h2>History Donasi</h2>
                         <div class="card-body">
-                            @foreach($resulthistori as $stori)
+                            @foreach($historidonasi as $stori)
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <span class="fw-bold">{{ $stori->created_at }}</span> donated {{ $stori->total }}

@@ -134,19 +134,33 @@ class payment extends Controller
         $targetDate = now()->format('Y-m-d');
         $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
-        $jumlahDonasi = GalangDana::where('id', $id)->count();
+        $jumlahDonasi = \App\Models\payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->count();
         $modelsdoa = DoaDonasi::query();
         $query = $modelsdoa->where('id_galangdana', $id)->latest()
             ->take(5)
             ->get();
         $result = $query;
         $histori =  \App\Models\payment::query();
+
+        $historidonasi = \App\Models\Payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->latest('created_at') // Replace 'created_at' with your actual timestamp column name
+            ->take(5)
+            ->get();
         $resulthistori = ModelsPayment::where('id_galangdana', $id)->whereDate('created_at', '=', $targetDate)->latest()
             ->take(5)
             ->get();;
 
+        //total donasi 
+        $datamasukdonasi = \App\Models\Payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->get();
+
+        $totaldonasi = $datamasukdonasi->sum('total');
         // dd($donasiDetail, $result, $resulthistori);
-        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori', 'jumlahDonasi'));
+        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori', 'jumlahDonasi', 'historidonasi', 'totaldonasi'));
     }
 
     public function senddonasi($id)
