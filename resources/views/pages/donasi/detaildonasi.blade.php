@@ -74,7 +74,7 @@
                             <input type="hidden" name="id_galangdana" value="{{ $sendDonasi->id }}">
                             <div class="mb-3">
                                 <label for="amount" class="form-label">Jumlah Donasi</label>
-                                <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
+                                <input type="text" class="form-control" id="jumlah_donasi" name="jumlah_donasi" oninput="formatNumber(this)" required>
                             </div>
                             <div class="mb-3">
                                 <label for="amount" class="form-label">Bukti Transfer *JPG</label>
@@ -89,4 +89,19 @@
         </div>
     </div>
 </main>
+<script>
+    function formatNumber(input) {
+        // Get the current input value
+        let value = input.value;
+
+        // Remove all non-numeric characters
+        value = value.replace(/\D/g, '');
+
+        // Format the number with a period as the thousands separator
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update the input value with the formatted number
+        input.value = value;
+    }
+</script>
 @endsection

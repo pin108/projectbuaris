@@ -72,13 +72,14 @@ class GalangdanakegiatansosialController extends Controller
             }
 
             // Create and save the data to the database
+            $total = (int)str_replace(['.', ','], '', $request->input('targetdonasi_campaign'));
             $data = new GalangDana([
                 'id_user' => $request->input('id_user'),
                 'id_kategoricampaign' => $request->input('id_kategoricampaign'),
                 'judul_campaign' => $request->input('judul_campaign'),
                 'lokasi_campaign' => $request->input('lokasi_campaign'),
                 'tujuan_campaign' => $request->input('tujuan_campaign'),
-                'targetdonasi_campaign' => $request->input('targetdonasi_campaign'),
+                'targetdonasi_campaign' => $total,
                 'rinciandana_campaign' => $request->input('rinciandana_campaign'),
                 'deskripsi_campaign' => $request->input('deskripsi_campaign'),
                 'foto_campaign' => $image,

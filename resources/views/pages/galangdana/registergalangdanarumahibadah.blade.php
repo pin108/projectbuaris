@@ -53,7 +53,7 @@
                     <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="emilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini dan Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana." name="praturan_campaign" required />
+                                <input class="form-check-input" type="checkbox" value="Pemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini dan Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana." name="praturan_campaign" required />
                                 <label class="form-check-label" for="flexCheckChecked">Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana.</label>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="number" placeholder="20000000" oninput="this.className = ''" name="targetdonasi_campaign"></input>
+                            <input type="text" placeholder="20000000" name="targetdonasi_campaign" class="form-control" oninput="formatNumber(this)">
                         </div>
                     </div>
                     <div>rincian galang dana
@@ -139,4 +139,19 @@
     </div>
 </div>
 <script src="{{ asset('js/registergalangdanakaryakreatif.js') }}"></script>
+<script>
+    function formatNumber(input) {
+        // Get the current input value
+        let value = input.value;
+
+        // Remove all non-numeric characters
+        value = value.replace(/\D/g, '');
+
+        // Format the number with a period as the thousands separator
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update the input value with the formatted number
+        input.value = value;
+    }
+</script>
 @stop

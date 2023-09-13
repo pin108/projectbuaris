@@ -26,6 +26,7 @@
                     <th>Id galang dana</th>
                     <th>Nama galang dana</th>
                     <th>Hasil Keseluruhan galang dana</th>
+                    <th>Target Donasi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -34,7 +35,8 @@
                     <tr>
                         <td>{{ $item->id_galangdana }}</td>
                         <td>{{ $item->galangdana->judul_campaign }}</td>
-                        <td>{{ $item->total }}</td>
+                        <td>{{ number_format($item->total, 0, ',', '.') }}</td>
+                        <td>{{ number_format($item->galangdana->targetdonasi_campaign, 0, ',', '.') }}</td>
                         <td>
                             <a href="#updatestatus{{ $item->id }}" class="btn btn-sm btn-info"
                                 data-toggle="modal">verifikasi pencairan dana</a>   

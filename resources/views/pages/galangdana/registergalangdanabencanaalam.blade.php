@@ -86,7 +86,7 @@
                     </div>
                     <div>
                         <div class="form-floating">
-                            <input type="number" placeholder="20000000" oninput="this.className = ''" name="targetdonasi_campaign"></input>
+                            <input type="text" placeholder="20000000" name="targetdonasi_campaign" class="form-control" oninput="formatNumber(this)">
                         </div>
                     </div>
                     <div>rincian galang dana
@@ -139,4 +139,19 @@
     </div>
 </div>
 <script src="{{ asset('js/registergalangdanakaryakreatif.js') }}"></script>
+<script>
+    function formatNumber(input) {
+        // Get the current input value
+        let value = input.value;
+
+        // Remove all non-numeric characters
+        value = value.replace(/\D/g, '');
+
+        // Format the number with a period as the thousands separator
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update the input value with the formatted number
+        input.value = value;
+    }
+</script>
 @stop

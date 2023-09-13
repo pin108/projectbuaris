@@ -51,13 +51,18 @@
                                 <span>Status Tidak Dikenali</span>
                             @endif
                         </td>                        
-                        <td>{{ $item->total }}</td>
+                        <td>{{ number_format($item->total, 0, ',', '.') }}</td>
                         <td>{{ $item->galangdana->judul_campaign}}</td>
                         <td>
                             <a href="#updatestatus{{ $item->id }}" class="btn btn-sm btn-info"
                                 data-toggle="modal">Update Status</a>   
                                 <a href="#detailModal{{ $item->id }}" class="btn btn-sm btn-info"
                                     data-toggle="modal">Lihat Bukti Pembayaran</a>   
+                                    <form action="{{ route('admin.destroyverif', $item->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" style="background-color: red" class="btn btn-sm btn-info" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?')">Hapus</button>
+                                    </form>
                     </tr>
                 @endforeach
             </tbody>

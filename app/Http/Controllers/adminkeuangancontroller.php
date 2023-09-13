@@ -61,16 +61,6 @@ class adminkeuangancontroller extends Controller
         return view('pages.admin.payment', compact('payment'));
     }
 
-    // public function destroy($id)
-    // {
-    //     $payment = payment::findOrFail($id);
-
-    //     $payment->delete();
-
-    //     return redirect()->route('admin.payment')->with('success', 'Data pendaftaran beasiswa berhasil dihapus');    
-
-    // }
-
     public function laporangalangdana()
     {
         $totals = Payment::select('payments.id_galangdana', DB::raw('SUM(payments.total) as total'))
@@ -161,5 +151,22 @@ class adminkeuangancontroller extends Controller
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename=data_peserta.pdf',
         ]);
+    }
+
+    public function destroyverif($id)
+    {
+        $data = Payment::find($id); // Make sure to capitalize the model name correctly (Payment, not payment)
+        if (!$data) {
+            return redirect()->route('admin.payment')->with('error', 'Payment not found.');
+        }
+        $data->delete();
+        return redirect()->route('admin.payment')->with('success', 'Payment deleted successfully.');
+    }
+
+    public function destroypencairan($id)
+    {
+        $data = pencairangalangdana::find($id);
+        $data->delete();
+        return redirect()->route('dana.index')->with('success', 'Pencairandana deleted successfully.');
     }
 }
