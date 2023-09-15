@@ -45,7 +45,7 @@
                     <div class="d-flex flex-column bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Pemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini dan Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana." name="praturan_campaign" required />
+                                <input class="form-check-input" type="checkbox" value="PPemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini dan Kamu sebagai penggalang dana bertanggung jawab atas permintaan pencairan dan pelaporan penggunaan dana." name="praturan_campaign" required />
                                 <label class="form-check-label" for="flexCheckDefault">Pemilik rekening bertanggung jawab atas penggunaan dana yang diterima dari galang dana ini.</label>
                             </div>
                         </div>
