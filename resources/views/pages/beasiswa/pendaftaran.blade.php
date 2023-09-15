@@ -103,11 +103,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword1" class="form-label">Nomor NIM/NISN</label>
-                                    <input type="number" class="form-control" id="exampleInputNama" aria-describedby="namaHelp" name="nomor_identitas">
+                                    <input type="text" class="form-control" id="exampleInputNama" aria-describedby="namaHelp" name="nomor_identitas">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="exampleInputPassword1" class="form-label">Rata Rata nilai rapor/IPK</label>
-                                    <input type="number" class="form-control" id="exampleInputNama" aria-describedby="namaHelp" name="ratarata_nilai">
+                                    <input type="text" class="form-control" id="exampleInputNama" aria-describedby="namaHelp" name="ratarata_nilai">
                                 </div>
                             </div>
                         </div>

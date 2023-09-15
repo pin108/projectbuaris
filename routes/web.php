@@ -4,25 +4,25 @@ use App\Models\GalangDana;
 use App\Http\Controllers\admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminbeasiswa;
-use App\Http\Controllers\AdminkategoribeasiswaController;
-use App\Http\Controllers\AdminkategorigalangdanaController;
-use App\Http\Controllers\adminkeuangancontroller;
-use App\Http\Controllers\AdminlulusbeasiswaController;
 use App\Http\Controllers\HomeController;
+use App\Models\payment as ModelsPayment;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BeasiswaController;
+use App\Http\Controllers\adminkeuangancontroller;
 use App\Http\Controllers\FindGalangdanaController;
 use App\Http\Controllers\ProfilesettingController;
 use App\Http\Controllers\GalangdanadifabelController;
+use App\Http\Controllers\AdminlulusbeasiswaController;
+use App\Http\Controllers\ProgressgalangdanaController;
+use App\Http\Controllers\AdminkategoribeasiswaController;
 use App\Http\Controllers\GalangdanakaryakreatifController;
+use App\Http\Controllers\AdminkategorigalangdanaController;
 use App\Http\Controllers\GalangdanakegiatansosialController;
 use App\Http\Controllers\GalangdanabantuanbencanaalamController;
 use App\Http\Controllers\GalangdanakegiatanpantiasuhanController;
 use App\Http\Controllers\GalangdanakegiatanrumahibadahController;
 use App\Http\Controllers\GalangdanakegiatanbantuanorangsakitController;
-use App\Http\Controllers\payment;
-use App\Http\Controllers\ProgressgalangdanaController;
-use App\Models\payment as ModelsPayment;
 
 /*
 |--------------------------------------------------------------------------
@@ -246,22 +246,22 @@ Route::middleware('auth')->group(function () {
 
 
     //payment transaksi
-    Route::post('payments', [payment::class, 'store'])->name('payments');
-    Route::get('payments/create/{galangdana_id}', [payment::class, 'create'])->name('payments.create');
-    Route::get('payments/index', [payment::class, 'index'])->name('payments.index');
-    Route::get('payments/history', [payment::class, 'index'])->name('payments.history');
+    Route::post('payments', [PaymentController::class, 'store'])->name('payments');
+    Route::get('payments/create/{galangdana_id}', [PaymentController::class, 'create'])->name('payments.create');
+    Route::get('payments/index', [PaymentController::class, 'index'])->name('payments.index');
+    Route::get('payments/history', [PaymentController::class, 'index'])->name('payments.history');
     // unggah bukti
-    Route::get('payments/upload/{id}', [payment::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
-    Route::post('payments/update/upload/{id}', [payment::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
+    Route::get('payments/upload/{id}', [PaymentController::class, 'showUploadBuktiTransaksi'])->name('payments.upload');
+    Route::post('payments/update/upload/{id}', [PaymentController::class, 'updateBuktiTransaksi'])->name('payments.updateBuktiTransaksi');
     Route::get('kirim-email/{id}', 'App\Http\Controllers\MailController@index')->name('kirim-email');
 
     //donasi
-    Route::get('/donasi/{id}', [payment::class, 'detail'])->name('detail');
-    Route::get('/kirimdonasi/{id}', [payment::class, 'senddonasi'])->name('senddonasi');
-    Route::post('/kirimdoa', [payment::class, 'storedoa'])->name('kirimdoa');
+    Route::get('/donasi/{id}', [PaymentController::class, 'detail'])->name('detail');
+    Route::get('/kirimdonasi/{id}', [PaymentController::class, 'senddonasi'])->name('senddonasi');
+    Route::post('/kirimdoa', [PaymentController::class, 'storedoa'])->name('kirimdoa');
 
     //bukti pencairan
-    route::get('/donasi/buktipencairan/{id}', [payment::class, 'buktipencairan'])->name('buktipencairan');
+    route::get('/donasi/buktipencairan/{id}', [PaymentController::class, 'buktipencairan'])->name('buktipencairan');
 
     //proses galang dana
     route::get('prosesgalangdana/index', [ProgressgalangdanaController::class, 'index'])->name('progressgalangdana.index');

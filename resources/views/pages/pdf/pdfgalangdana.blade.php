@@ -31,6 +31,15 @@
         li {
             margin-bottom: 5px;
         }
+        /* Gaya untuk kop surat */
+        .kop-surat {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .kop-surat h2 {
+            margin: 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>

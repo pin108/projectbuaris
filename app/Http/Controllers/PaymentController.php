@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\payment;
 use App\Models\GalangDana;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\admingalangdana;
 use App\Http\Controllers\Controller;
 use App\Models\DoaDonasi;
-use App\Models\payment as ModelsPayment;
 use App\Models\pencairangalangdana;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
-class payment extends Controller
+class PaymentController extends Controller
 {
     public function notif($message)
     {
@@ -23,7 +23,7 @@ class payment extends Controller
     public function index()
     {
         $user = Auth::user();
-        $payments = \App\Models\Payment::where('user_id', $user->id)
+        $payments = payment::where('user_id', $user->id)
             ->with('galangdana')
             ->latest()
             ->take(10)
@@ -64,7 +64,7 @@ class payment extends Controller
             $invoiceCode = 'INV-' . date('Y-m-d') . Str::uuid()->toString();
             $total = (int)str_replace(['.', ','], '', $request->jumlah_donasi);
             $statusupdate = 1;
-            \App\Models\payment::create([
+            payment::create([
                 'user_id' => $user->id,
                 'id_galangdana' => $galangDana->id,
                 'total' => $total,
@@ -88,7 +88,7 @@ class payment extends Controller
 
         try {
             // Find the payment record by ID
-            $payment = \App\Models\payment::findOrFail($id);
+            $payment = payment::findOrFail($id);
 
             if ($request->hasFile('buktitransaksi')) {
                 // Delete the old bukti transaksi file if it exists
@@ -122,7 +122,7 @@ class payment extends Controller
     public function showUploadBuktiTransaksi($id)
     {
         try {
-            $payment = \App\Models\payment::findOrFail($id);
+            $payment = payment::findOrFail($id);
 
             // Pastikan pengguna hanya bisa mengunggah bukti transaksi untuk pembayarannya sendiri
 
@@ -137,7 +137,7 @@ class payment extends Controller
         $targetDate = now()->format('Y-m-d');
         $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
-        $jumlahDonasi = \App\Models\payment::where('id_galangdana', $id)
+        $jumlahDonasi = payment::where('id_galangdana', $id)
             ->where('status', 2)
             ->count();
         $modelsdoa = DoaDonasi::query();
@@ -145,16 +145,16 @@ class payment extends Controller
             ->take(5)
             ->get();
         $result = $query;
-        $histori =  \App\Models\payment::query();
+        $histori = payment::query();
 
-        $historidonasi = \App\Models\Payment::where('id_galangdana', $id)
+        $historidonasi = Payment::where('id_galangdana', $id)
             ->where('status', 2)
             ->latest('created_at') // Replace 'created_at' with your actual timestamp column name
             ->take(5)
             ->get();
 
         //total donasi 
-        $datamasukdonasi = \App\Models\Payment::where('id_galangdana', $id)
+        $datamasukdonasi = Payment::where('id_galangdana', $id)
             ->where('status', 2)
             ->get();
 
