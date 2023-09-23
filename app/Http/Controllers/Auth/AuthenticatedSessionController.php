@@ -28,13 +28,9 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         // Add reCAPTCHA validation
-        $validator = Validator::make($request->all(), [
-            'g-recaptcha-response' => 'required|captcha',
-        ]);
+        
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+      
 
         // If reCAPTCHA validation passes, continue with authentication
         $request->authenticate();

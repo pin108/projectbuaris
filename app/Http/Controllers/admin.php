@@ -11,6 +11,7 @@ use App\Models\GalangDana;
 use App\Models\Kategorigalangdana;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class admin extends Controller
@@ -53,7 +54,7 @@ class admin extends Controller
     public function storegalangdana(Request $request)
     {
         $programGalangDana = new admingalangdana;
-        $programGalangDana->id_user = '2308000001';
+        $programGalangDana->id_user = Auth::user()->id;
         $programGalangDana->id_kategoricampaign = $request->input('id_kategoricampaign');
         $programGalangDana->judul_campaign = $request->input('judul_campaign');
         $programGalangDana->lokasi_campaign = $request->input('lokasi_campaign');
