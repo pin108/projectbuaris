@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\admingalangdana;
+use Illuminate\Support\Facades\Response;
+use Mpdf\Mpdf;
+use App\Models\User;
 use App\Models\payment;
 use Illuminate\Http\Request;
+use App\Models\admingalangdana;
+use Illuminate\Support\Facades\DB;
+use App\Models\pencairangalangdana;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class adminkeuangancontroller extends Controller
@@ -55,13 +61,112 @@ class adminkeuangancontroller extends Controller
         return view('pages.admin.payment', compact('payment'));
     }
 
-    // public function destroy($id)
-    // {
-    //     $payment = payment::findOrFail($id);
+    public function laporangalangdana()
+    {
+        $totals = Payment::select('payments.id_galangdana', DB::raw('SUM(payments.total) as total'))
+            ->where('payments.status', 2)
+            ->groupBy('payments.id_galangdana') // Group by user_id and id_galangdana
+            ->with('galangdana', 'user') // Use 'galangdana' to eager load the relationship
+            ->get();
 
-    //     $payment->delete();
+        // dd($totals);
+        return view('pages.admin.keuanganGdana.laporankeuangan', compact('totals'));
+    }
+    public function storepencairan(Request $request)
+    {
+        $data = $request->validate([
+            'id_galangdana' => 'required',
+            'id_penggalang' => 'required',
+            'nama' => 'required',
+            'judul_galangdana' => 'required',
+            'jumlah' => 'required',
+            'pencairanDana' => 'required|mimes:jpeg,png,jpg|max:5000',
+            'penyerahanDana' => 'required|mimes:jpeg,png,jpg|max:5000'
+        ]);
+        if ($request->hasFile('pencairanDana')) {
+            $pencairandana = $request->file('pencairanDana')->store('public/pencairandana');
+            $pencairandana = str_replace('public/', '', $pencairandana);
+        }
+        if ($request->hasFile('penyerahanDana')) {
+            $penyerahandana = $request->file('penyerahanDana')->store('public/pencairandana');
+            $penyerahandana = str_replace('public/', '', $penyerahandana);
+        }
 
-    //     return redirect()->route('admin.payment')->with('success', 'Data pendaftaran beasiswa berhasil dihapus');    
+        $store = new pencairangalangdana([
+            'id_galangdana' => $request->input('id_galangdana'),
+            'user_id' => $request->input('id_penggalang'),
+            'nama_penggalangdana' => $request->input('nama'),
+            'judul_galangdana' => $request->input('judul_galangdana'),
+            'jumlah' => $request->input('jumlah'),
+            'foto_pencairan' => $pencairandana,
+            'foto_penyerahan' => $penyerahandana
+        ]);
+        $store->save();
+        return redirect()->route('adminpayment.laporangalangdana')->with('success', 'dana telah di cairkan');
+    }
 
-    // }
+    public function indexperncairandana()
+    {
+        $data = pencairangalangdana::all();
+        return view('pages.admin.keuanganGdana.rekapgalangdana', compact('data'));
+    }
+
+    public function generatePDF(Request $request)
+    {
+        $id = $request->input('id');
+
+        // Lakukan query ke database berdasarkan ID
+        $result = pencairangalangdana::find($id);
+
+        // Buat instance mpdf
+        $mpdf = new Mpdf();
+
+        // Konten HTML untuk PDF
+        $html = view('pages.admin.keuanganGdana.generatepdf', compact('result'))->render();
+
+        // Tambahkan konten ke PDF
+        $mpdf->WriteHTML($html);
+
+        // Tambahkan halaman baru
+        $mpdf->AddPage();
+
+        // Tambahkan konten gambar berkas ke halaman kedua PDF
+        $fileImagePath = public_path('storage/' . $result->foto_pencairan);
+        if (file_exists($fileImagePath)) {
+            $mpdf->Image($fileImagePath, $x = 10, $y = 10, $w = 100, $h = 100);
+        }
+
+        $mpdf->AddPage();
+
+        // Tambahkan konten gambar berkas ke halaman kedua PDF
+        $fileImagePath = public_path('storage/' . $result->foto_penyerahan);
+        if (file_exists($fileImagePath)) {
+            $mpdf->Image($fileImagePath, $x = 10, $y = 10, $w = 100, $h = 100);
+        }
+        // Render PDF content
+        $pdfContent = $mpdf->Output('', 'S');
+
+        // Send the PDF content as a response
+        return Response::make($pdfContent, 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename=data_peserta.pdf',
+        ]);
+    }
+
+    public function destroyverif($id)
+    {
+        $data = Payment::find($id); // Make sure to capitalize the model name correctly (Payment, not payment)
+        if (!$data) {
+            return redirect()->route('admin.payment')->with('error', 'Payment not found.');
+        }
+        $data->delete();
+        return redirect()->route('admin.payment')->with('success', 'Payment deleted successfully.');
+    }
+
+    public function destroypencairan($id)
+    {
+        $data = pencairangalangdana::find($id);
+        $data->delete();
+        return redirect()->route('dana.index')->with('success', 'Pencairandana deleted successfully.');
+    }
 }

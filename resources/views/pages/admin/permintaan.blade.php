@@ -30,7 +30,7 @@
             <tr>
                 <th>ID</th>
                 <th>Judul Campaign</th>
-                <th>Pendapatan Rupiah</th>
+                <th>Target donasi Rupiah</th>
                 <th>Foto Campaign</th>
                 <th>Is Active</th>
                 <th>Tanggal Mulai</th>
@@ -42,7 +42,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->judul_campaign }}</td>
-                    <td>{{$item->pendapatan_campaign}}</td>
+                    <td>{{ number_format($item->targetdonasi_campaign, 0, ',', '.') }}</td>
                     <td>
                         <img src="{{ asset('storage/'. $item->foto_campaign) }}" alt="Campaign Image" style="width: 40px; height: 40px">
                     </td>
@@ -52,10 +52,13 @@
                         if ($item->is_active === 1) {
                             $is_active_text = 'Telah Disetujui';
                             $is_active_color = 'text-success'; // Green color for 'Telah Disetujui'
-                        } elseif ($item->is_active === 2) {
+                        }elseif ($item->is_active === 2) {
                             $is_active_text = 'Tidak Disetujui';
                             $is_active_color = 'text-danger'; // Red color for 'Tidak Disetujui'
-                        } elseif ($item->is_active === 0) {
+                        }elseif ($item->is_active === 3) {
+                            $is_active_text = 'Telah dicairkan';
+                            $is_active_color = 'text-blue'; // Red color for 'Tidak Disetujui'
+                        }elseif ($item->is_active === 0) {
                             $is_active_text = 'Lagi Direview';
                             $is_active_color = 'text-warning'; // Orange color for 'Lagi Direview'
                         } else {
@@ -135,6 +138,7 @@
                                         <label for="is_active">Status</label>
                                         <select class="form-control" id="is_active" name="is_active">
                                             <option value="1">Telah Disetujui</option>
+                                            <option value="3">Telah Dicairkan</option>
                                             <option value="2">Tidak Disetujui</option>
                                             <option value="0">Lagi Direview</option>
                                         </select>

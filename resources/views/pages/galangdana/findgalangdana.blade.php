@@ -6,7 +6,8 @@
         <div>
             <div class="card-beasiswa">
                 <div class="image">
-                    <img src="http://loremflickr.com/320/150?random=4" />
+                    {{-- <img src="http://loremflickr.com/320/150?random=4" /> --}}
+                    <img src="{{ asset('storage/'. $galangDana->foto_campaign) }}" alt="Campaign Image" class="card-img-top custom-img">
                 </div>
                 <div class="card-inner">
                     <div class="header">

@@ -12,7 +12,7 @@
         {{ session('error') }}
     </div>
 @endif
-<div class="container">
+<div class="container" style="margin-top:5%">
     <h2>Riwayat Pembayaran</h2>
     <table class="table">
         <thead>

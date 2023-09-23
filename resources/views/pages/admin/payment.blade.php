@@ -20,7 +20,7 @@
 
     <!-- Ubah nama tabel menjadi "paymentsTable" -->
     <div class="table-responsive">
-        <table class="table table-bordered" id="paymentsTable">
+        <table class="table table-bordered" id="campaignTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -51,13 +51,18 @@
                                 <span>Status Tidak Dikenali</span>
                             @endif
                         </td>                        
-                        <td>{{ $item->total }}</td>
+                        <td>{{ number_format($item->total, 0, ',', '.') }}</td>
                         <td>{{ $item->galangdana->judul_campaign}}</td>
                         <td>
                             <a href="#updatestatus{{ $item->id }}" class="btn btn-sm btn-info"
                                 data-toggle="modal">Update Status</a>   
                                 <a href="#detailModal{{ $item->id }}" class="btn btn-sm btn-info"
                                     data-toggle="modal">Lihat Bukti Pembayaran</a>   
+                                    <form action="{{ route('admin.destroyverif', $item->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" style="background-color: red" class="btn btn-sm btn-info" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?')">Hapus</button>
+                                    </form>
                     </tr>
                 @endforeach
             </tbody>
@@ -122,12 +127,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {{-- <div class="modal-body">
+                <div class="modal-body">
                     <!-- Put your campaign detail information here -->
-                    kuh perbaiki foto ini
-                    <img src="{{ asset('storage/public/invoicepembayaran')}}" alt="buktibayar" width="500" height="600">
+                    <img src="{{ asset('storage/' . $item->buktitransaksi) }}" alt="buktibayar" width="200" height="200">
 
-                </div> --}}
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

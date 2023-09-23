@@ -25,10 +25,10 @@
                         <p>{{$donasiDetail->deskripsi_campaign}}</p>
                         <div class="row">
                             <div class="col-sm-4">
-                              Terkumpul Sekarang ini Rp. {{$donasiDetail->pendapatan_campaign}}
+                                Terkumpul Sekarang ini Rp. {{ number_format($totaldonasi, 2, ',', '.') }}
                             </div>
                             <div class="col-sm-4">
-                                Target Donassi Rp. {{ $donasiDetail->targetdonasi_campaign }}
+                                Target Donassi Rp. {{ number_format($donasiDetail->targetdonasi_campaign, 2, ',', '.') }}
                             </div>
                         </div>
                         <div class="row" style="margin-top: 2%;">
@@ -38,28 +38,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-bar">
-                                <div class="progress-description">
-                                    <?php
-                                    $tanggalMulai = strtotime($donasiDetail['tanggal_mulai']); // Tanggal mulai dalam timestamp
-                                    $tanggalAkhir = strtotime($donasiDetail['tanggal_akhir']); // Tanggal akhir dalam timestamp
-                                    $tanggalSekarang = strtotime(date('Y-m-d')); // Tanggal saat ini dalam timestamp
-                                
-                                    if ($tanggalSekarang < $tanggalMulai) {
-                                        echo "Donasi akan dimulai pada tanggal " . date('Y-m-d', $tanggalMulai);
-                                    } elseif ($tanggalSekarang >= $tanggalAkhir) {
-                                        echo "Donasi telah berakhir pada tanggal " . date('Y-m-d', $tanggalAkhir);
-                                    } else {
-                                        $totalHari = $tanggalAkhir - $tanggalMulai; // Total hari antara tanggal mulai dan tanggal akhir
-                                        $hariSudahBerlalu = $tanggalSekarang - $tanggalMulai; // Hari yang sudah berlalu
-                                
-                                        $persentaseKemajuan = ($hariSudahBerlalu / $totalHari) * 100;
-                                        echo "Donasi berlangsung, selesai pada tanggal " . date('Y-m-d', $tanggalAkhir) . ". Kemajuan: " . round($persentaseKemajuan, 2) . "%";
-                                    }
-                                    ?>
-                                    
-                                </div>
+                        <div class="progress" style="margin-top: 2%">
+                            @php
+                                $percentage = ($totaldonasi / $targetDonation) * 100;
+                                $percentage = $percentage > 100 ? 100 : $percentage; // Maksimum 100%
+                            @endphp
+                
+                            <div class="progress-bar" role="progressbar" style="width: {{ $percentage }}%;" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ number_format($percentage, 2) }}%
                             </div>
                         </div>
                     </div>
@@ -71,29 +57,17 @@
                                         <i class="fas fa-heart"></i>
                                     </div>
                                     <div class="col-sm">
-                                        99999
+                                        Jumlah Donasi
                                     </div>
                                 </div>
-                                <div> jumlah donasi</div>
+                                <div>{{ $jumlahDonasi }}</div>
                             </div>
                             <div class="col-sm border">
                                 <div class="row">
                                     <div class="col-sm-2">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div class="col-sm">
-                                        2
-                                    </div>
-                                </div>
-                                <div>kabar terbaru</div>
-                            </div>
-                            <div class="col-sm border">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                        <i class="fas fa-money-bill"></i>
-                                    </div>
-                                    <div class="col-sm">
-                                        2
+                                        <a href="{{ route('buktipencairan', $donasiDetail->id) }}">
+                                            <i class="fas fa-money-bill"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div>pencairan dana</div>
@@ -118,7 +92,7 @@
                 <div class="col-md-6">
                     <h2>History Donasi</h2>
                         <div class="card-body">
-                            @foreach($resulthistori as $stori)
+                            @foreach($historidonasi as $stori)
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <span class="fw-bold">{{ $stori->created_at }}</span> donated {{ $stori->total }}

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 use App\Models\GalangDana;
 use App\Models\Kategorigalangdana;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,11 @@ class admin extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function userindex()
+    {
+        $data = User::all();
+        return view('pages.admin.user.index', compact('data'));
+    }
     public function index()
     {
         $activeGalangDanas = GalangDana::with('user', 'kategorigalangdana')

@@ -42,12 +42,6 @@
           @endif
         </ul>
         <!-- /.navbar-nav -->
-
-        <form class="order-1 order-xl-2" role="search" action="#" method="get">
-          <div class="form-search">
-            <input class="form-control" type="search" placeholder="Search here..." aria-label="Search" />
-          </div>
-        </form>
         <!-- /.form-search -->
 
         @if(Auth::check())

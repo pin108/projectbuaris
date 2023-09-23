@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\payment;
 use App\Models\GalangDana;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\admingalangdana;
 use App\Http\Controllers\Controller;
 use App\Models\DoaDonasi;
-use App\Models\payment as ModelsPayment;
+use App\Models\pencairangalangdana;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
-class payment extends Controller
+class PaymentController extends Controller
 {
     public function notif($message)
     {
@@ -22,8 +23,11 @@ class payment extends Controller
     public function index()
     {
         $user = Auth::user();
-        $payments = \App\Models\payment::where('user_id', $user->id)->with('galangdana')->get();
-
+        $payments = payment::where('user_id', $user->id)
+            ->with('galangdana')
+            ->latest()
+            ->take(10)
+            ->get();
 
         // Cetak informasi pembayaran dan judul kampanye
         // dump($paymentInfo);
@@ -42,7 +46,7 @@ class payment extends Controller
         try {
             $request->validate([
                 'id_galangdana' => 'required',
-                'jumlah_donasi' => 'required|numeric',
+                'jumlah_donasi' => 'required',
                 'bukti_transaksi' => 'required|image|mimes:jpeg,png,jpg,gif'
             ]);
 
@@ -58,10 +62,9 @@ class payment extends Controller
             }
 
             $invoiceCode = 'INV-' . date('Y-m-d') . Str::uuid()->toString();
-            $total = str_replace(',', '', $request->jumlah_donasi);
-            $total = floatval($total);
+            $total = (int)str_replace(['.', ','], '', $request->jumlah_donasi);
             $statusupdate = 1;
-            \App\Models\payment::create([
+            payment::create([
                 'user_id' => $user->id,
                 'id_galangdana' => $galangDana->id,
                 'total' => $total,
@@ -85,7 +88,7 @@ class payment extends Controller
 
         try {
             // Find the payment record by ID
-            $payment = \App\Models\payment::findOrFail($id);
+            $payment = payment::findOrFail($id);
 
             if ($request->hasFile('buktitransaksi')) {
                 // Delete the old bukti transaksi file if it exists
@@ -119,7 +122,7 @@ class payment extends Controller
     public function showUploadBuktiTransaksi($id)
     {
         try {
-            $payment = \App\Models\payment::findOrFail($id);
+            $payment = payment::findOrFail($id);
 
             // Pastikan pengguna hanya bisa mengunggah bukti transaksi untuk pembayarannya sendiri
 
@@ -134,18 +137,32 @@ class payment extends Controller
         $targetDate = now()->format('Y-m-d');
         $donasiDetail = GalangDana::with('user', 'kategorigalangdana')
             ->findOrFail($id);
+        $jumlahDonasi = payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->count();
         $modelsdoa = DoaDonasi::query();
         $query = $modelsdoa->where('id_galangdana', $id)->latest()
             ->take(5)
             ->get();
         $result = $query;
-        $histori =  \App\Models\payment::query();
-        $resulthistori = ModelsPayment::where('id_galangdana', $id)->whereDate('created_at', '=', $targetDate)->latest()
-            ->take(5)
-            ->get();;
+        $histori = payment::query();
 
-            // dd($donasiDetail, $result, $resulthistori);
-        return view('pages.donasi.show', compact('donasiDetail', 'result', 'resulthistori'));
+        $historidonasi = Payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->latest('created_at') // Replace 'created_at' with your actual timestamp column name
+            ->take(5)
+            ->get();
+
+        //total donasi 
+        $datamasukdonasi = Payment::where('id_galangdana', $id)
+            ->where('status', 2)
+            ->get();
+
+        $totaldonasi = $datamasukdonasi->sum('total');
+
+        $targetDonation = $donasiDetail->targetdonasi_campaign;
+        // dd($donasiDetail, $result, $resulthistori);
+        return view('pages.donasi.show', compact('donasiDetail', 'result', 'jumlahDonasi', 'historidonasi', 'totaldonasi', 'targetDonation'));
     }
 
     public function senddonasi($id)
@@ -179,6 +196,17 @@ class payment extends Controller
         } else {
             $message = "periksa kembali kami tidak bisa menyimpan data";
             return $this->notif($message);
+        }
+    }
+
+    public function buktipencairan($id)
+    {
+        $data = pencairangalangdana::where('id_galangdana', $id)->get();
+        if ($data->isEmpty()) {
+            $message = "dana belum dicairkan";
+            return $this->notif($message);
+        } else {
+            return view('payments.buktipencairan', compact('data'));
         }
     }
 }
